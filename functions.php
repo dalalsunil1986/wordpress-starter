@@ -35,16 +35,10 @@ include_once( get_template_directory() . '/lib/init.php');
 add_action( 'wp_enqueue_scripts', 'logic_load_assets' );
 function logic_load_assets() {
 
-	global $wp_scripts;
+	// Load Extra Styles
+	wp_enqueue_style( 'logic-syntax-theme', get_stylesheet_directory_uri() . '/build/css/syntax-highlighter.min.css', array( 'syntaxhighlighter-core' ), CHILD_THEME_VERSION );
 
-	// Move scripts to footer.
-	$wp_scripts->add_data( 'skip-links', 'group', 1 );
-
-	/* Load JS */
-	// wp_enqueue_script( 'logic-gsap', '//cdnjs.cloudflare.com/ajax/libs/gsap/1.19.1/TweenLite.min.js', array(), CHILD_THEME_VERSION, true );
-	// wp_enqueue_script( 'logic-gsap-css', '//cdnjs.cloudflare.com/ajax/libs/gsap/1.19.1/plugins/CSSPlugin.min.js', array('logic-gsap'), CHILD_THEME_VERSION, true );
-	// wp_enqueue_script( 'logic-scroll-magic', '//cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.5/ScrollMagic.min.js', array(), CHILD_THEME_VERSION, true );
-	// wp_enqueue_style( 'logic-icons', '//code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css', array(), CHILD_THEME_VERSION );
+	// Load Extra JS
 	wp_enqueue_script( 'logic-global', get_stylesheet_directory_uri() . '/build/js/global.min.js', array( 'jquery' ), CHILD_THEME_VERSION, true );
 	wp_enqueue_script( 'logic-responsive-menus', get_stylesheet_directory_uri() . '/build/js/responsive-menus.min.js', array( 'jquery' ), CHILD_THEME_VERSION, true );
 
@@ -58,19 +52,19 @@ function logic_load_assets() {
 }
 
 /**
- * Defer unnecessary scripts.
+ * Async unnecessary scripts.
  *
  * @scine 1.0.0
  */
-// add_filter( 'script_loader_tag', 'logic_defer_scripts', 10, 2 );
-function logic_defer_scripts( $tag, $handle ) {
+add_filter( 'script_loader_tag', 'logic_async_scripts', 10, 2 );
+function logic_async_scripts( $tag, $handle ) {
 
 	$scripts = array(
 		'skip-links'
 	);
 
 	if ( in_array( $handle, $scripts ) ) {
-		return str_replace( ' src', 'defer="defer" src', $tag );
+		return str_replace( ' src', 'async="async" src', $tag );
 	}
 
 	return $tag;

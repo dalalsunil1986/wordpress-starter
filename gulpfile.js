@@ -34,10 +34,12 @@ var zip = require( 'gulp-zip' );
 
 var taskLoader = [ 'scripts', 'css', 'watch' ];
 
-//* Gulp task to run PostCSS.
-gulp.task( 'css', function() {
+gulp.task( 'css', [ 'main-css', 'extra-css' ] );
 
-    return gulp.src( PATHS.css + 'style.css')
+//* Gulp task to run PostCSS for main stylesheet.
+gulp.task( 'main-css', function() {
+
+	gulp.src( [ PATHS.css + 'style.css', PATHS.css + 'syntax-highlighter.css' ])
 		.pipe(postcss([
 			cssimport(),
 			cssnext(),
@@ -49,6 +51,25 @@ gulp.task( 'css', function() {
 			})
 		]))
 		.pipe(gulp.dest('./'));
+
+});
+
+//* Gulp task to compile and minify CSS modules.
+gulp.task( 'extra-css', function() {
+
+	gulp.src( PATHS.css + '/extra/*.css' )
+		.pipe(postcss([
+			cssimport(),
+			cssnext(),
+			cssnano({
+				autoprefixer: false,
+				options: {
+					safe: false
+				}
+			})
+		]))
+		.pipe(rename({ extname: '.min.css' }))
+		.pipe(gulp.dest( PATHS.build.css ));
 
 });
 
