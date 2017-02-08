@@ -41,7 +41,7 @@ p.lead,
         background-repeat: repeat-x;
         background-size: .05em .06em;
         font-weight: bold;
-        text-shadow: .03em 0 color( var(--linkAlt) tint(85%) ), -.03em 0 color( var(--linkAlt) tint(85%) ), 0 .03em color( var(--linkAlt) tint(85%) ), 0 -.03em color( var(--linkAlt) tint(85%) ), .06em 0 color( var(--linkAlt) tint(85%) ), -.06em 0 color( var(--linkAlt) tint(85%) ), .09em 0 color( var(--linkAlt) tint(85%) ), -.09em 0 color( var(--linkAlt) tint(85%) ), .12em 0 color( var(--linkAlt) tint(85%) ), -.12em 0 color( var(--linkAlt) tint(85%) );
+        text-shadow: .03em 0 color( var(--default) tint(95%) ), -.03em 0 color( var(--default) tint(95%) ), 0 .03em color( var(--default) tint(95%) ), 0 -.03em color( var(--default) tint(95%) ), .06em 0 color( var(--default) tint(95%) ), -.06em 0 color( var(--default) tint(95%) ), .09em 0 color( var(--default) tint(95%) ), -.09em 0 color( var(--default) tint(95%) ), .12em 0 color( var(--default) tint(95%) ), -.12em 0 color( var(--default) tint(95%) );
 
         &:focus,
         &:hover {

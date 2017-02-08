@@ -8,7 +8,6 @@ add_action( 'wp_enqueue_scripts', 'logic_home_page_styles' );
 function logic_home_page_styles() {
 
 	$css = sprintf( '
-		<style>
 		.site-inner {
 			max-width: 100%%;
 			margin-top: 0;
@@ -32,7 +31,7 @@ function logic_home_page_styles() {
 			margin-top: 0;
 		}
 		.home-page-starter {
-			background: #183859;
+			background: #182635;
 			color: #f5f5f5;
 			min-height: calc( 100vh - 68px );
 		}
@@ -69,7 +68,6 @@ function logic_home_page_styles() {
 		.home-page-blog ul > li {
 			margin-bottom: 1em;
 		}
-		</style>
 	' );
 
 	wp_add_inline_style( 'logic', $css );

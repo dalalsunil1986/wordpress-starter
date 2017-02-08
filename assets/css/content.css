@@ -209,10 +209,10 @@ ul.children {
 			margin-left: 0;
 			padding-left: 0;
 			padding-top: 0;
-			max-width: 100%;
+			max-width: 100%;*/
 			width: 100%;
 
-			& > :not(.stretch):not(div) {
+			& > :not(.stretch) {
 				max-width: 740px;
 			}
 		}

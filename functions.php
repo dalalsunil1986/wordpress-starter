@@ -4,7 +4,6 @@
 ============================================*/
 
 /**
- *
  * Define Child Theme Constants
  *
  * @since 1.0.0
@@ -39,7 +38,6 @@ function logic_load_assets() {
 	global $wp_scripts;
 
 	// Move scripts to footer.
-	$wp_scripts->add_data( 'edd-ajax', 'group', 1 );
 	$wp_scripts->add_data( 'skip-links', 'group', 1 );
 
 	/* Load JS */
@@ -109,7 +107,7 @@ add_action( 'wp_head', 'logic_prefetch', 99 );
 function logic_prefetch() {
 	?>
 	<link rel="prefetch" href="https://use.typekit.net/xoo4gbo.js"/>
-	<script src="//use.typekit.net/xoo4gbo.js"></script>
+	<script src="https://use.typekit.net/xoo4gbo.js"></script>
 	<script>try{Typekit.load({ async: true });}catch(e){console.log(e);}</script>
 	<?php
 }
