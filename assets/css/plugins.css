@@ -1,0 +1,63 @@
+
+/*======================================
+=            Common Plugins            =
+======================================*/
+
+/*----------  Jetpack  ----------*/
+
+#wpstats {
+	display: none;
+}
+
+/*----------  Genesis eNews Widget  ----------*/
+
+.enews input {
+	margin-bottom: 20px;
+}
+
+/*----------  SyntaxHighlighter  ----------*/
+
+.syntaxhighlighter.logic-code {
+	font-size: .8em !important;
+}
+
+.syntaxhighlighter.logic-code caption {
+	background: color( var(--default) tint(10%) ) !important;
+	padding: 10px 20px !important;
+}
+
+.syntaxhighlighter.logic-code td.gutter {
+	border-right: 3px solid color( var(--default) tint(10%) ) !important;
+}
+
+.syntaxhighlighter.logic-code,
+.syntaxhighlighter.logic-code table td.code .container textarea {
+  background-color: var(--default) !important;
+}
+.syntaxhighlighter.logic-code .line.alt1 {
+  background-color: var(--default) !important;
+}
+.syntaxhighlighter.logic-code .line.alt2 {
+  background-color: var(--default) !important;
+}
+
+.syntaxhighlighter.logic-code .string, .syntaxhighlighter .string a {
+  color: var(--linkDefault) !important;
+}
+
+.syntaxhighlighter.logic-code table td.gutter .line {
+	border-right: 0 !important;
+}
+
+.syntaxhighlighter.logic-code table td.code .line,
+.syntaxhighlighter.logic-code table td.gutter .line {
+	padding: .025em 0.5em 0.25em 1em !important;
+
+	&:first-of-type {
+		padding-top: 1em !important;
+	}
+
+	&:last-of-type {
+		padding-bottom: 1em !important;
+	}
+}

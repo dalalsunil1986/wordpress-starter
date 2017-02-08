@@ -1,0 +1,31 @@
+/*!
+	Theme Name: Logic
+	Description: A simple, fast, responsive theme for developers and writers.
+	Author: Calvin Koepke
+	Theme URL: http://calvinkoepke.com/themes/logic/
+	Author URI: https://calvinkoepke.com
+	Version: 1.0.0
+	License: GPL-3.0+
+	License URI: http://www.opensource.org/licenses/gpl-license.php
+
+	Template: genesis
+*/
+@import "setup.css";
+@import "reset.css";
+@import "structures.css";
+@import "defaults.css";
+@import "type.css";
+@import "svgs.css";
+@import "objects.css";
+@import "tables.css";
+@import "forms.css";
+@import "accessibility.css";
+@import "wordpress.css";
+@import "navigation.css";
+@import "content.css";
+@import "sidebars.css";
+@import "widgets.css";
+@import "genesis.css";
+@import "plugins.css";
+@import "genesis.css";
+@import "footer.css";

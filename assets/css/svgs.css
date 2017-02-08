@@ -1,0 +1,54 @@
+.svg-icon {
+	font-size: 1em;
+	width: 1em;
+	height: 1em;
+	vertical-align: middle;
+}
+
+.svg-icon path,
+.svg-icon polygon,
+.svg-icon rect {
+  fill: currentColor;
+}
+
+.svg-icon circle {
+  stroke: currentColor;
+  stroke-width: 1;
+}
+
+@keyframes spin {
+	from {
+		transform: rotate(0) translate3d(0,0,0);
+	}
+	to {
+		transform: rotate(360deg) translate3d(0,0,0);
+	}
+}
+
+.bg-svg {
+	color: var( --linkAlt );
+	line-height: 1;
+	width: 1000px;
+	height: 1000px;
+	opacity: .3;
+	top: -70px;
+	right: -25%;
+	position: absolute;
+	z-index: -1;
+
+	animation-name: spin;
+	animation-duration: 120s;
+	animation-iteration-count: infinite;
+	animation-timing-function: linear;
+}
+
+.menu-item svg {
+	opacity: .5;
+	position: relative;
+	top: .05em;
+
+	&:focus,
+	&:hover {
+		opacity: 1;
+	}
+}
