@@ -37,7 +37,7 @@ var taskLoader = [ 'scripts', 'css', 'watch' ];
 //* Gulp task to run PostCSS for main stylesheet.
 gulp.task( 'css', function() {
 
-	gulp.src( [ PATHS.css + 'style.css', PATHS.css + 'syntax-highlighter.css' ])
+	gulp.src( PATHS.css + 'style.css' )
 		.pipe(postcss([
 			cssimport(),
 			cssnext(),
