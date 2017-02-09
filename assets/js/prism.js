@@ -7,7 +7,7 @@ var _self = (typeof window !== 'undefined')
 		: {}   // if in node js
 	);
 
-/**
+/*!
  * Prism: Lightweight, robust, elegant syntax highlighting
  * MIT license http://www.opensource.org/licenses/mit-license.php/
  * @author Lea Verou http://lea.verou.me
@@ -591,7 +591,7 @@ if (Prism.languages.markup) {
 			alias: 'language-css'
 		}
 	});
-	
+
 	Prism.languages.insertBefore('inside', 'attr-value', {
 		'style-attr': {
 			pattern: /\s*style=("|').*?\1/i,
@@ -956,7 +956,7 @@ if (
 var url = /\b([a-z]{3,7}:\/\/|tel:)[\w\-+%~/.:#=?&amp;]+/,
     email = /\b\S+@[\w.]+[a-z]{2}/,
     linkMd = /\[([^\]]+)]\(([^)]+)\)/,
-    
+
 	// Tokens that may contain URLs and emails
     candidates = ['comment', 'url', 'attr-value', 'string'];
 
@@ -1001,20 +1001,20 @@ Prism.hooks.add('before-highlight', function(env) {
 Prism.hooks.add('wrap', function(env) {
 	if (/-link$/.test(env.type)) {
 		env.tag = 'a';
-		
+
 		var href = env.content;
-		
+
 		if (env.type == 'email-link' && href.indexOf('mailto:') != 0) {
 			href = 'mailto:' + href;
 		}
 		else if (env.type == 'md-link') {
 			// Markdown
 			var match = env.content.match(linkMd);
-			
+
 			href = match[2];
 			env.content = match[1];
 		}
-		
+
 		env.attributes.href = href;
 	}
 });

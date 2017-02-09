@@ -16,6 +16,12 @@ code {
 	white-space: nowrap;
 }
 
+/*!
+ * Prism: Lightweight, robust, elegant syntax highlighting
+ * MIT license http://www.opensource.org/licenses/mit-license.php/
+ * @author Lea Verou http://lea.verou.me
+ */
+
 code[class*="language-"],
 pre[class*="language-"] {
 	color: #d8d8d8;
@@ -166,7 +172,7 @@ pre.line-numbers > code {
 	left: -3.8em;
 	width: 3em; /* works for line-numbers below 1000 lines */
 	letter-spacing: -1px;
-	border-right: 1px solid #aaa;
+	border-right: 1px solid slategrey;
 
 	-webkit-user-select: none;
 	-moz-user-select: none;
@@ -183,7 +189,7 @@ pre.line-numbers > code {
 
 		.line-numbers-rows > span:before {
 			content: counter(linenumber);
-			color: #999;
+			color: slategrey;
 			display: block;
 			padding-right: 0.8em;
 			text-align: right;
