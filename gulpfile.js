@@ -28,16 +28,14 @@ var cssimport = require( 'postcss-import' );
 var sourcemaps = require('gulp-sourcemaps');
 var uglify = require( 'gulp-uglify' );
 var rename = require( 'gulp-rename' );
-var sort = require( 'gulp-sort' );
+var concat = require( 'gulp-concat' );
 var wpPot = require( 'gulp-wp-pot' );
 var zip = require( 'gulp-zip' );
 
 var taskLoader = [ 'scripts', 'css', 'watch' ];
 
-gulp.task( 'css', [ 'main-css', 'extra-css' ] );
-
 //* Gulp task to run PostCSS for main stylesheet.
-gulp.task( 'main-css', function() {
+gulp.task( 'css', function() {
 
 	gulp.src( [ PATHS.css + 'style.css', PATHS.css + 'syntax-highlighter.css' ])
 		.pipe(postcss([
@@ -54,31 +52,16 @@ gulp.task( 'main-css', function() {
 
 });
 
-//* Gulp task to compile and minify CSS modules.
-gulp.task( 'extra-css', function() {
-
-	gulp.src( PATHS.css + '/extra/*.css' )
-		.pipe(postcss([
-			cssimport(),
-			cssnext(),
-			cssnano({
-				autoprefixer: false,
-				options: {
-					safe: false
-				}
-			})
-		]))
-		.pipe(rename({ extname: '.min.css' }))
-		.pipe(gulp.dest( PATHS.build.css ));
-
-});
-
 //* Gulp task to combine JS files, minify, and output to bundle.min.js
 gulp.task( 'scripts', function() {
 
-	gulp.src( PATHS.js + '**/*.js' )
+	gulp.src( [
+		PATHS.js + 'prism.js',
+		PATHS.js + 'responsive-menus.js',
+		PATHS.js + 'global.js' ] )
 		.pipe( uglify() )
-		.pipe( rename({ extname: '.min.js' }))
+		.pipe( concat('app.min.js') )
+		// .pipe( rename({ basename: 'app', extname: '.min.js' }))
 		.pipe( gulp.dest( PATHS.build.js ) );
 
 });

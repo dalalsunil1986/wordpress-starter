@@ -21,9 +21,6 @@
 		font-weight: 300;
 		line-height: 1.4;
 	}
-	& code {
-		background-color: #ddd;
-	}
 }
 
 /*----------  Entry Meta  ----------*/
@@ -209,7 +206,7 @@ ul.children {
 			margin-left: 0;
 			padding-left: 0;
 			padding-top: 0;
-			max-width: 100%;*/
+			max-width: 100%;
 			width: 100%;
 
 			& > :not(.stretch) {

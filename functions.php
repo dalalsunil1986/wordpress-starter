@@ -35,16 +35,12 @@ include_once( get_template_directory() . '/lib/init.php');
 add_action( 'wp_enqueue_scripts', 'logic_load_assets' );
 function logic_load_assets() {
 
-	// Load Extra Styles
-	wp_enqueue_style( 'logic-syntax-theme', get_stylesheet_directory_uri() . '/build/css/syntax-highlighter.min.css', array( 'syntaxhighlighter-core' ), CHILD_THEME_VERSION );
-
 	// Load Extra JS
-	wp_enqueue_script( 'logic-global', get_stylesheet_directory_uri() . '/build/js/global.min.js', array( 'jquery' ), CHILD_THEME_VERSION, true );
-	wp_enqueue_script( 'logic-responsive-menus', get_stylesheet_directory_uri() . '/build/js/responsive-menus.min.js', array( 'jquery' ), CHILD_THEME_VERSION, true );
+	wp_enqueue_script( 'logic-app-js', get_stylesheet_directory_uri() . '/build/js/app.min.js', array( 'jquery' ), CHILD_THEME_VERSION, true );
 
 	/* Localize Script Information for Responsive Menu */
 	wp_localize_script(
-		'logic-responsive-menus',
+		'logic-app-js',
 		'genesis_responsive_menu',
 		logic_get_responsive_menu_settings()
 	);
