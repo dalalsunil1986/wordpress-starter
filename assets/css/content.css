@@ -167,15 +167,30 @@ ul.children {
 		}
 	}
 
+	.archive,
 	.blog,
 	.page-home .home-loop {
 
-		& .entry {
-			margin-bottom: 0.05em;
+		& .content {
+			align-items: stretch;
+			display: flex;
+			flex-wrap: wrap;
+			justify-content: space-between;
 		}
 
-		& .entry-title {
-			font-family: var(--fontBody);
+		& .entry-content {
+			padding: 0;
+			text-align: center;
+
+			& p:first-of-type {
+				font-size: 1em;
+			}
+		}
+
+		& .entry {
+			border-radius: 4px;
+			margin-bottom: 4%;
+			width: 48%;
 		}
 
 		& .entry-header {
@@ -184,10 +199,6 @@ ul.children {
 			& p.entry-meta svg {
 				margin-left: 0;
 			}
-		}
-
-		& .entry-content {
-			display: none;
 		}
 
 		& .entry-title {
@@ -202,7 +213,7 @@ ul.children {
 		position: relative;
 	}
 
-	.entry {
+	.single .entry {
 
 		& .entry-header {
 			clear: both;

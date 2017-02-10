@@ -52,11 +52,11 @@ input[type="submit"],
 	border-radius: 3px;
 	color: var(--default);
 	cursor: pointer;
-	font-family: var(--fontHeading);
-	font-weight: 400;
+	/*font-family: var(--fontHeading);*/
+	font-weight: 700;
 	padding: 10px 20px;
 	position: relative;
-	letter-spacing: .04em;
+	/*letter-spacing: .04em;*/
 	background-image: none;
 	width: auto;
 	transition: all .15s ease-in-out;
@@ -157,20 +157,20 @@ input[type="search"]::-webkit-search-results-button {
 	& input[type="search"] {
 		background: transparent;
 		border: 0;
-		color: var(--linkDefault);
-		padding: 20px 0;
+		color: var(--default);
+		padding: 17px 0;
 		text-align: left;
 
 		&::-moz-placeholder {
-			color: var(--linkDefault);
-			font-weight: 300;
-			opacity: 0;
+			color: var(--default);
+			font-style: italic;
+			padding-left: 10px;
 		}
 
 		&::-webkit-input-placeholder {
-			color: var(--linkDefault);
-			font-weight: 300;
-			opacity: 0;
+			color: var(--default);
+			font-style: italic;
+			padding-left: 10px;
 		}
 	}
 
@@ -184,6 +184,7 @@ input[type="search"]::-webkit-search-results-button {
 }
 
 .site-header.search-visible {
+
 	& #header-search {
 		display: block;
 	}

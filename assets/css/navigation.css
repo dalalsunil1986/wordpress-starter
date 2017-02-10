@@ -21,14 +21,14 @@
 
 	& a {
 		border-bottom: 2px solid transparent;
-		color: var(--colorLight);
+		color: var(--linkAlt);
 		display: block;
 		padding: 20px 10px;
 		text-align: left;
 
 		&:focus,
 		&:hover {
-			color: #fff;
+			color: var(--default);
 		}
 	}
 
@@ -162,45 +162,30 @@
 			margin-right: 0;
 		}
 
-		& > .menu-item > a:not(.has-svg) {
-			background-image: linear-gradient( var(--default), var(--default) );
+		& > .menu-item > a {
+			background-image: linear-gradient( var(--colorUltraLight), var(--colorUltraLight) );
 			background-size: .05em 1px;
 			background-repeat: repeat-x;
 			background-position: 0 68%;
 			border: 0;
 			padding: 20px 0;
 			margin: 0 20px;
-			text-shadow: .03em 0 var(--default), -.03em 0 var(--default), 0 .03em var(--default), 0 -.03em var(--default), .06em 0 var(--default), -.06em 0 var(--default), .09em 0 var(--default), -.09em 0 var(--default), .12em 0 var(--default), -.12em 0 var(--default);
-
-			&::before {
-				background: rgba(255,255,255,0);
-				border: 1px solid rgba( 255,255,255,0 );
-				border-radius: 3px;
-				content: "";
-				display: block;
-				height: 70%;
-				left: 0;
-				position: absolute;
-				top: 15%;
-				width: 100%;
-				transition: all .15s ease-in-out;
-			}
+			text-shadow: .03em 0 var(--colorUltraLight), -.03em 0 var(--colorUltraLight), 0 .03em var(--colorUltraLight), 0 -.03em var(--colorUltraLight), .06em 0 var(--colorUltraLight), -.06em 0 var(--colorUltraLight), .09em 0 var(--colorUltraLight), -.09em 0 var(--colorUltraLight), .12em 0 var(--colorUltraLight), -.12em 0 var(--colorUltraLight);
 
 			&:focus,
 			&:hover {
-				background-image: linear-gradient( #fff, #fff );
-				color: #fff;
+				background-image: linear-gradient( var(--default), var(--default) );
 				text-decoration: none;
 			}
 		}
 
 		& > .menu-item.current-menu-item > a {
-			text-shadow: .03em 0 var(--default), -.03em 0 var(--default), 0 .03em var(--default), 0 -.03em var(--default), .06em 0 var(--default), -.06em 0 var(--default), .09em 0 var(--default), -.09em 0 var(--default), .12em 0 var(--default), -.12em 0 var(--default);
-	        background-image: linear-gradient( #fff, #fff );
+			text-shadow: .03em 0 var(--colorUltraLight), -.03em 0 var(--colorUltraLight), 0 .03em var(--colorUltraLight), 0 -.03em var(--colorUltraLight), .06em 0 var(--colorUltraLight), -.06em 0 var(--colorUltraLight), .09em 0 var(--colorUltraLight), -.09em 0 var(--colorUltraLight), .12em 0 var(--colorUltraLight), -.12em 0 var(--colorUltraLight);
+	        background-image: linear-gradient( var(--default), var(--default) );
 	        background-size: .05em 1px;
 	        background-repeat: repeat-x;
 	        background-position: 0 68%;
-			color: #fff;
+			color: var(--default);
 			font-weight: 700;
 		}
 

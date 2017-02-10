@@ -26,24 +26,30 @@
 
 	});
 
-	// $(window).scroll( function() {
-	// 	var base   = -100,
-	// 		val    = (window.scrollY / 3),
-	// 		newval = base + val;
-	//
-	// 	if ( newval < 250 ) {
-	// 		$body.css({
-	// 			backgroundPosition: "center " + newval + "px"
-	// 		});
-	// 	}
-	// });
-
 	/**
-	 * Control scroll to page section on the homepage.
+	 * Add class to header on scroll.
 	 *
 	 * @since 1.0.0
 	 */
-	$( '.home-page-intro a[href*=#]:not([href=#])' ).click(function() {
+	$(window).scroll( function() {
+		var scrollPos = window.scrollY;
+
+		if ( scrollPos > 50 && ! $header.hasClass( 'filled' ) ) {
+			$header.addClass( 'filled' );
+		} else if ( scrollPos < 50 && $header.hasClass( 'filled' ) ) {
+			$header.removeClass( 'filled' );
+		}
+
+	});
+
+	/**
+	 * Adjust ID targets to include header height.
+	 *
+	 * @since 1.0.0
+	 */
+	$( 'a[href*=#]:not([href=#])' ).click(function(e) {
+
+		e.preventDefault();
 
 		if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') && location.hostname == this.hostname) {
 
@@ -52,9 +58,7 @@
 
 			if (target.length) {
 
-				$( 'html,body' ).animate({
-					scrollTop: ( target.offset().top ) - $header.height()
-				}, 750 );
+				$( 'html,body' ).scrollTop( ( target.offset().top ) - $header.height() );
 
 				return false;
 
@@ -91,13 +95,13 @@
 		if (!searchOn) {
 
 			searchToggle.text('Close');
-			$overlay.show();
+			$overlay.toggleClass( 'visible' );
 			searchOn = true;
 
 		} else {
 
 			searchToggle.text('Search');
-			$overlay.hide();
+			$overlay.toggleClass( 'visible' );
 			searchOn = false;
 
 		}

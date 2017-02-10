@@ -35,38 +35,24 @@ include_once( get_template_directory() . '/lib/init.php');
 add_action( 'wp_enqueue_scripts', 'logic_load_assets' );
 function logic_load_assets() {
 
+	global $wp_scripts;
+
+	// Clean up default WP Scripts.
 	wp_deregister_script( 'jquery' );
 	wp_deregister_script( 'wp-embed' );
 
-	// Load JS
+	// Move plugin scripts to footer.
+	$wp_scripts->add_data( 'skip-links', 'group', 1 );
+
+	// Load theme JS.
 	wp_enqueue_script( 'logic-app-js', get_stylesheet_directory_uri() . '/build/js/app.min.js', array(), CHILD_THEME_VERSION, true );
 
-	/* Localize Script Information for Responsive Menu */
+	// Localize menu settings.
 	wp_localize_script(
 		'logic-app-js',
 		'genesis_responsive_menu',
 		logic_get_responsive_menu_settings()
 	);
-
-}
-
-/**
- * Async unnecessary scripts.
- *
- * @scine 1.0.0
- */
-add_filter( 'script_loader_tag', 'logic_async_scripts', 10, 2 );
-function logic_async_scripts( $tag, $handle ) {
-
-	$scripts = array(
-		'skip-links'
-	);
-
-	if ( in_array( $handle, $scripts ) ) {
-		return str_replace( ' src', 'async="async" src', $tag );
-	}
-
-	return $tag;
 
 }
 

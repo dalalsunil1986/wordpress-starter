@@ -3,12 +3,12 @@
 	/* Color Variables */
 	/*--default: #2E323D;*/
 	--default: #182635;
-	--linkDefault: #00b28b;
+	--linkDefault: #009B79;
 	/*--linkAlt: #348AA7;*/
 	/*--linkDefault: #4381C1;*/
 	--linkAlt: #183859;
-	--colorLight: #dddddd;
-	--colorUltraLight: #f5f5f5;
+	--colorLight: #CCD7E2;
+	--colorUltraLight: #F4F8FC;
 
 	/* Font Family Variables */
 	--fontBody: "freight-macro-pro", Georgia, serif;

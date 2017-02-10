@@ -118,8 +118,8 @@ add_action( 'genesis_after', 'genesis_do_subnav' );
  * Update the post info string.
  * @return string Post read time in minutes.
  */
-remove_action( 'genesis_entry_header', 'genesis_post_info', 12 );
 remove_all_actions( 'genesis_entry_footer' );
+remove_action( 'genesis_entry_header', 'genesis_post_info', 12 );
 add_action( 'genesis_entry_header', 'genesis_post_info', 12 );
 add_filter( 'genesis_post_info', 'logic_post_info' );
 function logic_post_info( $post_info ) {
@@ -143,15 +143,14 @@ function logic_post_info( $post_info ) {
 }
 
 /**
- * Modify the archive loop.
+ * Remove entry content on archive pages.
  *
  * @since 1.0.0
  */
-add_action( 'genesis_before_loop', 'logic_archive_loop' );
-function logic_archive_loop() {
+add_action( 'genesis_before_loop', 'logic_remove_entry_content' );
+function logic_remove_entry_content() {
 
-	if ( is_archive() || is_front_page() ) {
+	if ( is_archive() || is_home() ) {
 		remove_all_actions( 'genesis_entry_content' );
 	}
-
 }

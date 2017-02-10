@@ -32,14 +32,20 @@
 /*----------  Site Header  ----------*/
 
 .site-header {
-	background-color: var(--default);
-	border-bottom: 4px solid color( var(--default) shade(50%) );
+	background-color: var(--colorUltraLight);
+	border-bottom: 1px solid color( var(--colorUltraLight) shade(10%) );
+	box-shadow: 0 0 0 transparent;
 	margin-bottom: 20px;
 	left: 0;
 	position: fixed;
 	top: 0;
+	transition: box-shadow .25s ease-in-out;
 	width: 100%;
 	z-index: 100;
+
+	&.filled {
+		box-shadow: 0 5px 20px color( var(--default) alpha(-90%) );
+	}
 }
 
 .title-area {
@@ -112,12 +118,19 @@
 		background: rgba(0,0,0,.6);
 		width: 100%;
 		height: 100%;
-		z-index: 50;
+		z-index: -50;
 		transform: translate3d(0,0,0);
+		opacity: 0;
 		position: fixed;
 		top: 0;
 		left: 0;
-		display: none;
+		transition: none;
+
+		&.visible {
+			opacity: 1;
+			transition: opacity .25s ease-in-out;
+			z-index: 50;
+		}
 	}
 
 	.site-inner {
@@ -126,13 +139,13 @@
 	}
 
 	.site-header {
-		color: var(--colorLight);
+		color: var(--default);
 		height: auto;
 		margin: 0 auto;
 
 		& > .wrap {
 			margin: 0 auto;
-			padding: 4px 40px 0;
+			padding: 1px 40px 0;
 	        transition: all .15s ease-in-out;
 		}
 	}

@@ -41,7 +41,7 @@ p.lead,
         background-repeat: repeat-x;
         background-size: .05em .06em;
         font-weight: bold;
-        text-shadow: .03em 0 #f9f9f9, -.03em 0 #f9f9f9, 0 .03em #f9f9f9, 0 -.03em #f9f9f9, .06em 0 #f9f9f9, -.06em 0 #f9f9f9, .09em 0 #f9f9f9, -.09em 0 #f9f9f9, .12em 0 #f9f9f9, -.12em 0 #f9f9f9;
+        text-shadow: .03em 0 var(--colorUltraLight), -.03em 0 var(--colorUltraLight), 0 .03em var(--colorUltraLight), 0 -.03em var(--colorUltraLight), .06em 0 var(--colorUltraLight), -.06em 0 var(--colorUltraLight), .09em 0 var(--colorUltraLight), -.09em 0 var(--colorUltraLight), .12em 0 var(--colorUltraLight), -.12em 0 var(--colorUltraLight);
 
         &:focus,
         &:hover {
@@ -245,7 +245,7 @@ h6 {
     transition: transform .15s ease-in-out;
 
     & a {
-        color: #fff;
+        color: var(--default);
         letter-spacing: .1em;
         padding: 16px 20px 16px 0;
 

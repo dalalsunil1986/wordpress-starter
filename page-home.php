@@ -34,8 +34,8 @@ function logic_home_page_styles() {
 			margin-top: 0;
 		}
 		.home-page-starter {
-			background: #182635;
-			color: #f5f5f5;
+			background: #CCD7E2;
+			color: #183859;
 			min-height: calc( 100vh - 68px );
 		}
 		.home-page-starter .wrap {
