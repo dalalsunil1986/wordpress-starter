@@ -28,6 +28,7 @@ pre[class*="language-"] {
 	background: none;
 	text-shadow: 0 1px color( var(--default) tint(10%) );
 	font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+	position: relative;
 	text-align: left;
 	white-space: pre;
 	word-spacing: normal;
@@ -43,6 +44,14 @@ pre[class*="language-"] {
 	-moz-hyphens: none;
 	-ms-hyphens: none;
 	hyphens: none;
+
+	& .toolbar {
+		background: color( var(--default) tint(10%) );
+		padding: .5em 1em;
+		position: absolute;
+		right: 0;
+		top: 0;
+	}
 }
 
 pre[class*="language-"]::-moz-selection,
@@ -155,13 +164,8 @@ pre[class*="language-"] {
 }
 
 pre.line-numbers {
-	position: relative;
 	padding-left: 3.8em;
 	counter-reset: linenumber;
-}
-
-pre.line-numbers > code {
-	position: relative;
 }
 
 .line-numbers .line-numbers-rows {
