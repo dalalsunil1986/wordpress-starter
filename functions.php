@@ -35,8 +35,11 @@ include_once( get_template_directory() . '/lib/init.php');
 add_action( 'wp_enqueue_scripts', 'logic_load_assets' );
 function logic_load_assets() {
 
-	// Load Extra JS
-	wp_enqueue_script( 'logic-app-js', get_stylesheet_directory_uri() . '/build/js/app.min.js', array( 'jquery' ), CHILD_THEME_VERSION, true );
+	wp_deregister_script( 'jquery' );
+	wp_deregister_script( 'wp-embed' );
+
+	// Load JS
+	wp_enqueue_script( 'logic-app-js', get_stylesheet_directory_uri() . '/build/js/app.min.js', array(), CHILD_THEME_VERSION, true );
 
 	/* Localize Script Information for Responsive Menu */
 	wp_localize_script(

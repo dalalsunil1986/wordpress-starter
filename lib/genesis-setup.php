@@ -96,6 +96,17 @@ unregister_sidebar( 'sidebar-alt' );
 unregister_sidebar( 'sidebar' );
 
 /**
+ * Unregister Genesis layouts.
+ *
+ * @since 1.0.0
+ */
+genesis_unregister_layout( 'content-sidebar-sidebar' );
+genesis_unregister_layout( 'sidebar-content-sidebar' );
+genesis_unregister_layout( 'sidebar-sidebar-content' );
+genesis_unregister_layout( 'sidebar-content' );
+genesis_unregister_layout( 'content-sidebar' );
+
+/**
  * Reposition the default location of the secondary navigation to be at the very bottom.
  *
  * @since 1.0.0

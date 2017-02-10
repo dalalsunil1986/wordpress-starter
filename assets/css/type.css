@@ -41,7 +41,7 @@ p.lead,
         background-repeat: repeat-x;
         background-size: .05em .06em;
         font-weight: bold;
-        text-shadow: .03em 0 color( var(--default) tint(95%) ), -.03em 0 color( var(--default) tint(95%) ), 0 .03em color( var(--default) tint(95%) ), 0 -.03em color( var(--default) tint(95%) ), .06em 0 color( var(--default) tint(95%) ), -.06em 0 color( var(--default) tint(95%) ), .09em 0 color( var(--default) tint(95%) ), -.09em 0 color( var(--default) tint(95%) ), .12em 0 color( var(--default) tint(95%) ), -.12em 0 color( var(--default) tint(95%) );
+        text-shadow: .03em 0 #f9f9f9, -.03em 0 #f9f9f9, 0 .03em #f9f9f9, 0 -.03em #f9f9f9, .06em 0 #f9f9f9, -.06em 0 #f9f9f9, .09em 0 #f9f9f9, -.09em 0 #f9f9f9, .12em 0 #f9f9f9, -.12em 0 #f9f9f9;
 
         &:focus,
         &:hover {

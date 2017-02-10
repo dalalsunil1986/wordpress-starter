@@ -11,6 +11,7 @@
 
 	var $header      = $('.site-header'),
 		$overlay     = $('#site-overlay'),
+		$body        = $('body'),
 		searchToggle = $('a[href="#search"]'),
 		searchOn     = false;
 
@@ -24,6 +25,18 @@
 		$('.logic-code').parent().addClass('stretch');
 
 	});
+
+	// $(window).scroll( function() {
+	// 	var base   = -100,
+	// 		val    = (window.scrollY / 3),
+	// 		newval = base + val;
+	//
+	// 	if ( newval < 250 ) {
+	// 		$body.css({
+	// 			backgroundPosition: "center " + newval + "px"
+	// 		});
+	// 	}
+	// });
 
 	/**
 	 * Control scroll to page section on the homepage.

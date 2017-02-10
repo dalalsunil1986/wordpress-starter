@@ -12,6 +12,7 @@
 
 .entry-header {
 	padding: 5vh 0;
+	text-align: center;
 }
 
 .entry-content  {
@@ -119,6 +120,14 @@ ul.children {
 @media screen and (min-width: 768px) {
 
 	/* Comments */
+	.entry-comments {
+		max-width: 740px;
+		margin: 0 auto;
+
+		& > h3 {
+			text-align: center;
+		}
+	}
 	.comment .avatar {
 		margin-right: 24px;
 	}
@@ -204,13 +213,14 @@ ul.children {
 		& .entry-content {
 			float: left;
 			margin-left: 0;
-			padding-left: 0;
-			padding-top: 0;
+			padding: 0;
 			max-width: 100%;
 			width: 100%;
 
 			& > :not(.stretch) {
 				max-width: 740px;
+				margin-left: auto;
+				margin-right: auto;
 			}
 		}
 	}
