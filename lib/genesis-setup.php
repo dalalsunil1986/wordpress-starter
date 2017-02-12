@@ -62,7 +62,7 @@ remove_action( 'genesis_before_loop', 'genesis_do_date_archive_title', 15 );
  *
  * @since 1.0.0
  */
-remove_action( 'genesis_entry_content', 'genesis_do_post_image', 8 );
+// remove_action( 'genesis_entry_content', 'genesis_do_post_image', 8 );
 
 /**
  * Unregister parent page templates
@@ -151,6 +151,6 @@ add_action( 'genesis_before_loop', 'logic_remove_entry_content' );
 function logic_remove_entry_content() {
 
 	if ( is_archive() || is_home() ) {
-		remove_all_actions( 'genesis_entry_content' );
+		// remove_all_actions( 'genesis_entry_content' );
 	}
 }

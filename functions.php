@@ -100,8 +100,9 @@ function logic_prefetch() {
 add_action( 'genesis_entry_content', 'logic_social_share' );
 function logic_social_share() {
 
-	if ( ! is_singular( 'post' ) )
+	if ( ! is_singular( 'post' ) ) {
 		return;
+	}
 
 	$url = urlencode( get_the_permalink() );
 	$title = urlencode( get_the_title() );
@@ -109,8 +110,15 @@ function logic_social_share() {
 	$facebook = 'https://www.facebook.com/sharer/sharer.php?u=' . $url;
 	$twitter = 'https://twitter.com/home?status=' . $title . '%3A%20' . $url . '%20via%20%40cjkoepke';
 
-	if ( is_singular( 'post' ) )
-		printf( '<div class="share-it"><h3>Share This Post!</h3><a href="%s" target="_blank" class="button button-block" alt="Share on Twitter"><i class="ionicon ion-social-twitter"></i> <span class="screen-reader-text">Share on Twitter</span></a><a href="%s" target="_blank" alt="Share on Facebook" class="button button-block"><i class="ionicon ion-social-facebook"></i> <span class="screen-reader-text">Share on Facebook</a></div>', $twitter, $facebook );
+	if ( is_singular( 'post' ) ) {
+		printf( '
+			<div class="share-it">
+				<h3>Share This Post!</h3>
+				<a href="%s" target="_blank" class="button button-primary button-block" alt="Share on Twitter">Share on Twitter</a>
+				<a href="%s" target="_blank" alt="Share on Facebook" class="button button-primary button-block">Share on Facebook</a>
+			</div>
+		', $twitter, $facebook );
+	}
 
 }
 

@@ -7,9 +7,9 @@
 /*----------  Site Containers  ----------*/
 
 .site-container {
+	margin: 0 auto;
 	max-width: 100%;
 	position: relative;
-	margin: 0 auto;
 	z-index: 5;
 }
 
@@ -32,11 +32,11 @@
 /*----------  Site Header  ----------*/
 
 .site-header {
-	background-color: var(--colorUltraLight);
-	border-bottom: 1px solid color( var(--colorUltraLight) shade(10%) );
+	background-color: var(--linkDefault);
+	border-bottom: 1px solid color( var(--linkDefault) shade(10%) );
 	box-shadow: 0 0 0 transparent;
-	margin-bottom: 20px;
 	left: 0;
+	margin-bottom: 20px;
 	position: fixed;
 	top: 0;
 	transition: box-shadow .25s ease-in-out;
@@ -44,7 +44,7 @@
 	z-index: 100;
 
 	&.filled {
-		box-shadow: 0 5px 20px color( var(--default) alpha(-90%) );
+		box-shadow: 0 5px 20px color( var(--default) alpha(-70%) );
 	}
 }
 
@@ -115,21 +115,20 @@
 @media screen and (min-width: 1200px) {
 
 	#site-overlay {
-		background: rgba(0,0,0,.6);
-		width: 100%;
+		background: color( var(--colorUltraLight) alpha(-40%) );
+		display: none;
 		height: 100%;
-		z-index: -50;
-		transform: translate3d(0,0,0);
+		left: 0;
 		opacity: 0;
 		position: fixed;
 		top: 0;
-		left: 0;
+		transform: translate3d(0,0,0);
 		transition: none;
+		width: 100%;
+		z-index: 50;
 
 		&.visible {
-			opacity: 1;
-			transition: opacity .25s ease-in-out;
-			z-index: 50;
+			display: block;
 		}
 	}
 
@@ -150,13 +149,6 @@
 		}
 	}
 
-	/* Layout Wrappers */
-	/*.content-sidebar .content,
-	.sidebar-content .content {
-		float: left;
-		width: 700px;
-	}*/
-
 	.content {
 		float: none;
 		margin: 0 auto;
@@ -164,8 +156,8 @@
 	}
 
 	.entry-content {
-		max-width: 700px;
 		margin: 0 auto;
+		max-width: 700px;
 	}
 
 	/*----------  Columns  ----------*/

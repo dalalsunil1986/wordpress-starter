@@ -42,15 +42,15 @@ function logic_home_page_styles() {
 			position: relative;
 		}
 		.home-page-starter h2 {
-			color: #fff;
+			color: #182635;
 		}
 		.home-page-starter a:not(.button) {
-			text-shadow: .03em 0 #183859, -.03em 0 #183859, 0 .03em #183859, 0 -.03em #183859, .06em 0 #183859, -.06em 0 #183859, .09em 0 #183859, -.09em 0 #183859, .12em 0 #183859, -.12em 0 #183859;
+			text-shadow: .03em 0 #CCD7E2, -.03em 0 #CCD7E2, 0 .03em #CCD7E2, 0 -.03em #CCD7E2, .06em 0 #CCD7E2, -.06em 0 #CCD7E2, .09em 0 #CCD7E2, -.09em 0 #CCD7E2, .12em 0 #CCD7E2, -.12em 0 #CCD7E2;
 		}
 		.home-page-starter a:not(.button):focus,
 		.home-page-starter a:not(.button):hover {
-			background-image: linear-gradient( #ffffff, #ffffff );
-			color: #fff;
+			background-image: linear-gradient( #182635, #182635 );
+			color: #182635;
 		}
 		.home-page-starter svg {
 			line-height: 1;

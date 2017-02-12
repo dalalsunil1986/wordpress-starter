@@ -171,12 +171,12 @@ ul.children {
 	.blog,
 	.page-home .home-loop {
 
-		& .content {
+		/*& .content {
 			align-items: stretch;
 			display: flex;
 			flex-wrap: wrap;
 			justify-content: space-between;
-		}
+		}*/
 
 		& .entry-content {
 			padding: 0;
@@ -188,9 +188,8 @@ ul.children {
 		}
 
 		& .entry {
-			border-radius: 4px;
 			margin-bottom: 4%;
-			width: 48%;
+			/*width: 32%;*/
 		}
 
 		& .entry-header {

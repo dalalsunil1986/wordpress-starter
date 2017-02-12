@@ -21,7 +21,7 @@
 
 	& a {
 		border-bottom: 2px solid transparent;
-		color: var(--linkAlt);
+		color: #fff;
 		display: block;
 		padding: 20px 10px;
 		text-align: left;
@@ -163,29 +163,30 @@
 		}
 
 		& > .menu-item > a {
-			background-image: linear-gradient( var(--colorUltraLight), var(--colorUltraLight) );
+			background-image: linear-gradient( var(--linkDefault), var(--linkDefault) );
 			background-size: .05em 1px;
 			background-repeat: repeat-x;
 			background-position: 0 68%;
 			border: 0;
 			padding: 20px 0;
 			margin: 0 20px;
-			text-shadow: .03em 0 var(--colorUltraLight), -.03em 0 var(--colorUltraLight), 0 .03em var(--colorUltraLight), 0 -.03em var(--colorUltraLight), .06em 0 var(--colorUltraLight), -.06em 0 var(--colorUltraLight), .09em 0 var(--colorUltraLight), -.09em 0 var(--colorUltraLight), .12em 0 var(--colorUltraLight), -.12em 0 var(--colorUltraLight);
+			text-shadow: .03em 0 var(--linkDefault), -.03em 0 var(--linkDefault), 0 .03em var(--linkDefault), 0 -.03em var(--linkDefault), .06em 0 var(--linkDefault), -.06em 0 var(--linkDefault), .09em 0 var(--linkDefault), -.09em 0 var(--linkDefault), .12em 0 var(--linkDefault), -.12em 0 var(--linkDefault);
 
 			&:focus,
 			&:hover {
-				background-image: linear-gradient( var(--default), var(--default) );
+				background-image: linear-gradient( #fff, #fff );
+				color: #fff;
 				text-decoration: none;
 			}
 		}
 
 		& > .menu-item.current-menu-item > a {
-			text-shadow: .03em 0 var(--colorUltraLight), -.03em 0 var(--colorUltraLight), 0 .03em var(--colorUltraLight), 0 -.03em var(--colorUltraLight), .06em 0 var(--colorUltraLight), -.06em 0 var(--colorUltraLight), .09em 0 var(--colorUltraLight), -.09em 0 var(--colorUltraLight), .12em 0 var(--colorUltraLight), -.12em 0 var(--colorUltraLight);
-	        background-image: linear-gradient( var(--default), var(--default) );
+			text-shadow: .03em 0 var(--linkDefault), -.03em 0 var(--linkDefault), 0 .03em var(--linkDefault), 0 -.03em var(--linkDefault), .06em 0 var(--linkDefault), -.06em 0 var(--linkDefault), .09em 0 var(--linkDefault), -.09em 0 var(--linkDefault), .12em 0 var(--linkDefault), -.12em 0 var(--linkDefault);
+	        background-image: linear-gradient( #fff, #fff );
 	        background-size: .05em 1px;
 	        background-repeat: repeat-x;
 	        background-position: 0 68%;
-			color: var(--default);
+			color: #fff;
 			font-weight: 700;
 		}
 

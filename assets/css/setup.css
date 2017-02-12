@@ -12,7 +12,7 @@
 
 	/* Font Family Variables */
 	--fontBody: "freight-macro-pro", Georgia, serif;
-	--fontHeading: "canada-type-gibson", "Arial Black", "Helvetica Neue", Arial, sans-serif;
+	--fontHeading: "freight-macro-pro", "Roboto", "Arial Black", Georgia, serif;
 	--fontIcon: "ionicons";
 
 }
