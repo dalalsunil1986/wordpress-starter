@@ -154,3 +154,30 @@ function logic_remove_entry_content() {
 		// remove_all_actions( 'genesis_entry_content' );
 	}
 }
+
+/**
+ * Move the footer outside of the container wrapper.
+ *
+ * @since 1.0.0
+ */
+remove_all_actions( 'genesis_footer' );
+add_action( 'genesis_after', 'genesis_footer_markup_open', 5 );
+add_action( 'genesis_after', 'genesis_do_footer' );
+add_action( 'genesis_after', 'genesis_footer_markup_close', 15 );
+
+/**
+ * Modify the footer credit text.
+ *
+ * @param string  $creds Default HTML for credits.
+ * @return string $creds Updated HTML for credits.
+ *
+ * @since 1.0.0
+ */
+add_filter( 'genesis_footer_creds_text', 'logic_footer_credtis' );
+function logic_footer_credtis( $creds ) {
+
+	$creds = sprintf( '<a target="_blank" href="https://github.com/cjkoepke/calvinkoepke-com">Fork This Theme</a> • Built on <a href="https://www.studiopress.com/features" target="_blank">Genesis</a> • Hosted on <a href="http://my.studiopress.com/plans/" target="_blank">StudioPress Sites</a><br/> <small>Credits: Background by <a href="http://www.freepik.com" follow="nofollow">FreePik</a>, Code Highlighter by <a href="http://prismjs.com" target="_blank" follow="nofollow">Prism</a></small>', date( 'Y' ) );
+
+	return $creds;
+
+}

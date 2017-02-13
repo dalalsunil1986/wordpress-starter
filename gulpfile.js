@@ -52,6 +52,25 @@ gulp.task( 'css', function() {
 
 });
 
+//* Gulp task to run PostCSS on extra stylesheets.
+gulp.task( 'css:extra', function() {
+
+	gulp.src( PATHS.css + 'extra/*.css' )
+		.pipe(postcss([
+			cssimport(),
+			cssnext(),
+			cssnano({
+				autoprefixer: false,
+				options: {
+					safe: false
+				}
+			})
+		]))
+		.pipe(rename({ extname: '.min.css' }))
+		.pipe(gulp.dest(PATHS.build.css));
+
+});
+
 //* Gulp task to combine JS files, minify, and output to bundle.min.js
 gulp.task( 'scripts', function() {
 
@@ -71,7 +90,7 @@ gulp.task( 'scripts', function() {
 gulp.task( 'watch', function() {
 
 	gulp.watch( PATHS.js + '**/*.js', ['scripts'] );
-	gulp.watch( PATHS.css + '**/*.css', ['css'] );
+	gulp.watch( PATHS.css + '**/*.css', ['css','css:extra'] );
 
 });
 

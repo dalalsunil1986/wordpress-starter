@@ -47,6 +47,11 @@ function logic_load_assets() {
 	// Load theme JS.
 	wp_enqueue_script( 'logic-app-js', get_stylesheet_directory_uri() . '/build/js/app.min.js', array(), CHILD_THEME_VERSION, true );
 
+	// Load extra CSS.
+	if ( is_front_page() ) {
+		wp_enqueue_style( 'logic-home', get_stylesheet_directory_uri() . '/build/css/front-page.min.css', array( 'logic' ), CHILD_THEME_VERSION );
+	}
+
 	// Localize menu settings.
 	wp_localize_script(
 		'logic-app-js',
@@ -80,6 +85,7 @@ function logic_get_responsive_menu_settings() {
 
 /**
  * Load prefetch scripts.
+ *
  * @since 1.0.0
  */
 add_action( 'wp_head', 'logic_prefetch', 99 );
@@ -89,6 +95,22 @@ function logic_prefetch() {
 	<script src="https://use.typekit.net/xoo4gbo.js"></script>
 	<script>try{Typekit.load({ async: true });}catch(e){console.log(e);}</script>
 	<?php
+}
+
+/**
+ * Defer scripts.
+ *
+ * @since 1.0.0
+ */
+add_filter( 'script_loader_tag', 'logic_script_attributes', 10, 2 );
+function logic_script_attributes( $tag, $handle ) {
+
+	if ( 'logic-app-js' !== $handle ) {
+		return $tag;
+	}
+
+	return str_replace( ' src', ' defer="defer" src', $tag );
+
 }
 
 /**

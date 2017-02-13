@@ -1,0 +1,70 @@
+@import url( '../setup.css' );
+
+.site-inner {
+	max-width: 100%;
+	margin-top: 0;
+	padding: 68px 0;
+
+	& section {
+		padding: 15vh 0;
+
+		& h2 {
+			margin-top: 0;
+		}
+
+		& > .wrap {
+			margin-bottom: 0;
+			margin-top: 0;
+		}
+	}
+}
+.home-page-intro {
+	overflow: hidden;
+	position: relative;
+	text-align: center;
+
+	& p.lead {
+		max-width: 700px;
+		margin-left: auto;
+		margin-right: auto;
+	}
+}
+.home-page-starter {
+	background-color: color( var(--colorLight) tint(40%) );
+	min-height: calc( 100vh - 68px );
+
+	& a:not(.button) {
+		text-shadow: .03em 0 color( var(--colorLight) tint(40%) ), -.03em 0 color( var(--colorLight) tint(40%) ), 0 .03em color( var(--colorLight) tint(40%) ), 0 -.03em color( var(--colorLight) tint(40%) ), .06em 0 color( var(--colorLight) tint(40%) ), -.06em 0 color( var(--colorLight) tint(40%) ), .09em 0 color( var(--colorLight) tint(40%) ), -.09em 0 color( var(--colorLight) tint(40%) ), .12em 0 color( var(--colorLight) tint(40%) ), -.12em 0 color( var(--colorLight) tint(40%) );
+
+		&:focus,
+		&:hover {
+			background-image: linear-gradient( #182635, #182635 );
+			color: #182635;
+		}
+	}
+
+	& > .wrap {
+		align-items: stretch;
+		display: flex;
+		flex-wrap: nowrap;
+		justify-content: space-between;
+	}
+
+	& .starter-icon {
+		width: 35%;
+	}
+
+	& .message {
+		width: 65%;
+	}
+}
+
+.starter-icon {
+	color: var(--default);
+	display: block;
+	line-height: 0.8;
+	font-family: var(--fontHeading);
+	font-size: 30vw;
+	font-weight: 900;
+	text-shadow: -10px 10px 0 color( var(--colorLight) shade(5%) ), -9px 9px 0 color( var(--colorLight) shade(5%) ), -8px 8px 0 color( var(--colorLight) shade(5%) ), -7px 7px 0 color( var(--colorLight) shade(5%) ), -6px 6px 0 color( var(--colorLight) shade(5%) ), -5px 5px 0 color( var(--colorLight) shade(5%) ), -4px 4px 0 color( var(--colorLight) shade(5%) ), -3px 3px 0 color( var(--colorLight) shade(5%) ), -2px 2px 0 color( var(--colorLight) shade(5%) ), -1px 1px 0 color( var(--colorLight) shade(5%) );
+}

@@ -8,6 +8,10 @@ code {
 	font-size: 1.4rem;
 }
 
+code {
+	webkit-overflow-scrolling: touch;
+}
+
 :not(pre) > code {
 	background: var(--colorLight);
 	border: 1px solid color( var(--colorLight) shade(40%) );
