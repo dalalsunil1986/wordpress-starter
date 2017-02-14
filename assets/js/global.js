@@ -15,8 +15,6 @@
 		searchToggle = $('a[href="#search"]'),
 		searchOn     = false;
 
-	$('.site-container').css( "margin-bottom", $('.site-footer').innerHeight() );
-
 	/**
 	 * Add 'stretch' class to code box after window has loaded.
 	 *

@@ -12,17 +12,18 @@ function logic_home_page_intro() {
     ?>
     <section class="home-page-intro">
         <div class="wrap">
-            <h2 class="jumbo">All Things Front-End</h2>
-            <p class="lead">I'm Calvin, a front-end developer with a focus on JavaScript, WordPress, and performance. I <a href="/blog/">blog</a> about what I learn,<br/> and spend a lot of time on <a href="#starter">my open-source project</a>.
+            <h2 class="jumbo">Hey, I'm Calvin.</h2>
+            <p class="lead">I'm a front-end developer with a focus on JavaScript, WordPress, and performance. I blog about lessons I learn,<br/> and spend a lot of time working on <a href="/side-projects/">side projects</a>.
 			<p>
-				<!-- Get Code-Fuel Every Monday -->
-				<a href="#" class="button button-primary button-icon no-underline">Get Code Fuel Every Monday</a> &nbsp;
+				<a href="#" class="button button-primary button-icon no-underline">Get Code-Fuel Every Monday</a>
 			</p>
         </div>
     </section>
-	<section class="home-page-starter" id="starter">
+	<!-- <section class="home-page-starter" id="starter">
 		<div class="wrap">
-			<span class="starter-icon alignleft">S</span>
+			<div class="logo">
+				<span class="starter-icon alignleft">S</span>
+			</div>
 			<div class="message">
 				<h2 class="jumbo">Starter Theme</h2>
 				<p class="lead">Starter Theme (v2) is an opinionated boilerplate for developing Genesis Framework child themes. It comes bundled with everything you need to ship fast, quality, and standard code to production. Starter is open-source and free to download.</p>
@@ -33,8 +34,8 @@ function logic_home_page_intro() {
 				</p>
 			</div>
 		</div>
-	</section>
-	<section class="home-page-blog">
+	</section> -->
+	<!-- <section class="home-page-blog">
 		<div class="wrap">
 			<h2 class="jumbo">Recent Blog Posts</h2>
 			<p class="lead">I write a semi-weekly feed of blog posts on things that I learn about front-end development and performance. These are a few of the most recent posts:</p>
@@ -49,7 +50,7 @@ function logic_home_page_intro() {
 				?>
 			</div>
 		</div>
-	</section>
+	</section> -->
     <?php
 
 }

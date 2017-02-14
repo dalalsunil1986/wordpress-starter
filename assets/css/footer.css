@@ -11,7 +11,7 @@
 	min-height: 20vh;
 	overflow: hidden;
 	padding: 40px 10px;
-	position: fixed;
+	position: static;
 	text-align: center;
 	width: 100%;
 
