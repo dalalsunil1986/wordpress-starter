@@ -2,21 +2,27 @@
 
 .site-inner {
 	max-width: 100%;
-	margin-top: 0;
-	padding: 68px 0;
-
-	& h2 {
-		margin-top: 0;
-	}
+	margin: 0 auto;
+	padding: 68px 0 0;
+	text-align: center;
 
 	& > .wrap {
 		margin-bottom: 0;
 		margin-top: 0;
 	}
 }
+
+h2.jumbo {
+	margin-top: 0;
+}
+
+.section {
+	margin: 0 0 10vw;
+}
+
 .home-page-intro {
+	margin-top: 10vw;
 	overflow: hidden;
-	padding: 15vh 0;
 	position: relative;
 	text-align: center;
 
@@ -26,9 +32,9 @@
 		margin-right: auto;
 	}
 }
+
 .home-page-starter {
 	background-color: color( var(--colorLight) tint(40%) );
-	padding: 0;
 
 	& a:not(.button) {
 		text-shadow: .03em 0 color( var(--colorLight) tint(40%) ), -.03em 0 color( var(--colorLight) tint(40%) ), 0 .03em color( var(--colorLight) tint(40%) ), 0 -.03em color( var(--colorLight) tint(40%) ), .06em 0 color( var(--colorLight) tint(40%) ), -.06em 0 color( var(--colorLight) tint(40%) ), .09em 0 color( var(--colorLight) tint(40%) ), -.09em 0 color( var(--colorLight) tint(40%) ), .12em 0 color( var(--colorLight) tint(40%) ), -.12em 0 color( var(--colorLight) tint(40%) );
@@ -47,28 +53,37 @@
 		justify-content: space-between;
 		margin: 0;
 		max-width: 100%;
+		overflow: hidden;
 		padding: 0;
-	}
-
-	& .logo {
-		background: var(--default);
-		padding: 10vh 5%;
-		width: 40%;
-	}
-
-	& .message {
-		padding: 10vh 5%;
-		width: 60%;
 	}
 }
 
-.starter-icon {
-	color: color( var(--default) tint(10%) );
-	display: block;
-	line-height: 0.8;
-	font-family: var(--fontHeading);
-	font-size: 30vw;
-	font-weight: 900;
-	text-align: center;
-	/*text-shadow: -10px 10px 0 color( var(--colorLight) shade(5%) ), -9px 9px 0 color( var(--colorLight) shade(5%) ), -8px 8px 0 color( var(--colorLight) shade(5%) ), -7px 7px 0 color( var(--colorLight) shade(5%) ), -6px 6px 0 color( var(--colorLight) shade(5%) ), -5px 5px 0 color( var(--colorLight) shade(5%) ), -4px 4px 0 color( var(--colorLight) shade(5%) ), -3px 3px 0 color( var(--colorLight) shade(5%) ), -2px 2px 0 color( var(--colorLight) shade(5%) ), -1px 1px 0 color( var(--colorLight) shade(5%) );*/
+.logo {
+	background: var(--default);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-wrap: nowrap;
+	margin-left: -1px; /* Fix odd flexbox spacing */
+	overflow: hidden;
+	padding: 0;
+	position: relative;
+	width: 40%;
+
+	& svg {
+		opacity: .2;
+	}
+}
+
+.message {
+	padding: 5vw;
+	text-align: left;
+	width: 60%;
+}
+
+.home-loop {
+	align-items: stretch;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
 }

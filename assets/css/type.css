@@ -49,16 +49,19 @@ p.lead,
             color: var(--default);
             text-decoration: none;
         }
+
+		&.gray-out,
+		&.gray-out:focus,
+		&.gray-out:hover {
+			background-image: linear-gradient( color( var(--colorLight) shade(40%) ), color( var(--colorLight) shade(40%) ) );
+			color: color( var(--colorLight) shade(40%) );
+		}
     }
 
     & .lead a:not(.button) {
         background-position: 0% 85%;
 		background-size: .05em .08em;
     }
-}
-
-.gray-out {
-    color: darken( var(--colorLight), 40% );
 }
 
 ol,
@@ -396,9 +399,7 @@ h6 {
 
         &:focus,
         &:hover {
-            a {
-                text-decoration: none;
-            }
+            text-decoration: none;
         }
 
 	}

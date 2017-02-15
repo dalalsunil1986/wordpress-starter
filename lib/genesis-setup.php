@@ -87,6 +87,14 @@ remove_action( 'genesis_after_header', 'genesis_do_nav' );
 add_action( 'genesis_header', 'genesis_do_nav', 14 );
 
 /**
+ * Get rid of sidebar markup.
+ *
+ * @since 1.0.0
+ */
+remove_action( 'genesis_after_content', 'genesis_get_sidebar' );
+remove_action( 'genesis_after_content_sidebar_wrap', 'genesis_get_sidebar_alt' );
+
+/**
  * Unregister unused widget areas.
  *
  * @since 1.0.0

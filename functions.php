@@ -238,7 +238,6 @@ add_theme_support( 'genesis-responsive-viewport' ); /* Enable Viewport Meta Tag 
 add_theme_support( 'html5',  array( 'search-form', 'comment-form', 'comment-list', 'gallery', 'caption' ) ); /* HTML5 */
 add_theme_support( 'genesis-accessibility', array( 'skip-links', 'search-form', 'drop-down-menu', 'headings' ) ); /* Accessibility */
 add_theme_support( 'genesis-after-entry-widget-area' ); /* After Entry Widget Area */
-add_theme_support( 'genesis-footer-widgets', 3 ); /* Add Footer Widgets Markup for 3 */
 
 /**
  *

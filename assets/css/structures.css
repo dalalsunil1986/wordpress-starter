@@ -8,9 +8,8 @@
 
 .site-container {
 	background: var(--colorUltraLight);
-	box-shadow: 0 10px 20px color( var(--default) alpha(-50%) );
+	box-shadow: 0 10px 30px rgba(0,0,0,.4);
 	margin: 0 auto;
-	max-width: 100%;
 	position: relative;
 	z-index: 5;
 
@@ -40,7 +39,6 @@
 }
 
 .site-inner {
-	border-radius: 3px;
 	clear: both;
 	margin-top: 65px; /* Height of header */
 	padding: 20px 10px;
@@ -51,7 +49,7 @@
 .site-header {
 	background-color: var(--linkDefault);
 	border-bottom: 1px solid color( var(--linkDefault) shade(10%) );
-	box-shadow: 0 0 0 transparent;
+	box-shadow: 0 0 0 color( var(--default) alpha(-70%) );
 	left: 0;
 	margin-bottom: 20px;
 	position: fixed;
@@ -62,6 +60,10 @@
 
 	&.filled {
 		box-shadow: 0 5px 20px color( var(--default) alpha(-70%) );
+	}
+
+	& > .wrap {
+		max-width: 100%;
 	}
 }
 
@@ -151,6 +153,12 @@
 	.site-inner {
 		margin-top: 68px;
 		padding-top: 40px;
+	}
+
+	.single .site-inner {
+		padding-left: 0;
+		padding-right: 0;
+		max-width: 100%;
 	}
 
 	.site-header {

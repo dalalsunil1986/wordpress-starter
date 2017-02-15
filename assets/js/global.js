@@ -12,8 +12,21 @@
 	var $header      = $('.site-header'),
 		$overlay     = $('#site-overlay'),
 		$body        = $('body'),
+		$footer      = $('.site-footer'),
 		searchToggle = $('a[href="#search"]'),
 		searchOn     = false;
+
+	/**
+	 * Adjust footer.
+	 *
+	 * @since 1.0.0
+	 */
+	$footer.css({
+		position: "fixed"
+	});
+	$('.site-container').css({
+		marginBottom: $footer.innerHeight()
+	});
 
 	/**
 	 * Add 'stretch' class to code box after window has loaded.
@@ -21,9 +34,7 @@
 	 * @since 1.0.0
 	 */
 	$(window).load( function() {
-
 		$('.logic-code').parent().addClass('stretch');
-
 	});
 
 	/**
@@ -34,9 +45,9 @@
 	$(window).scroll( function() {
 		var scrollPos = window.scrollY;
 
-		if ( scrollPos > 50 && ! $header.hasClass( 'filled' ) ) {
+		if ( scrollPos > 15 && ! $header.hasClass( 'filled' ) ) {
 			$header.addClass( 'filled' );
-		} else if ( scrollPos < 50 && $header.hasClass( 'filled' ) ) {
+		} else if ( scrollPos < 15 && $header.hasClass( 'filled' ) ) {
 			$header.removeClass( 'filled' );
 		}
 

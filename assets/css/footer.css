@@ -4,14 +4,14 @@
 ==============================*/
 
 .site-footer {
-	background-color: var(--default);
+	background-color: color( var(--default) shade(20%) );
 	bottom: 0;
 	color: var(--colorLight);
 	clear: both;
 	min-height: 20vh;
 	overflow: hidden;
 	padding: 40px 10px;
-	position: static;
+	position: relative;
 	text-align: center;
 	width: 100%;
 
@@ -46,7 +46,7 @@
 	}
 
 	&::before {
-		background-image: linear-gradient( var(--default), transparent );
+		background-image: linear-gradient( color( var(--default) shade(20%) ), transparent );
 		z-index: 2;
 	}
 

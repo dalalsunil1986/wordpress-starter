@@ -40,15 +40,8 @@ pre[class*="language-"] {
 	word-spacing: normal;
 	word-break: normal;
 	word-wrap: normal;
-	line-height: 1.5;
-
-	-moz-tab-size: 4;
-	-o-tab-size: 4;
+	line-height: 1.64;
 	tab-size: 4;
-
-	-webkit-hyphens: none;
-	-moz-hyphens: none;
-	-ms-hyphens: none;
 	hyphens: none;
 
 	& .toolbar {
@@ -86,7 +79,7 @@ code[class*="language-"] ::selection {
 /* Code blocks */
 pre[class*="language-"] {
 	padding: 0 1em;
-	margin: .05em 0;
+	margin: .05em 0 1.7em;
 	overflow: auto;
 }
 
@@ -170,8 +163,16 @@ pre[class*="language-"] {
 }
 
 pre.line-numbers {
-	padding-left: 3.8em;
+	padding-left: 5em;
 	counter-reset: linenumber;
+}
+
+.single pre {
+	padding: 0 calc( ( 100vw - 740px ) / 2 );
+}
+
+.single pre.line-numbers {
+	padding: 0 calc( ( 100vw - 740px ) / 2 ) 0 calc( ( ( 100vw - 740px ) / 2 ) + 2.5em );
 }
 
 .line-numbers .line-numbers-rows {
@@ -179,8 +180,8 @@ pre.line-numbers {
 	pointer-events: none;
 	top: 0;
 	font-size: 100%;
-	left: -3.8em;
-	width: 3em; /* works for line-numbers below 1000 lines */
+	left: -5em;
+	width: 3.8em; /* works for line-numbers below 1000 lines */
 	letter-spacing: -1px;
 	border-right: 1px solid slategrey;
 
@@ -189,21 +190,22 @@ pre.line-numbers {
 	-ms-user-select: none;
 	user-select: none;
 
-}
-
-	.line-numbers-rows > span {
+	& > span {
 		pointer-events: none;
 		display: block;
 		counter-increment: linenumber;
 	}
 
-		.line-numbers-rows > span:before {
-			content: counter(linenumber);
-			color: slategrey;
-			display: block;
-			padding-right: 0.8em;
-			text-align: right;
-		}
+	& > span::before {
+		content: counter(linenumber);
+		color: slategrey;
+		display: block;
+		padding-right: 0.8em;
+		text-align: right;
+	}
+
+}
+
 .token a {
 	background: none !important;
 	color: inherit;
