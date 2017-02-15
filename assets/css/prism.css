@@ -162,48 +162,8 @@ pre[class*="language-"] {
 	cursor: help;
 }
 
-pre.line-numbers {
-	padding-left: 5em;
-	counter-reset: linenumber;
-}
-
 .single pre {
-	padding: 0 calc( ( 100vw - 740px ) / 2 );
-}
-
-.single pre.line-numbers {
-	padding: 0 calc( ( 100vw - 740px ) / 2 ) 0 calc( ( ( 100vw - 740px ) / 2 ) + 2.5em );
-}
-
-.line-numbers .line-numbers-rows {
-	position: absolute;
-	pointer-events: none;
-	top: 0;
-	font-size: 100%;
-	left: -5em;
-	width: 3.8em; /* works for line-numbers below 1000 lines */
-	letter-spacing: -1px;
-	border-right: 1px solid slategrey;
-
-	-webkit-user-select: none;
-	-moz-user-select: none;
-	-ms-user-select: none;
-	user-select: none;
-
-	& > span {
-		pointer-events: none;
-		display: block;
-		counter-increment: linenumber;
-	}
-
-	& > span::before {
-		content: counter(linenumber);
-		color: slategrey;
-		display: block;
-		padding-right: 0.8em;
-		text-align: right;
-	}
-
+	padding: 1.5em calc( ( 100vw - 740px ) / 2 );
 }
 
 .token a {

@@ -89,9 +89,8 @@
 
 		// Prevent adding hash to URL.
 		event.preventDefault();
-
 		// Call search toggle function.
-		toggleSearch();
+		toggleSearch($(this).text());
 
 	});
 
@@ -100,18 +99,16 @@
 	 *
 	 * @since 1.0.0
 	 */
-	function toggleSearch() {
+	function toggleSearch(originalText) {
 
 		// Handle main state actions.
 		if (!searchOn) {
-
-			searchToggle.text('Close');
+			$header.find(searchToggle).text('Close');
 			$overlay.toggleClass( 'visible' );
 			searchOn = true;
 
 		} else {
-
-			searchToggle.text('Search');
+			$header.find(searchToggle).text('Search');
 			$overlay.toggleClass( 'visible' );
 			searchOn = false;
 

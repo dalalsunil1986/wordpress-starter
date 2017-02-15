@@ -86,4 +86,9 @@ h2.jumbo {
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: space-between;
+	margin-top: 10vw;
+
+	& > a {
+		width: 48%;
+	}
 }

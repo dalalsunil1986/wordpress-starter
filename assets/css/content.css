@@ -187,7 +187,7 @@ ul.children {
 		}
 
 		& .entry {
-			background: color( var(--colorLight) tint(40%) );
+			background: color( var(--colorLight) tint(50%) );
 			border: 4px solid var(--colorLight);
 			align-items: center;
 			display: flex;
@@ -200,7 +200,7 @@ ul.children {
 			width: 48%;
 
 			& a:not(.button) {
-				text-shadow: .03em 0 color( var(--colorLight) tint(40%) ), -.03em 0 color( var(--colorLight) tint(40%) ), 0 .03em color( var(--colorLight) tint(40%) ), 0 -.03em color( var(--colorLight) tint(40%) ), .06em 0 color( var(--colorLight) tint(40%) ), -.06em 0 color( var(--colorLight) tint(40%) ), .09em 0 color( var(--colorLight) tint(40%) ), -.09em 0 color( var(--colorLight) tint(40%) ), .12em 0 color( var(--colorLight) tint(40%) ), -.12em 0 color( var(--colorLight) tint(40%) );
+				text-shadow: .03em 0 color( var(--colorLight) tint(50%) ), -.03em 0 color( var(--colorLight) tint(50%) ), 0 .03em color( var(--colorLight) tint(50%) ), 0 -.03em color( var(--colorLight) tint(50%) ), .06em 0 color( var(--colorLight) tint(50%) ), -.06em 0 color( var(--colorLight) tint(50%) ), .09em 0 color( var(--colorLight) tint(50%) ), -.09em 0 color( var(--colorLight) tint(50%) ), .12em 0 color( var(--colorLight) tint(50%) ), -.12em 0 color( var(--colorLight) tint(50%) );
 			}
 
 			&:hover {
@@ -223,10 +223,13 @@ ul.children {
 
 		& .entry-title,
 		& .entry-title a {
-			color: var(--linkDefault);
 			font-size: 28px;
 			font-size: 2.8rem;
 			line-height: 1;
+		}
+
+		& .entry-title a {
+			background-image: linear-gradient( var(--default), var(--default) );
 		}
 
 		& p.entry-meta {
