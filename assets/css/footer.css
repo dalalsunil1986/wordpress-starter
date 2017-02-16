@@ -46,7 +46,7 @@
 	}
 
 	&::before {
-		background-image: linear-gradient( color( var(--default) shade(20%) ), transparent );
+		background-image: linear-gradient( color( var(--default) shade(50%) alpha(-20%) ), transparent );
 		z-index: 2;
 	}
 

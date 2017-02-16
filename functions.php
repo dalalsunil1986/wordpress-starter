@@ -26,6 +26,15 @@ define( 'TEXT_DOMAIN', 'logic' );
 include_once( get_template_directory() . '/lib/init.php');
 
 /**
+ * Set the content width.
+ *
+ * @since 1.0.0
+ */
+if ( ! isset( $content_width ) ) {
+	$content_width = 740;
+}
+
+/**
  *
  * Load files in the /assets/ directory
  *
@@ -69,9 +78,7 @@ function logic_get_responsive_menu_settings() {
 
 	$settings = array(
 		'mainMenu'          => __( 'Menu', TEXT_DOMAIN ),
-		'mainMenuIconClass' => 'ionicons-before ion-drag',
-		'subMenu'           => __( 'Toggle Submenu', TEXT_DOMAIN ),
-		'subMenuIconClass'  => 'ionicons-before ion-chevron-down',
+		'menuIconClass' => 'button',
 		'menuClasses'       => array(
 			'others' => array(
 				'.nav-primary',
@@ -135,9 +142,9 @@ function logic_social_share() {
 	if ( is_singular( 'post' ) ) {
 		printf( '
 			<div class="share-it">
-				<h3>Share This Post!</h3>
-				<a href="%s" target="_blank" class="button button-primary button-block" alt="Share on Twitter">Share on Twitter</a>
-				<a href="%s" target="_blank" alt="Share on Facebook" class="button button-primary button-block">Share on Facebook</a>
+				<a href="%s" target="_blank" class="button" alt="Share on Twitter">Share on Twitter</a>
+				<a href="%s" target="_blank" alt="Share on Facebook" class="button">Share on Facebook</a>
+				<a href="#" class="button button-primary show-popup">Get Updates</a>
 			</div>
 		', $twitter, $facebook );
 	}
@@ -209,22 +216,17 @@ function logic_member_menu_items( $menu, $args ) {
 }
 
 /**
- * Add login popup.
+ * Add widget popup.
  * @since 1.0.0
  */
-add_action( 'genesis_after', 'logic_login_popup' );
-function logic_login_popup() {
-	if ( ! is_user_logged_in() ) {
+add_action( 'genesis_after', 'logic_widget_popup', 20 );
+function logic_widget_popup() {
 	?>
-	<div id="login-popup">
-		<div class="entry">
-			<h4 class="entry-title sans-serif">Log In to Your Account</h4>
-			<p>Not a member? <a href="/register">Registering is easy</a>.</p>
-			<?php wp_login_form( $args ); ?>
-		</div>
+	<div id="popup">
+		<?php genesis_widget_area( 'popup' ); ?>
 	</div>
+	<div id="popup-overlay"></div>
 	<?php
-	}
 }
 
 /**
@@ -237,7 +239,7 @@ function logic_login_popup() {
 add_theme_support( 'genesis-responsive-viewport' ); /* Enable Viewport Meta Tag for Mobile Devices */
 add_theme_support( 'html5',  array( 'search-form', 'comment-form', 'comment-list', 'gallery', 'caption' ) ); /* HTML5 */
 add_theme_support( 'genesis-accessibility', array( 'skip-links', 'search-form', 'drop-down-menu', 'headings' ) ); /* Accessibility */
-add_theme_support( 'genesis-after-entry-widget-area' ); /* After Entry Widget Area */
+// add_theme_support( 'genesis-after-entry-widget-area' );
 
 /**
  *

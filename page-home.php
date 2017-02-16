@@ -10,12 +10,12 @@ add_action( 'genesis_loop', 'logic_home_page_intro', 6 );
 function logic_home_page_intro() {
 
     ?>
-    <section class="home-page-intro section">
+    <section class="home-page-intro">
         <div class="wrap">
             <h2 class="jumbo">Hey, I'm Calvin.</h2>
-            <p class="lead">I'm a front-end developer with a focus on JavaScript, WordPress, and performance. I blog about lessons I learn,<br/> and spend a lot of time working on my <a href="#starter-theme">side project</a>.
+            <p class="lead">I'm a front-end developer with a focus on JavaScript, WordPress, and performance. I <a href="/blog/">blog</a> about lessons I learn,<br/> and spend a lot of time working on my <a href="#starter-theme">side project</a>.
 			<p>
-				<a href="#" class="button button-primary button-icon no-underline">Get Code-Fuel Every Monday</a>
+				<a href="#" class="button button-primary show-popup">Get Code-Fuel Every Monday</a>
 			</p>
         </div>
     </section>
@@ -38,8 +38,8 @@ function logic_home_page_intro() {
 	</section>
 	<section class="home-page-blog section">
 		<div class="wrap">
-			<h2 class="jumbo">Recent Blog Posts</h2>
-			<p class="lead">I write a semi-weekly feed of blog posts on things that I learn about front-end development and performance. These are a few of the most recent posts:</p>
+			<!-- <h2 class="jumbo">Recent Blog Posts</h2>
+			<p class="lead">I write a semi-weekly feed of blog posts on things that I learn about front-end development and performance. These are a few of the most recent posts:</p> -->
 			<div class="home-loop">
 				<?php
 					$args = array(

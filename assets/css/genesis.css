@@ -28,7 +28,7 @@
 }
 
 .archive-description {
-	padding: 5vh 0;
+	padding: 10vh 0;
 
 	& .archive-title {
 		margin-top: 0;
@@ -44,7 +44,7 @@
 
 /*----------  768  ----------*/
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 870px) {
 
 	.author-box {
 		font-size: 18px;

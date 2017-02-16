@@ -2,18 +2,8 @@
 =            Widgets            =
 ===============================*/
 
-/*----------  Header Widget Area  ----------*/
-
-.header-widget-area {
-	display: none;
-	max-width: 600px;
-	width: 100%;
-}
-
-/*----------  Sidebar Widgets  ----------*/
-
-.sidebar .widget {
-	margin-bottom: 40px;
+.after-entry {
+	margin: 2em 0 1.3em;
 }
 
 /*=====================================
@@ -22,7 +12,7 @@
 
 /*----------  768  ----------*/
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 870px) {
 
 	/* Footer Widgets */
 	.footer-widgets-1,

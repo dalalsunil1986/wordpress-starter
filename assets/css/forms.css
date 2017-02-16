@@ -6,7 +6,7 @@ input,
 select,
 textarea {
 	background-color: #fff;
-	border-radius: 0;
+	border-radius: 3px;
 	border: 1px solid var(--colorLight);
 	color: var(--default);
 	padding: 16px;
@@ -52,14 +52,16 @@ input[type="submit"],
 	border-radius: 3px;
 	color: #fff;
 	cursor: pointer;
-	/*font-family: var(--fontHeading);*/
 	font-weight: 700;
 	padding: 10px 20px;
 	position: relative;
-	/*letter-spacing: .04em;*/
 	background-image: none;
 	width: auto;
 	transition: all .15s ease-in-out;
+
+	&.button-large {
+		padding: 20px 40px;
+	}
 
 	&.button-primary {
 		background: var(--linkDefault);
@@ -71,7 +73,6 @@ input[type="submit"],
 			background: color( var(--linkDefault) tint(15%) );
 			border-color: color( var(--linkDefault) shade(15%) );
 			color: #fff;
-			/*transform: scale( 1.05 );*/
 		}
 
 		&:active {

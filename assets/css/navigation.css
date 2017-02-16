@@ -6,6 +6,8 @@
 
 .genesis-nav-menu {
 	clear: both;
+	font-size: 20px;
+	font-size: 2rem;
 	font-weight: 400;
 	line-height: 1;
 
@@ -28,7 +30,8 @@
 
 		&:focus,
 		&:hover {
-			color: var(--default);
+			background: color( var(--linkDefault) tint(15%) );
+			text-decoration: none;
 		}
 	}
 
@@ -57,58 +60,26 @@
 
 /*----------  Primary Navigation  ----------*/
 
-.nav-primary,
-.nav-primary .genesis-nav-menu {
-	width: 100%;
-}
-
 .nav-primary {
-	border-bottom: 1px solid #ddd;
+	clear: both;
 	display: none;
-	height: 100%;
+	height: 100vh;
 	overflow-y: scroll;
-	padding-top: 65px;
-	position: fixed;
-	top: 0;
-	z-index: 99;
+	padding-bottom: 5%;
+
+	& > .wrap {
+		padding: 0;
+	}
 }
-
-.admin-bar .nav-primary {
-	padding-top: 111px;
-}
-
-/*----------  Secondary Navigation  ----------*/
-
-.nav-secondary {
-	border-bottom: 1px solid #ddd;
-	font-size: .8em;
-	font-style: italic;
-	display: none;
-}
-
 
 /*----------  Menu Toggle  ----------*/
 
 .menu-toggle {
-	background: transparent;
-	border: 0;
-	border-bottom: 1px solid currentColor;
-	color: var(--linkDefault);
 	float: right;
-	font-weight: bold;
-	padding: 0;
-	text-align: right;
-	text-transform: none;
-}
 
-.menu-toggle,
-.sub-menu-toggle {
-
-	&:active,
-	&:focus,
-	&:hover {
-		background: transparent;
-		color: var(--default);
+	&.button {
+		border-radius: 0;
+		padding: 15px 40px;
 	}
 }
 
@@ -138,9 +109,7 @@
 =            Media Queries            =
 =====================================*/
 
-/*----------  1200  ----------*/
-
-@media screen and (min-width: 1200px) {
+@media screen and (min-width: 870px) {
 
 	/* Navigation */
 	.genesis-nav-menu {
@@ -164,16 +133,17 @@
 
 		& > .menu-item > a {
 			background-image: linear-gradient( var(--linkDefault), var(--linkDefault) );
-			background-size: .05em 1px;
-			background-repeat: repeat-x;
 			background-position: 0 68%;
+			background-repeat: repeat-x;
+			background-size: .05em 1px;
 			border: 0;
-			padding: 20px 0;
 			margin: 0 20px;
+			padding: 20px 0;
 			text-shadow: .03em 0 var(--linkDefault), -.03em 0 var(--linkDefault), 0 .03em var(--linkDefault), 0 -.03em var(--linkDefault), .06em 0 var(--linkDefault), -.06em 0 var(--linkDefault), .09em 0 var(--linkDefault), -.09em 0 var(--linkDefault), .12em 0 var(--linkDefault), -.12em 0 var(--linkDefault);
 
 			&:focus,
 			&:hover {
+				background-color: transparent;
 				background-image: linear-gradient( #fff, #fff );
 				color: #fff;
 				text-decoration: none;
@@ -181,91 +151,34 @@
 		}
 
 		& > .menu-item.current-menu-item > a {
-			text-shadow: .03em 0 var(--linkDefault), -.03em 0 var(--linkDefault), 0 .03em var(--linkDefault), 0 -.03em var(--linkDefault), .06em 0 var(--linkDefault), -.06em 0 var(--linkDefault), .09em 0 var(--linkDefault), -.09em 0 var(--linkDefault), .12em 0 var(--linkDefault), -.12em 0 var(--linkDefault);
 	        background-image: linear-gradient( #fff, #fff );
-	        background-size: .05em 1px;
-	        background-repeat: repeat-x;
 	        background-position: 0 68%;
+	        background-repeat: repeat-x;
+	        background-size: .05em 1px;
 			color: #fff;
 			font-weight: 700;
-		}
-
-		/* Sub Menu */
-		& .sub-menu {
-			display: none;
-			left: 0;
-			margin-left: 0;
-			position: absolute;
-			width: 200px;
-			z-index: 99;
-
-			& a {
-				background: #fff;
-				border: 1px solid #ddd;
-				border-top: 0;
-				padding: 20px;
-				word-wrap: break-word;
-			}
-
-			& > .menu-item:first-child {
-				border-top: 1px solid #ddd;
-			}
-
-			& .sub-menu {
-				margin: -1px 0 0 198px;
-				top: 0;
-
-				& a {
-					padding: 20px;
-				}
-			}
-
-			& a,
-			& .menu-item {
-				display: block;
-			}
-
-			& .menu-item-has-children:hover > .sub-menu {
-				display: block;
-				left: auto;
-			}
+			text-shadow: .03em 0 var(--linkDefault), -.03em 0 var(--linkDefault), 0 .03em var(--linkDefault), 0 -.03em var(--linkDefault), .06em 0 var(--linkDefault), -.06em 0 var(--linkDefault), .09em 0 var(--linkDefault), -.09em 0 var(--linkDefault), .12em 0 var(--linkDefault), -.12em 0 var(--linkDefault);
 		}
 	}
 
 	/* Genesis Navigation */
 	.nav-primary {
 		background-color: transparent;
-		border-bottom: 0;
-		transition: none;
+		clear: none;
 		display: block;
 		float: right;
 		height: auto;
-		/*max-width: 100%;*/
-		overflow: visible;
-		position: relative;
+		padding: 0;
 		width: auto;
 
 		& .genesis-nav-menu {
-			text-align: center;
 			position: relative;
+			text-align: center;
 			z-index: 2;
 		}
-	}
-
-	.nav-primary,
-	.admin-bar .nav-primary {
-		padding: 0;
-	}
-
-	.admin-bar .nav-primary.fixed {
-		top: 32px;
-	}
-
-	.nav-primary,
-	.nav-secondary {
 
 		& > .wrap {
-			margin: 0 auto;
+			margin: 0;
 			padding: 0;
 		}
 	}
@@ -274,10 +187,6 @@
 	.menu-toggle,
 	.sub-menu-toggle {
 		display: none;
-	}
-
-	.genesis-nav-menu .menu-item.menu-item-has-children > a {
-		padding-right: 20px;
 	}
 
 }

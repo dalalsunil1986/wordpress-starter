@@ -14,14 +14,7 @@ remove_action( 'genesis_before_loop', 'genesis_do_breadcrumbs' );
  * Setup the current layout.
  * @since 1.0.0
  */
-add_action( 'genesis_meta', 'logic_default_layout' );
-function logic_default_layout() {
-
-	if ( is_front_page() || is_home() || is_archive() ) {
-		add_filter( 'genesis_pre_get_option_site_layout', '__genesis_return_full_width_content' );
-	}
-
-}
+add_filter( 'genesis_pre_get_option_site_layout', '__genesis_return_full_width_content' );
 
 /**
  * Modify the read more link on archives.
@@ -42,10 +35,31 @@ function logic_more_link() {
  */
 remove_action( 'genesis_site_description', 'genesis_seo_site_description' );
 
+/**
+ * Modify the author bio gravatar size.
+ * @since 1.0.0
+ */
 add_filter( 'genesis_author_box_gravatar_size', 'logic_author_box_gravatar_size' );
 function logic_author_box_gravatar_size( $size ) {
 	return '150';
 }
+
+/**
+ * Modify the comment gravatar size.
+ * @since 1.0.0
+ */
+add_filter( 'genesis_comment_list_args', 'logic_comment_gravatar_size' );
+function logic_comment_gravatar_size( $args ) {
+	$args['avatar_size'] = 100;
+	return $args;
+}
+
+/**
+ * Move after entry widget area.
+ * @since 1.0.0
+ */
+remove_action( 'genesis_after_entry', 'genesis_after_entry_widget_area' );
+add_action( 'genesis_entry_content', 'genesis_after_entry_widget_area', 10 );
 
 /**
  * Remove the archive description boxes.

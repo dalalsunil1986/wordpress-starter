@@ -40,18 +40,17 @@
 
 .site-inner {
 	clear: both;
-	margin-top: 65px; /* Height of header */
+	margin-top: 62px; /* Height of header */
 	padding: 20px 10px;
+	overflow: hidden;
 }
 
 /*----------  Site Header  ----------*/
 
 .site-header {
 	background-color: var(--linkDefault);
-	border-bottom: 1px solid color( var(--linkDefault) shade(10%) );
 	box-shadow: 0 0 0 color( var(--default) alpha(-70%) );
 	left: 0;
-	margin-bottom: 20px;
 	position: fixed;
 	top: 0;
 	transition: box-shadow .25s ease-in-out;
@@ -63,18 +62,17 @@
 	}
 
 	& > .wrap {
+		margin: 0 auto;
 		max-width: 100%;
+		padding: 1px 0 0;
+		transition: all .15s ease-in-out;
 	}
 }
 
 .title-area {
 	float: left;
 	max-width: 70%;
-}
-
-.header-widget-area {
-	display: none;
-	float: right;
+	padding-left: 20px;
 }
 
 /*----------  Widgets  ----------*/
@@ -114,7 +112,7 @@
 
 /*----------  768  ----------*/
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 870px) {
 
 	/* Structure */
 	.site-inner,
@@ -122,19 +120,30 @@
 		padding: 40px;
 	}
 
+	.site-header {
+		& > .wrap {
+			max-width: 1200px;
+			padding: 0 40px;
+		}
+	}
+
+	.title-area {
+		padding-left: 0;
+	}
+
+	.entry-content {
+		margin: 0 auto;
+		max-width: 700px;
+	}
+
 	.footer-widgets {
 		padding-left: 40px;
 		padding-right: 40px;
 	}
 
-}
-
-/*----------  1200  ----------*/
-
-@media screen and (min-width: 1200px) {
-
-	#site-overlay {
-		background: color( var(--default) alpha(-20%) );
+	#site-overlay,
+	#popup-overlay {
+		background: color( var(--default) alpha(-10%) );
 		display: none;
 		height: 100%;
 		left: 0;
@@ -150,10 +159,17 @@
 		}
 	}
 
-	.site-inner {
-		margin-top: 68px;
-		padding-top: 40px;
+	#popup-overlay {
+		height: calc( 100vh - 62px );
+		top: auto;
+		bottom: 0;
 	}
+
+}
+
+/*----------  1200  ----------*/
+
+@media screen and (min-width: 1200px) {
 
 	.single .site-inner {
 		padding-left: 0;
@@ -161,27 +177,10 @@
 		max-width: 100%;
 	}
 
-	.site-header {
-		color: var(--default);
-		height: auto;
-		margin: 0 auto;
-
-		& > .wrap {
-			margin: 0 auto;
-			padding: 1px 40px 0;
-	        transition: all .15s ease-in-out;
-		}
-	}
-
 	.content {
 		float: none;
 		margin: 0 auto;
 		width: 100%;
-	}
-
-	.entry-content {
-		margin: 0 auto;
-		max-width: 700px;
 	}
 
 	/*----------  Columns  ----------*/

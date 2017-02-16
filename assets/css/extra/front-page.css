@@ -3,7 +3,7 @@
 .site-inner {
 	max-width: 100%;
 	margin: 0 auto;
-	padding: 68px 0 0;
+	padding: 62px 0 0;
 	text-align: center;
 
 	& > .wrap {
@@ -16,12 +16,13 @@ h2.jumbo {
 	margin-top: 0;
 }
 
-.section {
-	margin: 0 0 10vw;
-}
-
 .home-page-intro {
-	margin-top: 10vw;
+	align-items: center;
+	box-shadow: 0 0 20px color( var(--default) alpha(-70%) );
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	min-height: 80vh;
 	overflow: hidden;
 	position: relative;
 	text-align: center;
@@ -47,14 +48,17 @@ h2.jumbo {
 	}
 
 	& > .wrap {
-		align-items: stretch;
-		display: flex;
-		flex-wrap: nowrap;
-		justify-content: space-between;
 		margin: 0;
-		max-width: 100%;
-		overflow: hidden;
 		padding: 0;
+	}
+}
+
+.home-page-blog {
+	box-shadow: 0 0 20px color( var(--default) alpha(-70%) );
+	padding: 10vw 0;
+
+	& > .wrap {
+		margin-bottom: 0;
 	}
 }
 
@@ -64,11 +68,10 @@ h2.jumbo {
 	align-items: center;
 	justify-content: center;
 	flex-wrap: nowrap;
-	margin-left: -1px; /* Fix odd flexbox spacing */
+	margin-left: -1px; /* Flexbox spacing */
 	overflow: hidden;
-	padding: 0;
+	padding: 10vw 0;
 	position: relative;
-	width: 40%;
 
 	& svg {
 		opacity: .2;
@@ -76,19 +79,45 @@ h2.jumbo {
 }
 
 .message {
-	padding: 5vw;
+	padding: 10vw 5vw;
 	text-align: left;
-	width: 60%;
 }
 
-.home-loop {
-	align-items: stretch;
-	display: flex;
-	flex-wrap: wrap;
-	justify-content: space-between;
-	margin-top: 10vw;
+@media screen and (min-width: 870px) {
 
-	& > a {
-		width: 48%;
+	.logo {
+		padding: 0;
+		width: 40%;
 	}
+
+	.message {
+		padding: 10vw 5vw;
+		text-align: left;
+		width: 60%;
+	}
+
+	.home-page-starter {
+		& > .wrap {
+			align-items: stretch;
+			display: flex;
+			flex-wrap: nowrap;
+			justify-content: space-between;
+			margin: 0;
+			max-width: 100%;
+			overflow: hidden;
+			padding: 0;
+		}
+	}
+
+	.home-loop {
+		align-items: stretch;
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: space-between;
+
+		& > a {
+			width: 48%;
+		}
+	}
+
 }

@@ -13,6 +13,8 @@
 		$overlay     = $('#site-overlay'),
 		$body        = $('body'),
 		$footer      = $('.site-footer'),
+		$popup       = $('#popup'),
+		$popupOverlay= $('#popup-overlay'),
 		searchToggle = $('a[href="#search"]'),
 		searchOn     = false;
 
@@ -26,6 +28,17 @@
 	});
 	$('.site-container').css({
 		marginBottom: $footer.innerHeight()
+	});
+
+	/**
+	 * Trigger widget popup.
+	 *
+	 * @since 1.0.0
+	 */
+	$('.show-popup').add('#popup-overlay').click( function(e) {
+		e.preventDefault();
+		$popup.toggleClass( 'visible' );
+		$popupOverlay.toggleClass('visible');
 	});
 
 	/**
@@ -90,7 +103,7 @@
 		// Prevent adding hash to URL.
 		event.preventDefault();
 		// Call search toggle function.
-		toggleSearch($(this).text());
+		toggleSearch();
 
 	});
 
