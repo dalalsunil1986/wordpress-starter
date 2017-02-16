@@ -22,7 +22,7 @@ h2.jumbo {
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
-	min-height: 80vh;
+	min-height: 85vh;
 	overflow: hidden;
 	position: relative;
 	text-align: center;

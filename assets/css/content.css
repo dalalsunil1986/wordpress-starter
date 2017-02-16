@@ -290,7 +290,7 @@ ul.children {
 		}
 	}
 
-	.single .entry {
+	.entry {
 
 		& .entry-content {
 			float: none;
@@ -304,11 +304,26 @@ ul.children {
 				max-width: 740px;
 			}
 		}
+	}
 
+	.single {
 		& .entry-header {
+			background: var(--linkDefault);
+			box-shadow: inset 0 -60px 30px -60px color( var(--default) shade(50%) alpha(-80%) );
+			color: #fff;
 			margin: 0 auto 40px;
-			max-width: 1200px;
-			padding: 5vh 0;
+			padding: 15vh calc( 100vw - 1200px );
+
+			& a:not(.button) {
+				background-image: linear-gradient( color( var(--linkDefault) tint(50%) ), color( var(--linkDefault) tint(50%) ) );
+				color: #fff;
+				text-shadow: .03em 0 var(--linkDefault), -.03em 0 var(--linkDefault), 0 .03em var(--linkDefault), 0 -.03em var(--linkDefault), .06em 0 var(--linkDefault), -.06em 0 var(--linkDefault), .09em 0 var(--linkDefault), -.09em 0 var(--linkDefault), .12em 0 var(--linkDefault), -.12em 0 var(--linkDefault);
+
+				&:focus,
+				&:hover {
+					background-image: linear-gradient( #fff, #fff );
+				}
+			}
 		}
 	}
 

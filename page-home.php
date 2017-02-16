@@ -13,7 +13,7 @@ function logic_home_page_intro() {
     <section class="home-page-intro">
         <div class="wrap">
             <h2 class="jumbo">Hey, I'm Calvin.</h2>
-            <p class="lead">I'm a front-end developer with a focus on JavaScript, WordPress, and performance. I <a href="/blog/">blog</a> about lessons I learn,<br/> and spend a lot of time working on my <a href="#starter-theme">side project</a>.
+            <p class="lead">I'm a front-end developer with a focus on JavaScript, WordPress, and performance. I <a href="/blog/">blog</a> about lessons I learn, and spend a lot of time on my <a href="#starter-theme">side project</a>.
 			<p>
 				<a href="#" class="button button-primary show-popup">Get Code-Fuel Every Monday</a>
 			</p>
