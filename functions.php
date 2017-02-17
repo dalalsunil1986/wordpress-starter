@@ -58,7 +58,8 @@ function logic_load_assets() {
 
 	// Load extra CSS.
 	if ( is_front_page() ) {
-		wp_enqueue_style( 'logic-home', get_stylesheet_directory_uri() . '/build/css/front-page.min.css', array( 'logic' ), CHILD_THEME_VERSION );
+		wp_deregister_style( 'logic' );
+		wp_enqueue_style( 'logic-home-styles', get_stylesheet_directory_uri() . '/build/css/front-page-styles.min.css', array(), CHILD_THEME_VERSION );
 	}
 
 	// Localize menu settings.

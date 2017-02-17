@@ -53,9 +53,12 @@ gulp.task( 'css', function() {
 });
 
 //* Gulp task to run PostCSS on extra stylesheets.
-gulp.task( 'css:extra', function() {
+gulp.task( 'css:front-page', function() {
 
-	gulp.src( PATHS.css + 'extra/*.css' )
+	gulp.src( [
+		PATHS.css + 'style.css',
+		PATHS.css + 'extra/front-page.css'
+		])
 		.pipe(postcss([
 			cssimport(),
 			cssnext(),
@@ -66,7 +69,7 @@ gulp.task( 'css:extra', function() {
 				}
 			})
 		]))
-		.pipe(rename({ extname: '.min.css' }))
+		.pipe( concat( "front-page-styles.min.css" ))
 		.pipe(gulp.dest(PATHS.build.css));
 
 });
@@ -89,7 +92,7 @@ gulp.task( 'scripts', function() {
 gulp.task( 'watch', function() {
 
 	gulp.watch( PATHS.js + '**/*.js', ['scripts'] );
-	gulp.watch( PATHS.css + '**/*.css', ['css','css:extra'] );
+	gulp.watch( PATHS.css + '**/*.css', ['css','css:front-page'] );
 
 });
 
