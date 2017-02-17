@@ -80,7 +80,7 @@ gulp.task( 'scripts', function() {
 		PATHS.js + 'responsive-menus.js',
 		PATHS.js + 'global.js' ] )
 		.pipe( uglify() )
-		.pipe( concat('app.min.js') )
+		.pipe( concat('theme.min.js') )
 		.pipe( gulp.dest( PATHS.build.js ) );
 
 });

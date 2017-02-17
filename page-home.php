@@ -38,13 +38,13 @@ function logic_home_page_intro() {
 	</section>
 	<section class="home-page-blog section">
 		<div class="wrap">
-			<!-- <h2 class="jumbo">Recent Blog Posts</h2>
-			<p class="lead">I write a semi-weekly feed of blog posts on things that I learn about front-end development and performance. These are a few of the most recent posts:</p> -->
+			<h2 class="jumbo">All Things Front-End</h2>
+			<p class="lead">Get every new post <a href="#" class="show-popup">in your inbox</a>.</p>
 			<div class="home-loop">
 				<?php
 					$args = array(
 						'post_type' => 'post',
-						'posts_per_page' => 4,
+						'posts_per_page' => 8,
 					);
 					remove_action( 'genesis_after_endwhile', 'genesis_posts_nav' );
 					genesis_custom_loop( $args );

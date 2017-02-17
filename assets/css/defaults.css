@@ -37,14 +37,3 @@ body {
 	}
 
 }
-
-@media screen and (min-width: 1200px) {
-
-	.layer-svg {
-		left: 0;
-		top: 0;
-		position: absolute;
-		z-index: -5;
-	}
-
-}

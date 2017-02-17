@@ -74,8 +74,7 @@ li {
 	list-style-type: none;
 }
 
-.entry-content,
-.footer-widgets {
+.entry-content {
 
 	& ol,
 	& ul {
@@ -186,17 +185,6 @@ h6 {
 	margin: 1.414em 0 0.5em;
 }
 
-.subhead {
-	color: color( var(--default) tint(50%) );
-	display: block;
-	font-family: var(--fontBody);
-	font-size: 18px;
-	font-size: 1.8rem;
-	font-weight: 700;
-	line-height: 1.2;
-	text-transform: uppercase;
-}
-
 h1 {
 	font-size: 32px;
 	font-size: 3.2rem;
@@ -211,6 +199,7 @@ h2 {
 		font-size: 72px;
 		font-size: 7.2rem;
 		margin-bottom: 0.2em;
+		margin-top: 0;
 	}
 }
 
@@ -257,14 +246,6 @@ h6 {
 			text-decoration: none;
 		}
 	}
-}
-
-.site-description {
-	font-style: italic;
-	margin: 20px 0 0;
-	text-align: center;
-	transform: translateY( -100% );
-	transition: all .25s ease-in-out;
 }
 
 /*----------  Entries  ----------*/
@@ -361,14 +342,6 @@ h6 {
 		font-size: 20px;
 		font-size: 2rem;
 		line-height: 1.25em;
-	}
-
-	.archive .entry-title,
-	.blog .entry-title,
-	.page-home .entry-title {
-		font-size: 36px;
-		font-size: 3.6rem;
-		margin-top: 0;
 	}
 
 }

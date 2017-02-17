@@ -54,7 +54,7 @@ function logic_load_assets() {
 	$wp_scripts->add_data( 'skip-links', 'group', 1 );
 
 	// Load theme JS.
-	wp_enqueue_script( 'logic-app-js', get_stylesheet_directory_uri() . '/build/js/app.min.js', array(), CHILD_THEME_VERSION, true );
+	wp_enqueue_script( 'logic-theme-js', get_stylesheet_directory_uri() . '/build/js/theme.min.js', array(), CHILD_THEME_VERSION, true );
 
 	// Load extra CSS.
 	if ( is_front_page() ) {
@@ -63,7 +63,7 @@ function logic_load_assets() {
 
 	// Localize menu settings.
 	wp_localize_script(
-		'logic-app-js',
+		'logic-theme-js',
 		'genesis_responsive_menu',
 		logic_get_responsive_menu_settings()
 	);
@@ -95,10 +95,10 @@ function logic_get_responsive_menu_settings() {
  *
  * @since 1.0.0
  */
-add_action( 'wp_head', 'logic_prefetch', 99 );
-function logic_prefetch() {
+add_action( 'wp_head', 'logic_load_inline_scripts', 99 );
+function logic_load_inline_scripts() {
 	?>
-	<link rel="prefetch" href="https://use.typekit.net/xoo4gbo.js"/>
+	<link rel="dns-prefetch" href="//use.typekit.net" />
 	<script src="https://use.typekit.net/xoo4gbo.js"></script>
 	<script>try{Typekit.load({ async: true });}catch(e){console.log(e);}</script>
 	<?php

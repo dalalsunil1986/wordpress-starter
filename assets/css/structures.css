@@ -23,8 +23,8 @@
 		background-size: 800px 800px;
 		content: "";
 		display: block;
-		left: 0;
 		height: 100%;
+		left: 0;
 		opacity: .5;
 		position: absolute;
 		top: 0;
@@ -44,8 +44,8 @@
 .site-inner {
 	clear: both;
 	margin-top: 60px; /* Height of header */
-	padding: 20px 10px;
 	overflow: hidden;
+	padding: 20px 10px;
 }
 
 /*----------  Site Header  ----------*/
@@ -97,18 +97,6 @@
 	}
 }
 
-.widget_calendar {
-
-	& table {
-		width: 100%;
-	}
-
-	& th,
-	& td {
-		text-align: center;
-	}
-}
-
 /*=====================================
 =            Media Queries            =
 =====================================*/
@@ -155,8 +143,6 @@
 		left: 0;
 		position: fixed;
 		top: 0;
-		transform: translate3d(0,0,0);
-		transition: none;
 		width: 100%;
 		z-index: 50;
 
@@ -166,9 +152,9 @@
 	}
 
 	#popup-overlay {
-		height: calc( 100vh - 62px );
-		top: auto;
 		bottom: 0;
+		height: calc( 100vh - 60px );
+		top: auto;
 	}
 
 }
@@ -178,9 +164,9 @@
 @media screen and (min-width: 1200px) {
 
 	.single .site-inner {
+		max-width: 100%;
 		padding-left: 0;
 		padding-right: 0;
-		max-width: 100%;
 	}
 
 	.content {

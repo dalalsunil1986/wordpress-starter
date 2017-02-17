@@ -56,19 +56,6 @@
 		background-repeat: repeat;
 		background-size: 50px 50px;
 		opacity: .05;
-		position: absolute;
 		z-index: 1;
-	}
-}
-
-/*----------  Widgets  ----------*/
-
-.footer-widgets {
-	clear: both;
-	overflow: hidden;
-	padding: 40px 10px;
-
-	& .widget {
-		margin-bottom: 40px;
 	}
 }

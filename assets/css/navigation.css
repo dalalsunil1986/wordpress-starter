@@ -1,5 +1,3 @@
-
-
 /*==================================
 =            Navigation            =
 ==================================*/
@@ -16,13 +14,12 @@
 		position: relative;
 		text-align: right;
 
-		& > a {
+		& a {
 			padding: 20px;
 		}
 	}
 
 	& a {
-		border-bottom: 2px solid transparent;
 		color: #fff;
 		display: block;
 		padding: 20px 10px;
@@ -30,31 +27,13 @@
 
 		&:focus,
 		&:hover {
-			background: color( var(--linkDefault) tint(15%) );
+			background-color: color( var(--linkDefault) tint(15%) );
 			text-decoration: none;
 		}
 	}
 
 	& .menu-item.menu-item-has-children > a {
 		padding-right: 50px;
-	}
-
-	/* Sub Menu */
-	& .sub-menu {
-		display: none;
-
-		& a {
-			font-size: .8em;
-			padding-left: 40px;
-			word-wrap: break-word;
-		}
-
-		& .sub-menu {
-
-			& a {
-				padding-left: 60px;
-			}
-		}
 	}
 }
 
@@ -83,28 +62,6 @@
 	}
 }
 
-.sub-menu-toggle {
-	background: transparent;
-	border: 0;
-	padding: 20px;
-	position: absolute;
-	right: 0;
-	top: 0;
-
-	&::before {
-		color: var(--linkDefault);
-		content: "\f347";
-		display: block;
-		font-family: "dashicons";
-		font-size: inherit;
-		line-height: inherit;
-	}
-
-	& .activated {
-		transform: rotate(180deg);
-	}
-}
-
 /*=====================================
 =            Media Queries            =
 =====================================*/
@@ -113,25 +70,18 @@
 
 	/* Navigation */
 	.genesis-nav-menu {
-		clear: both;
 		line-height: 1;
-		text-align: left;
 
 		& .menu-item {
 			display: inline-block;
-			position: relative;
 			text-align: left;
-		}
-
-		& a {
-			display: block;
 		}
 
 		& > .menu-item:last-child > a {
 			margin-right: 0;
 		}
 
-		& > .menu-item > a {
+		& .menu-item a {
 			background-image: linear-gradient( var(--linkDefault), var(--linkDefault) );
 			background-position: 0 68%;
 			background-repeat: repeat-x;
@@ -146,15 +96,11 @@
 				background-color: transparent;
 				background-image: linear-gradient( #fff, #fff );
 				color: #fff;
-				text-decoration: none;
 			}
 		}
 
-		& > .menu-item.current-menu-item > a {
+		& .menu-item.current-menu-item a {
 	        background-image: linear-gradient( #fff, #fff );
-	        background-position: 0 68%;
-	        background-repeat: repeat-x;
-	        background-size: .05em 1px;
 			color: #fff;
 			font-weight: 700;
 			text-shadow: .03em 0 var(--linkDefault), -.03em 0 var(--linkDefault), 0 .03em var(--linkDefault), 0 -.03em var(--linkDefault), .06em 0 var(--linkDefault), -.06em 0 var(--linkDefault), .09em 0 var(--linkDefault), -.09em 0 var(--linkDefault), .12em 0 var(--linkDefault), -.12em 0 var(--linkDefault);
@@ -163,7 +109,6 @@
 
 	/* Genesis Navigation */
 	.nav-primary {
-		background-color: transparent;
 		clear: none;
 		display: block;
 		float: right;
@@ -179,13 +124,11 @@
 
 		& > .wrap {
 			margin: 0;
-			padding: 0;
 		}
 	}
 
 	/* Mobile Navigation */
-	.menu-toggle,
-	.sub-menu-toggle {
+	.menu-toggle {
 		display: none;
 	}
 

@@ -164,32 +164,6 @@ input[type="search"]::-webkit-search-results-button {
 	}
 }
 
-.admin-bar .search-form.fixed {
-	margin-top: 32px;
-}
-
 .search-form {
 	overflow: hidden;
-}
-
-.site-header .search-form {
-	float: right;
-}
-
-.entry-content,
-.site-header {
-	& .search-form {
-		width: 50%;
-	}
-}
-
-.genesis-nav-menu .search input[type="submit"],
-.widget_search input[type="submit"] {
-	border: 0;
-	clip: rect(0, 0, 0, 0);
-	height: 1px;
-	margin: -1px;
-	padding: 0;
-	position: absolute;
-	width: 1px;
 }

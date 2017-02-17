@@ -154,7 +154,12 @@ function logic_post_info( $post_info ) {
 	if ( is_singular( 'post' ) ) {
 		$content = get_the_content();
 		$word_count = str_word_count( strip_tags( $content ) );
-		$post_info = sprintf( "<strong>About a %s minute read.</strong>", floor( $word_count / 200 ) );
+		$length = floor( $word_count / 200 );
+		if ( $length > 0 ) {
+			$post_info = sprintf( "<strong>About a %s minute read.</strong>", floor( $word_count / 200 ) );
+		} else {
+			$post_info = sprintf( "<strong>A very short read.</strong>", floor( $word_count / 200 ) );
+		}
 		$meta .= $read . $post_info . " [post_tags sep='&nbsp;- ' before='{$tag} ']";
 	} else {
 		$meta .= '[post_date]';
@@ -172,8 +177,8 @@ function logic_post_info( $post_info ) {
 add_action( 'genesis_before_loop', 'logic_remove_entry_content' );
 function logic_remove_entry_content() {
 
-	if ( is_archive() || is_home() ) {
-		// remove_all_actions( 'genesis_entry_content' );
+	if ( is_archive() || is_home() || is_front_page() ) {
+		remove_all_actions( 'genesis_entry_content' );
 	}
 }
 
