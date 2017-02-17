@@ -6,6 +6,11 @@
 
 /*----------  Entries  ----------*/
 
+.blog .content,
+.archive .content {
+	max-width: 1200px;
+}
+
 .entry {
 	text-rendering: optimizeLegibility;
 }

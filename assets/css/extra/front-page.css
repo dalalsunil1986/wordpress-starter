@@ -1,8 +1,8 @@
 @import url( '../setup.css' );
 
 .site-inner {
-	max-width: 100%;
 	margin: 0 auto;
+	max-width: 100%;
 	padding: 60px 0 0;
 	text-align: center;
 }
