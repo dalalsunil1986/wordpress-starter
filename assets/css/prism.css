@@ -48,8 +48,12 @@ pre[class*="language-"] {
 		background: color( var(--default) tint(10%) );
 		padding: .5em 1em;
 		position: absolute;
-		right: calc( (100vw - 740px) / 2 );
+		right: 0;
 		top: 0;
+	}
+
+	&.stretch .tooglebar {
+		right: calc( (100vw - 740px) / 2 );
 	}
 }
 
