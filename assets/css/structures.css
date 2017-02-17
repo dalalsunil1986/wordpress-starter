@@ -44,6 +44,7 @@
 .site-inner {
 	clear: both;
 	margin-top: 60px; /* Height of header */
+	max-width: 100%;
 	overflow: hidden;
 	padding: 20px 10px;
 }
@@ -111,7 +112,7 @@
 	}
 
 	.site-inner {
-		padding: 0 40px 40px;
+		padding: 0 0 40px;
 	}
 
 	.site-header {
@@ -162,12 +163,6 @@
 /*----------  1200  ----------*/
 
 @media screen and (min-width: 1200px) {
-
-	.single .site-inner {
-		max-width: 100%;
-		padding-left: 0;
-		padding-right: 0;
-	}
 
 	.content {
 		float: none;

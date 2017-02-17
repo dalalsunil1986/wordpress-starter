@@ -48,7 +48,7 @@ pre[class*="language-"] {
 		background: color( var(--default) tint(10%) );
 		padding: .5em 1em;
 		position: absolute;
-		right: 0;
+		right: calc( (100vw - 740px) / 2 );
 		top: 0;
 	}
 }
@@ -79,7 +79,7 @@ code[class*="language-"] ::selection {
 /* Code blocks */
 pre[class*="language-"] {
 	padding: 0 1em;
-	margin: .05em 0 1.7em;
+	margin: 3.5% 0 5%;
 	overflow: auto;
 }
 
@@ -162,8 +162,8 @@ pre[class*="language-"] {
 	cursor: help;
 }
 
-.single pre {
-	padding: 1.5em calc( ( 100vw - 740px ) / 2 );
+.single pre.stretch {
+	padding: 3% calc( ( 100vw - 740px ) / 2 );
 }
 
 .token a {

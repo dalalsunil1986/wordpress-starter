@@ -105,22 +105,6 @@ function logic_load_inline_scripts() {
 }
 
 /**
- * Defer scripts.
- *
- * @since 1.0.0
- */
-add_filter( 'script_loader_tag', 'logic_script_attributes', 10, 2 );
-function logic_script_attributes( $tag, $handle ) {
-
-	if ( 'logic-app-js' !== $handle ) {
-		return $tag;
-	}
-
-	return str_replace( ' src', ' defer="defer" src', $tag );
-
-}
-
-/**
  *
  * Add Social Share Buttons
  *

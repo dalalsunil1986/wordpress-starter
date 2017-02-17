@@ -71,6 +71,10 @@ p.entry-meta {
 	margin: calc( -5% - 4px ) calc( -5% - 4px ) 5%;
 	overflow: hidden;
 	padding: 2%;
+
+	& a:not(.button) {
+		text-shadow: .03em 0 color( var(--colorLight) tint(25%) ), -.03em 0 color( var(--colorLight) tint(25%) ), 0 .03em color( var(--colorLight) tint(25%) ), 0 -.03em color( var(--colorLight) tint(25%) ), .06em 0 color( var(--colorLight) tint(25%) ), -.06em 0 color( var(--colorLight) tint(25%) ), .09em 0 color( var(--colorLight) tint(25%) ), -.09em 0 color( var(--colorLight) tint(25%) ), .12em 0 color( var(--colorLight) tint(25%) ), -.12em 0 color( var(--colorLight) tint(25%) );
+	}
 }
 
 .comment-respond {

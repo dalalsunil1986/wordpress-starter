@@ -11,10 +11,8 @@
 
 	var $header      = $('.site-header'),
 		$overlay     = $('#site-overlay'),
-		$body        = $('body'),
 		$footer      = $('.site-footer'),
 		$popup       = $('#popup'),
-		$popupOverlay= $('#popup-overlay'),
 		searchToggle = $('a[href="#search"]'),
 		searchOn     = false;
 
@@ -38,7 +36,7 @@
 	$('.show-popup').add('#popup-overlay').click( function(e) {
 		e.preventDefault();
 		$popup.toggleClass( 'visible' );
-		$popupOverlay.toggleClass('visible');
+		$('#popup-overlay').toggleClass('visible');
 	});
 
 	/**
