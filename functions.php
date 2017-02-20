@@ -45,6 +45,7 @@ add_action( 'wp_enqueue_scripts', 'logic_load_assets' );
 function logic_load_assets() {
 
 	global $wp_scripts;
+	global $wp_styles;
 
 	// Clean up default WP Scripts.
 	wp_deregister_script( 'jquery' );
@@ -54,13 +55,25 @@ function logic_load_assets() {
 	$wp_scripts->add_data( 'skip-links', 'group', 1 );
 
 	// Load theme JS.
-	wp_enqueue_script( 'logic-theme-js', get_stylesheet_directory_uri() . '/build/js/theme.min.js', array(), CHILD_THEME_VERSION, true );
+	wp_enqueue_script( 'logic-fonts', '//use.typekit.net/xoo4gbo.js', array(), null );
+	wp_enqueue_script( 'logic-theme-js', get_stylesheet_directory_uri() . '/build/js/theme.min.js', array( 'logic-fonts'), CHILD_THEME_VERSION, true );
 
 	// Load extra CSS.
 	if ( is_front_page() ) {
 		wp_deregister_style( 'logic' );
 		wp_enqueue_style( 'logic-home-styles', get_stylesheet_directory_uri() . '/build/css/front-page-styles.min.css', array(), CHILD_THEME_VERSION );
 	}
+
+	wp_add_inline_script( 'logic-fonts', '(function(d) {
+		var config = {
+		  kitId: \'xoo4gbo\',
+		  scriptTimeout: 3000,
+		  async: true,
+		  events: false,
+		  classes: false
+		},
+		h=d.documentElement,t=setTimeout(function(){h.className=h.className.replace(/\bwf-loading\b/g,"")+" wf-inactive";},config.scriptTimeout),tk=d.createElement("script"),f=false,s=d.getElementsByTagName("script")[0],a;h.className+=" wf-loading";tk.src=\'https://use.typekit.net/\'+config.kitId+\'.js\';tk.async=true;tk.onload=tk.onreadystatechange=function(){a=this.readyState;if(f||a&&a!="complete"&&a!="loaded")return;f=true;clearTimeout(t);try{Typekit.load(config)}catch(e){}};s.parentNode.insertBefore(tk,s)
+	})(document);' );
 
 	// Localize menu settings.
 	wp_localize_script(
@@ -69,6 +82,28 @@ function logic_load_assets() {
 		logic_get_responsive_menu_settings()
 	);
 
+}
+
+add_action( 'wp_head', function() {
+	?>
+	<link rel="prefetch" href="<?php echo get_stylesheet_directory_uri(); ?>/assets/svgs/tube-scheme.svg" />
+	<?php
+});
+
+add_filter( 'script_loader_tag', 'logic_script_attributes', 10, 2 );
+/**
+ * Apply performance defering to header scripts.
+ * @param  string $tag    The original tag string.
+ * @param  string $handle The name of the script being loaded.
+ * @return string         The updated tag string.
+ */
+function logic_script_attributes( $tag, $handle ) {
+
+	if ( $handle === 'logic-theme-js' ) {
+		return str_replace( ' src', 'defer="defer" src', $tag );
+	}
+
+	return $tag;
 }
 
 /**
@@ -89,20 +124,6 @@ function logic_get_responsive_menu_settings() {
 
 	return $settings;
 
-}
-
-/**
- * Load prefetch scripts.
- *
- * @since 1.0.0
- */
-add_action( 'wp_head', 'logic_load_inline_scripts', 99 );
-function logic_load_inline_scripts() {
-	?>
-	<link rel="dns-prefetch" href="//use.typekit.net" />
-	<script src="https://use.typekit.net/xoo4gbo.js"></script>
-	<script>try{Typekit.load({ async: true });}catch(e){console.log(e);}</script>
-	<?php
 }
 
 /**

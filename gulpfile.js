@@ -29,6 +29,7 @@ var sourcemaps = require('gulp-sourcemaps');
 var uglify = require( 'gulp-uglify' );
 var rename = require( 'gulp-rename' );
 var concat = require( 'gulp-concat' );
+var replace = require( 'gulp-replace' );
 var wpPot = require( 'gulp-wp-pot' );
 var zip = require( 'gulp-zip' );
 
@@ -69,6 +70,7 @@ gulp.task( 'css:front-page', function() {
 				}
 			})
 		]))
+		.pipe( replace( "url(", "url(../../" ) )
 		.pipe( concat( "front-page-styles.min.css" ))
 		.pipe(gulp.dest(PATHS.build.css));
 

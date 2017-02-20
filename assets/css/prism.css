@@ -52,7 +52,7 @@ pre[class*="language-"] {
 		top: 0;
 	}
 
-	&.stretch .tooglebar {
+	&.stretch .toolbar {
 		right: calc( (100vw - 740px) / 2 );
 	}
 }
