@@ -14,39 +14,20 @@
 	z-index: 5;
 }
 
-.page,
-.home {
-	& .site-container::after {
-		background-image: url('assets/svgs/tube-scheme.svg');
-		background-position: center -340px;
-		background-repeat: no-repeat;
-		background-size: 800px 800px;
-		content: "";
-		display: block;
-		height: 100%;
-		left: 0;
-		opacity: .5;
-		position: absolute;
-		top: 0;
-		width: 100%;
-		z-index: -1;
-	}
-}
-
 .site-inner,
 .wrap {
 	margin: 20px auto;
 	max-width: 1200px;
-	padding: 20px 40px;
+	padding: 5%;
 	width: 100%;
 }
 
 .site-inner {
 	clear: both;
-	margin-top: 60px; /* Height of header */
+	margin: 0;
 	max-width: 100%;
 	overflow: hidden;
-	padding: 20px 10px;
+	padding: 52px 5% 5%;
 }
 
 /*----------  Site Header  ----------*/
@@ -98,6 +79,28 @@
 	}
 }
 
+#site-overlay,
+#popup-overlay {
+	background: color( var(--default) alpha(-10%) );
+	display: none;
+	height: 100%;
+	left: 0;
+	position: fixed;
+	top: 0;
+	width: 100%;
+	z-index: 50;
+
+	&.visible {
+		display: block;
+	}
+}
+
+#popup-overlay {
+	bottom: 0;
+	height: calc( 100vh - 52px );
+	top: auto;
+}
+
 /*=====================================
 =            Media Queries            =
 =====================================*/
@@ -106,19 +109,47 @@
 
 @media screen and (min-width: 870px) {
 
+	#popup-overlay {
+		height: calc( 100vh - 60px );
+	}
+
 	/* Structure */
 	.site-footer {
 		padding: 40px;
 	}
 
 	.site-inner {
+		margin-top: 60px;
 		padding: 0 0 40px;
+	}
+
+	.wrap {
+		padding: 20px 40px;
 	}
 
 	.site-header {
 		& > .wrap {
 			max-width: 1200px;
 			padding: 0 40px;
+		}
+	}
+
+	.page,
+	.home {
+		& .site-container::after {
+			background-image: url('assets/svgs/tube-scheme.svg');
+			background-position: center -340px;
+			background-repeat: no-repeat;
+			background-size: 800px 800px;
+			content: "";
+			display: block;
+			height: 100%;
+			left: 0;
+			opacity: .5;
+			position: absolute;
+			top: 0;
+			width: 100%;
+			z-index: -1;
 		}
 	}
 
@@ -134,28 +165,6 @@
 	.footer-widgets {
 		padding-left: 40px;
 		padding-right: 40px;
-	}
-
-	#site-overlay,
-	#popup-overlay {
-		background: color( var(--default) alpha(-10%) );
-		display: none;
-		height: 100%;
-		left: 0;
-		position: fixed;
-		top: 0;
-		width: 100%;
-		z-index: 50;
-
-		&.visible {
-			display: block;
-		}
-	}
-
-	#popup-overlay {
-		bottom: 0;
-		height: calc( 100vh - 60px );
-		top: auto;
 	}
 
 }

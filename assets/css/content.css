@@ -134,7 +134,7 @@ li.comment > article {
 
 .pagination {
 	overflow: hidden;
-	padding: 40px 0;
+	padding: 40px 5%;
 	width: 100%;
 
 	& ul {
@@ -157,8 +157,43 @@ li.comment > article {
 
 	& .pagination-next,
 	& .pagination-previous {
+		display: inline-block;
+		width: auto;
+	}
+
+	& .pagination-next {
+		float: right;
+	}
+
+	& .pagination-previous {
+		float: left;
+	}
+}
+
+#popup {
+	display: none;
+	left: 0;
+	position: fixed;
+	text-align: center;
+	top: 0;
+	transform: scale(0.9);
+	transition: transform .25s ease-in-out;
+	z-index: 999;
+
+	&.visible {
 		display: block;
-		width: 100%;
+		transform: scale(1);
+	}
+
+	& .widget {
+		align-items: center;
+		display: flex;
+		height: calc( 95vh - 52px );
+		left: 2.5vw;
+		margin: 0;
+		position: fixed;
+		top: 52px;
+		width: 95vw;
 	}
 }
 
@@ -169,6 +204,15 @@ li.comment > article {
 /*----------  768  ----------*/
 
 @media screen and (min-width: 870px) {
+
+	#popup {
+		& .widget {
+			height: 80vh;
+			left: 25vw;
+			top: 10vh;
+			width: 50vw;
+		}
+	}
 
 	/* Comments */
 	.entry-comments {
@@ -184,33 +228,6 @@ li.comment > article {
 		margin-right: 24px;
 	}
 
-	#popup {
-		display: none;
-		left: 0;
-		position: fixed;
-		text-align: center;
-		top: 0;
-		transform: scale(0.9);
-		transition: transform .25s ease-in-out;
-		z-index: 999;
-
-		&.visible {
-			display: block;
-			transform: scale(1);
-		}
-
-		& .widget {
-			align-items: center;
-			display: flex;
-			height: 80vh;
-			left: 25vw;
-			margin: 0;
-			position: fixed;
-			top: 10vh;
-			width: 50vw;
-		}
-	}
-
 	.entry-content {
 		& p:first-of-type {
 			font-size: 26px;
@@ -218,6 +235,10 @@ li.comment > article {
 			font-weight: 300;
 			line-height: 1.4;
 		}
+	}
+
+	.entry-header {
+		text-align: center;
 	}
 
 	.entry {
@@ -353,7 +374,7 @@ li.comment > article {
 			}
 
 			&::before {
-				background-image: linear-gradient( var(--linkDefault), transparent 30% );
+				background-image: linear-gradient( var(--linkDefault), transparent );
 				opacity: 1;
 				z-index: 1;
 			}
@@ -380,24 +401,6 @@ li.comment > article {
 		& a {
 			margin: 0;
 			width: 32%;
-		}
-	}
-
-	/* Pagination */
-	.pagination {
-
-		& .pagination-next,
-		& .pagination-previous {
-			display: inline-block;
-			width: auto;
-		}
-
-		& .pagination-next {
-			float: right;
-		}
-
-		& .pagination-previous {
-			float: left;
 		}
 	}
 }

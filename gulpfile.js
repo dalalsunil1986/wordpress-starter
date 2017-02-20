@@ -33,7 +33,7 @@ var replace = require( 'gulp-replace' );
 var wpPot = require( 'gulp-wp-pot' );
 var zip = require( 'gulp-zip' );
 
-var taskLoader = [ 'scripts', 'css', 'watch' ];
+var taskLoader = [ 'scripts', 'css', 'css:front-page', 'watch' ];
 
 //* Gulp task to run PostCSS for main stylesheet.
 gulp.task( 'css', function() {
@@ -56,10 +56,7 @@ gulp.task( 'css', function() {
 //* Gulp task to run PostCSS on extra stylesheets.
 gulp.task( 'css:front-page', function() {
 
-	gulp.src( [
-		PATHS.css + 'style.css',
-		PATHS.css + 'extra/front-page.css'
-		])
+	gulp.src( PATHS.css + 'extra/front-page.css' )
 		.pipe(postcss([
 			cssimport(),
 			cssnext(),
@@ -70,8 +67,7 @@ gulp.task( 'css:front-page', function() {
 				}
 			})
 		]))
-		.pipe( replace( "url(", "url(../../" ) )
-		.pipe( concat( "front-page-styles.min.css" ))
+		.pipe(rename({ extname: '.min.css' }))
 		.pipe(gulp.dest(PATHS.build.css));
 
 });
