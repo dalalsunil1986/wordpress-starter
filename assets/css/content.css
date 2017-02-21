@@ -355,7 +355,7 @@ li.comment > article {
 
 			& .entry-title,
 			& p.entry-meta {
-				margin: 0 auto;
+				margin: 0 auto .2em;
 				max-width: 1200px;
 				position: relative;
 				z-index: 2;
