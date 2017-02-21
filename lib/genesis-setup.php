@@ -66,7 +66,6 @@ add_action( 'genesis_entry_content', 'genesis_after_entry_widget_area', 10 );
  *
  * @since 1.0.0
  */
-remove_action( 'genesis_before_loop', 'genesis_do_taxonomy_title_description', 15 );
 remove_action( 'genesis_before_loop', 'genesis_do_author_title_description', 15 );
 remove_action( 'genesis_before_loop', 'genesis_do_cpt_archive_title_description', 15 );
 remove_action( 'genesis_before_loop', 'genesis_do_date_archive_title', 15 );
