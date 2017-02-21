@@ -61,6 +61,11 @@
 
 .home-loop {
 	margin-top: 10vw;
+
+	& .entry-title,
+	& .entry-title a {
+		margin: 0;
+	}
 }
 
 .logo {
