@@ -28,10 +28,9 @@
 }
 
 .archive-description {
-	padding: 5vh 0;
+	padding: 0 0 5vh;
 
 	& .archive-title {
-		margin-top: 0;
 		font-size: 72px;
 		font-size: 7.2rem;
 		text-align: center;

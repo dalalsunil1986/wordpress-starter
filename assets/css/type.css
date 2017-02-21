@@ -191,7 +191,8 @@ h1 {
 }
 
 h2,
-.single .entry-title {
+.single .entry-title,
+.page .entry-title {
 	font-size: 26px;
 	font-size: 2.6rem;
 	line-height: 1.12em;
@@ -258,7 +259,8 @@ h6 {
 	margin-top: 0;
 }
 
-.single .entry-title {
+.single .entry-title,
+.page .entry-title {
 	margin-top: 1.414em;
 }
 
@@ -270,12 +272,6 @@ h6 {
 	margin-top: 0;
 }
 
-/*----------  Archive Description  ----------*/
-
-.archive-title {
-	margin: 0;
-}
-
 /*=====================================
 =            Media Queries            =
 =====================================*/
@@ -285,7 +281,8 @@ h6 {
 @media screen and (min-width: 870px) {
 
 	h1,
-	.single .entry-title {
+	.single .entry-title,
+	.page .entry-title {
 		font-size: 72px;
 		font-size: 7.2rem;
 		line-height: 1.05em;

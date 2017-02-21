@@ -120,6 +120,7 @@
 
 	.site-inner {
 		margin-top: 60px;
+		min-height: calc( 90vh );
 		padding: 0 0 40px;
 	}
 
@@ -134,23 +135,20 @@
 		}
 	}
 
-	.page,
-	.home {
-		& .site-container::after {
-			background-image: url('assets/svgs/tube-scheme.svg');
-			background-position: center -340px;
-			background-repeat: no-repeat;
-			background-size: 800px 800px;
-			content: "";
-			display: block;
-			height: 100%;
-			left: 0;
-			opacity: .5;
-			position: absolute;
-			top: 0;
-			width: 100%;
-			z-index: -1;
-		}
+	body:not(.single) .site-container::after {
+		background-image: url('assets/svgs/tube-scheme.svg');
+		background-position: center -340px;
+		background-repeat: no-repeat;
+		background-size: 800px 800px;
+		content: "";
+		display: block;
+		height: 100%;
+		left: 0;
+		opacity: .5;
+		position: absolute;
+		top: 0;
+		width: 100%;
+		z-index: -1;
 	}
 
 	.title-area {
