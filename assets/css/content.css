@@ -180,9 +180,20 @@ li.comment > article {
 	transition: transform .25s ease-in-out;
 	z-index: 999;
 
+	& #popup-close {
+		position: absolute;
+		right: 0;
+		top: 0;
+		z-index: 99;
+	}
+
 	&.visible {
 		display: block;
 		transform: scale(1);
+
+		& .widget-wrap {
+			box-shadow: 0 5px 20px color( var(--default) shade(50%) alpha(-60%) );
+		}
 	}
 
 	& .widget {
@@ -194,6 +205,11 @@ li.comment > article {
 		position: fixed;
 		top: 52px;
 		width: 95vw;
+	}
+
+	& .widget-wrap {
+		box-shadow: 0 0 0 rgba(0,0,0,0);
+		position: relative;
 	}
 }
 

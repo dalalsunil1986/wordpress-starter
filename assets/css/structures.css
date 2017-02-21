@@ -79,8 +79,7 @@
 	}
 }
 
-#site-overlay,
-#popup-overlay {
+#site-overlay {
 	background: color( var(--default) alpha(-10%) );
 	display: none;
 	height: 100%;
@@ -95,12 +94,6 @@
 	}
 }
 
-#popup-overlay {
-	bottom: 0;
-	height: calc( 100vh - 52px );
-	top: auto;
-}
-
 /*=====================================
 =            Media Queries            =
 =====================================*/
@@ -108,10 +101,6 @@
 /*----------  768  ----------*/
 
 @media screen and (min-width: 870px) {
-
-	#popup-overlay {
-		height: calc( 100vh - 60px );
-	}
 
 	/* Structure */
 	.site-footer {

@@ -202,7 +202,6 @@ function logic_widget_popup() {
 	<div id="popup">
 		<?php genesis_widget_area( 'popup' ); ?>
 	</div>
-	<div id="popup-overlay"></div>
 	<?php
 }
 
