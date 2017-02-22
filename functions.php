@@ -13,7 +13,7 @@ define( 'CHILD_THEME_NAME', 'Logic' );
 define( 'CHILD_THEME_AUTHOR', 'Calvin Koepke' );
 define( 'CHILD_THEME_AUTHOR_URL', 'https://calvinkoepke.com/' );
 define( 'CHILD_THEME_URL', 'http://calvinkoepke.com/themes/logic/' );
-define( 'CHILD_THEME_VERSION', '1.1.0' );
+define( 'CHILD_THEME_VERSION', '1.0.0' );
 define( 'TEXT_DOMAIN', 'logic' );
 
 /**
@@ -50,10 +50,7 @@ function logic_load_assets() {
 
 	// Load theme JS.
 	wp_enqueue_script( 'logic-fonts', '//use.typekit.net/xoo4gbo.js', array(), null );
-	wp_enqueue_script( 'logic-prism-js', get_stylesheet_directory_uri() . '/build/js/prism.min.js', array(), CHILD_THEME_VERSION, true );
-	wp_enqueue_script( 'logic-jquery-js', get_stylesheet_directory_uri() . '/build/js/jquery-light.min.js', array(), CHILD_THEME_VERSION, true );
-	wp_enqueue_script( 'logic-global-js', get_stylesheet_directory_uri() . '/build/js/global.min.js', array( 'logic-jquery-js' ), CHILD_THEME_VERSION, true );
-	wp_enqueue_script( 'logic-menus-js', get_stylesheet_directory_uri() . '/build/js/responsive-menus.min.js', array( 'logic-jquery-js' ), CHILD_THEME_VERSION, true );
+	wp_enqueue_script( 'logic-theme-js', get_stylesheet_directory_uri() . '/build/js/theme.min.js', array(), CHILD_THEME_VERSION, true );
 
 	// Load extra CSS.
 	if ( is_front_page() ) {
@@ -73,7 +70,7 @@ function logic_load_assets() {
 
 	// Localize menu settings.
 	wp_localize_script(
-		'logic-menus-js',
+		'logic-theme-js',
 		'genesis_responsive_menu',
 		logic_get_responsive_menu_settings()
 	);
