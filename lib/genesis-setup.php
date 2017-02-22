@@ -14,14 +14,7 @@ remove_action( 'genesis_before_loop', 'genesis_do_breadcrumbs' );
  * Setup the current layout.
  * @since 1.0.0
  */
-add_action( 'genesis_meta', 'logic_default_layout' );
-function logic_default_layout() {
-
-	if ( is_front_page() || is_home() || is_archive() ) {
-		add_filter( 'genesis_pre_get_option_site_layout', '__genesis_return_full_width_content' );
-	}
-
-}
+add_filter( 'genesis_pre_get_option_site_layout', '__genesis_return_full_width_content' );
 
 /**
  * Modify the read more link on archives.
@@ -42,17 +35,37 @@ function logic_more_link() {
  */
 remove_action( 'genesis_site_description', 'genesis_seo_site_description' );
 
+/**
+ * Modify the author bio gravatar size.
+ * @since 1.0.0
+ */
 add_filter( 'genesis_author_box_gravatar_size', 'logic_author_box_gravatar_size' );
 function logic_author_box_gravatar_size( $size ) {
 	return '150';
 }
 
 /**
+ * Modify the comment gravatar size.
+ * @since 1.0.0
+ */
+add_filter( 'genesis_comment_list_args', 'logic_comment_gravatar_size' );
+function logic_comment_gravatar_size( $args ) {
+	$args['avatar_size'] = 100;
+	return $args;
+}
+
+/**
+ * Move after entry widget area.
+ * @since 1.0.0
+ */
+remove_action( 'genesis_after_entry', 'genesis_after_entry_widget_area' );
+add_action( 'genesis_entry_content', 'genesis_after_entry_widget_area', 10 );
+
+/**
  * Remove the archive description boxes.
  *
  * @since 1.0.0
  */
-remove_action( 'genesis_before_loop', 'genesis_do_taxonomy_title_description', 15 );
 remove_action( 'genesis_before_loop', 'genesis_do_author_title_description', 15 );
 remove_action( 'genesis_before_loop', 'genesis_do_cpt_archive_title_description', 15 );
 remove_action( 'genesis_before_loop', 'genesis_do_date_archive_title', 15 );
@@ -62,7 +75,7 @@ remove_action( 'genesis_before_loop', 'genesis_do_date_archive_title', 15 );
  *
  * @since 1.0.0
  */
-remove_action( 'genesis_entry_content', 'genesis_do_post_image', 8 );
+// remove_action( 'genesis_entry_content', 'genesis_do_post_image', 8 );
 
 /**
  * Unregister parent page templates
@@ -87,6 +100,14 @@ remove_action( 'genesis_after_header', 'genesis_do_nav' );
 add_action( 'genesis_header', 'genesis_do_nav', 14 );
 
 /**
+ * Get rid of sidebar markup.
+ *
+ * @since 1.0.0
+ */
+remove_action( 'genesis_after_content', 'genesis_get_sidebar' );
+remove_action( 'genesis_after_content_sidebar_wrap', 'genesis_get_sidebar_alt' );
+
+/**
  * Unregister unused widget areas.
  *
  * @since 1.0.0
@@ -94,6 +115,17 @@ add_action( 'genesis_header', 'genesis_do_nav', 14 );
 unregister_sidebar( 'header-right' );
 unregister_sidebar( 'sidebar-alt' );
 unregister_sidebar( 'sidebar' );
+
+/**
+ * Unregister Genesis layouts.
+ *
+ * @since 1.0.0
+ */
+genesis_unregister_layout( 'content-sidebar-sidebar' );
+genesis_unregister_layout( 'sidebar-content-sidebar' );
+genesis_unregister_layout( 'sidebar-sidebar-content' );
+genesis_unregister_layout( 'sidebar-content' );
+genesis_unregister_layout( 'content-sidebar' );
 
 /**
  * Reposition the default location of the secondary navigation to be at the very bottom.
@@ -107,8 +139,8 @@ add_action( 'genesis_after', 'genesis_do_subnav' );
  * Update the post info string.
  * @return string Post read time in minutes.
  */
-remove_action( 'genesis_entry_header', 'genesis_post_info', 12 );
 remove_all_actions( 'genesis_entry_footer' );
+remove_action( 'genesis_entry_header', 'genesis_post_info', 12 );
 add_action( 'genesis_entry_header', 'genesis_post_info', 12 );
 add_filter( 'genesis_post_info', 'logic_post_info' );
 function logic_post_info( $post_info ) {
@@ -121,7 +153,12 @@ function logic_post_info( $post_info ) {
 	if ( is_singular( 'post' ) ) {
 		$content = get_the_content();
 		$word_count = str_word_count( strip_tags( $content ) );
-		$post_info = sprintf( "<strong>About a %s minute read.</strong>", floor( $word_count / 200 ) );
+		$length = floor( $word_count / 200 );
+		if ( $length > 0 ) {
+			$post_info = sprintf( "<strong>About a %s minute read.</strong>", floor( $word_count / 200 ) );
+		} else {
+			$post_info = sprintf( "<strong>A very short read.</strong>", floor( $word_count / 200 ) );
+		}
 		$meta .= $read . $post_info . " [post_tags sep='&nbsp;- ' before='{$tag} ']";
 	} else {
 		$meta .= '[post_date]';
@@ -132,15 +169,41 @@ function logic_post_info( $post_info ) {
 }
 
 /**
- * Modify the archive loop.
+ * Remove entry content on archive pages.
  *
  * @since 1.0.0
  */
-add_action( 'genesis_before_loop', 'logic_archive_loop' );
-function logic_archive_loop() {
+add_action( 'genesis_before_loop', 'logic_remove_entry_content' );
+function logic_remove_entry_content() {
 
-	if ( is_archive() || is_front_page() ) {
+	if ( is_archive() || is_home() || is_front_page() ) {
 		remove_all_actions( 'genesis_entry_content' );
 	}
+}
+
+/**
+ * Move the footer outside of the container wrapper.
+ *
+ * @since 1.0.0
+ */
+remove_all_actions( 'genesis_footer' );
+add_action( 'genesis_after', 'genesis_footer_markup_open', 5 );
+add_action( 'genesis_after', 'genesis_do_footer' );
+add_action( 'genesis_after', 'genesis_footer_markup_close', 15 );
+
+/**
+ * Modify the footer credit text.
+ *
+ * @param string  $creds Default HTML for credits.
+ * @return string $creds Updated HTML for credits.
+ *
+ * @since 1.0.0
+ */
+add_filter( 'genesis_footer_creds_text', 'logic_footer_credtis' );
+function logic_footer_credtis( $creds ) {
+
+	$creds = sprintf( '<a target="_blank" href="https://github.com/cjkoepke/calvinkoepke-com">Fork This Theme</a> • Built on <a href="https://www.studiopress.com/features" target="_blank">Genesis</a> • Hosted on <a href="http://my.studiopress.com/plans/" target="_blank">StudioPress Sites</a><br/> <small>Credits: Background by <a href="http://www.freepik.com" follow="nofollow">FreePik</a>, Code Highlighter by <a href="http://prismjs.com" target="_blank" follow="nofollow">Prism</a></small>', date( 'Y' ) );
+
+	return $creds;
 
 }

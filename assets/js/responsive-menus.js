@@ -227,7 +227,8 @@ var genesisMenuParams      = typeof genesis_responsive_menu === 'undefined' ? ''
 		_toggleAria( $this, 'aria-pressed' );
 		_toggleAria( $this, 'aria-expanded' );
 		$this.toggleClass( 'activated' );
-		$this.next( 'nav' ).slideToggle( 'fast' );
+		$this.next( 'nav' ).toggle();
+		$('body').toggleClass('nav-visible');
 	}
 
 	/**
@@ -240,7 +241,7 @@ var genesisMenuParams      = typeof genesis_responsive_menu === 'undefined' ? ''
 		_toggleAria( $this, 'aria-pressed' );
 		_toggleAria( $this, 'aria-expanded' );
 		$this.toggleClass( 'activated' );
-		$this.next( '.sub-menu' ).slideToggle( 'fast' );
+		$this.next( '.sub-menu' ).toggle();
 
 		others.find( '.' + subMenuButtonClass ).removeClass( 'activated' ).attr( 'aria-pressed', 'false' );
 		others.find( '.sub-menu' ).slideUp( 'fast' );

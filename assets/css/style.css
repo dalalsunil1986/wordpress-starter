@@ -12,20 +12,20 @@
 */
 @import "setup.css";
 @import "reset.css";
-@import "structures.css";
 @import "defaults.css";
 @import "type.css";
-@import "svgs.css";
 @import "objects.css";
-@import "tables.css";
 @import "forms.css";
-@import "accessibility.css";
-@import "wordpress.css";
+@import "structures.css";
 @import "navigation.css";
 @import "content.css";
-@import "sidebars.css";
+@import "svgs.css";
+@import "wordpress.css";
 @import "widgets.css";
 @import "genesis.css";
+@import "tables.css";
 @import "plugins.css";
+@import "prism.css";
 @import "genesis.css";
 @import "footer.css";
+@import "accessibility.css";

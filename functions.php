@@ -4,7 +4,6 @@
 ============================================*/
 
 /**
- *
  * Define Child Theme Constants
  *
  * @since 1.0.0
@@ -27,6 +26,15 @@ define( 'TEXT_DOMAIN', 'logic' );
 include_once( get_template_directory() . '/lib/init.php');
 
 /**
+ * Set the content width.
+ *
+ * @since 1.0.0
+ */
+if ( ! isset( $content_width ) ) {
+	$content_width = 740;
+}
+
+/**
  *
  * Load files in the /assets/ directory
  *
@@ -36,46 +44,36 @@ include_once( get_template_directory() . '/lib/init.php');
 add_action( 'wp_enqueue_scripts', 'logic_load_assets' );
 function logic_load_assets() {
 
-	global $wp_scripts;
+	// Clean up default WP Scripts.
+	wp_deregister_script( 'jquery' );
+	wp_deregister_script( 'wp-embed' );
 
-	// Move scripts to footer.
-	$wp_scripts->add_data( 'edd-ajax', 'group', 1 );
-	$wp_scripts->add_data( 'skip-links', 'group', 1 );
+	// Load theme JS.
+	wp_enqueue_script( 'logic-fonts', '//use.typekit.net/xoo4gbo.js', array(), null );
+	wp_enqueue_script( 'logic-theme-js', get_stylesheet_directory_uri() . '/build/js/theme.min.js', array(), CHILD_THEME_VERSION, true );
 
-	/* Load JS */
-	// wp_enqueue_script( 'logic-gsap', '//cdnjs.cloudflare.com/ajax/libs/gsap/1.19.1/TweenLite.min.js', array(), CHILD_THEME_VERSION, true );
-	// wp_enqueue_script( 'logic-gsap-css', '//cdnjs.cloudflare.com/ajax/libs/gsap/1.19.1/plugins/CSSPlugin.min.js', array('logic-gsap'), CHILD_THEME_VERSION, true );
-	// wp_enqueue_script( 'logic-scroll-magic', '//cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.5/ScrollMagic.min.js', array(), CHILD_THEME_VERSION, true );
-	// wp_enqueue_style( 'logic-icons', '//code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css', array(), CHILD_THEME_VERSION );
-	wp_enqueue_script( 'logic-global', get_stylesheet_directory_uri() . '/build/js/global.min.js', array( 'jquery' ), CHILD_THEME_VERSION, true );
-	wp_enqueue_script( 'logic-responsive-menus', get_stylesheet_directory_uri() . '/build/js/responsive-menus.min.js', array( 'jquery' ), CHILD_THEME_VERSION, true );
+	// Load extra CSS.
+	if ( is_front_page() ) {
+		wp_enqueue_style( 'logic-home-styles', get_stylesheet_directory_uri() . '/build/css/front-page.min.css', array( 'logic' ), CHILD_THEME_VERSION );
+	}
 
-	/* Localize Script Information for Responsive Menu */
+	wp_add_inline_script( 'logic-fonts', '(function(d) {
+		var config = {
+		  kitId: \'xoo4gbo\',
+		  scriptTimeout: 3000,
+		  async: true,
+		  events: false,
+		  classes: false
+		},
+		h=d.documentElement,t=setTimeout(function(){h.className=h.className.replace(/\bwf-loading\b/g,"")+" wf-inactive";},config.scriptTimeout),tk=d.createElement("script"),f=false,s=d.getElementsByTagName("script")[0],a;h.className+=" wf-loading";tk.src=\'https://use.typekit.net/\'+config.kitId+\'.js\';tk.async=true;tk.onload=tk.onreadystatechange=function(){a=this.readyState;if(f||a&&a!="complete"&&a!="loaded")return;f=true;clearTimeout(t);try{Typekit.load(config)}catch(e){}};s.parentNode.insertBefore(tk,s)
+	})(document);' );
+
+	// Localize menu settings.
 	wp_localize_script(
-		'logic-responsive-menus',
+		'logic-theme-js',
 		'genesis_responsive_menu',
 		logic_get_responsive_menu_settings()
 	);
-
-}
-
-/**
- * Defer unnecessary scripts.
- *
- * @scine 1.0.0
- */
-// add_filter( 'script_loader_tag', 'logic_defer_scripts', 10, 2 );
-function logic_defer_scripts( $tag, $handle ) {
-
-	$scripts = array(
-		'skip-links'
-	);
-
-	if ( in_array( $handle, $scripts ) ) {
-		return str_replace( ' src', 'defer="defer" src', $tag );
-	}
-
-	return $tag;
 
 }
 
@@ -87,9 +85,7 @@ function logic_get_responsive_menu_settings() {
 
 	$settings = array(
 		'mainMenu'          => __( 'Menu', TEXT_DOMAIN ),
-		'mainMenuIconClass' => 'ionicons-before ion-drag',
-		'subMenu'           => __( 'Toggle Submenu', TEXT_DOMAIN ),
-		'subMenuIconClass'  => 'ionicons-before ion-chevron-down',
+		'menuIconClass' => 'button',
 		'menuClasses'       => array(
 			'others' => array(
 				'.nav-primary',
@@ -102,19 +98,6 @@ function logic_get_responsive_menu_settings() {
 }
 
 /**
- * Load prefetch scripts.
- * @since 1.0.0
- */
-add_action( 'wp_head', 'logic_prefetch', 99 );
-function logic_prefetch() {
-	?>
-	<link rel="prefetch" href="https://use.typekit.net/xoo4gbo.js"/>
-	<script src="//use.typekit.net/xoo4gbo.js"></script>
-	<script>try{Typekit.load({ async: true });}catch(e){console.log(e);}</script>
-	<?php
-}
-
-/**
  *
  * Add Social Share Buttons
  *
@@ -123,8 +106,9 @@ function logic_prefetch() {
 add_action( 'genesis_entry_content', 'logic_social_share' );
 function logic_social_share() {
 
-	if ( ! is_singular( 'post' ) )
+	if ( ! is_singular( 'post' ) ) {
 		return;
+	}
 
 	$url = urlencode( get_the_permalink() );
 	$title = urlencode( get_the_title() );
@@ -132,8 +116,15 @@ function logic_social_share() {
 	$facebook = 'https://www.facebook.com/sharer/sharer.php?u=' . $url;
 	$twitter = 'https://twitter.com/home?status=' . $title . '%3A%20' . $url . '%20via%20%40cjkoepke';
 
-	if ( is_singular( 'post' ) )
-		printf( '<div class="share-it"><h3>Share This Post!</h3><a href="%s" target="_blank" class="button button-block" alt="Share on Twitter"><i class="ionicon ion-social-twitter"></i> <span class="screen-reader-text">Share on Twitter</span></a><a href="%s" target="_blank" alt="Share on Facebook" class="button button-block"><i class="ionicon ion-social-facebook"></i> <span class="screen-reader-text">Share on Facebook</a></div>', $twitter, $facebook );
+	if ( is_singular( 'post' ) ) {
+		printf( '
+			<div class="share-it">
+				<a href="%s" target="_blank" class="button" alt="Share on Twitter">Share on Twitter</a>
+				<a href="%s" target="_blank" alt="Share on Facebook" class="button">Share on Facebook</a>
+				<a href="#" class="button button-primary show-popup">Get Updates</a>
+			</div>
+		', $twitter, $facebook );
+	}
 
 }
 
@@ -202,22 +193,16 @@ function logic_member_menu_items( $menu, $args ) {
 }
 
 /**
- * Add login popup.
+ * Add widget popup.
  * @since 1.0.0
  */
-add_action( 'genesis_after', 'logic_login_popup' );
-function logic_login_popup() {
-	if ( ! is_user_logged_in() ) {
+add_action( 'genesis_after', 'logic_widget_popup', 20 );
+function logic_widget_popup() {
 	?>
-	<div id="login-popup">
-		<div class="entry">
-			<h4 class="entry-title sans-serif">Log In to Your Account</h4>
-			<p>Not a member? <a href="/register">Registering is easy</a>.</p>
-			<?php wp_login_form( $args ); ?>
-		</div>
+	<div id="popup">
+		<?php genesis_widget_area( 'popup' ); ?>
 	</div>
 	<?php
-	}
 }
 
 /**
@@ -230,8 +215,7 @@ function logic_login_popup() {
 add_theme_support( 'genesis-responsive-viewport' ); /* Enable Viewport Meta Tag for Mobile Devices */
 add_theme_support( 'html5',  array( 'search-form', 'comment-form', 'comment-list', 'gallery', 'caption' ) ); /* HTML5 */
 add_theme_support( 'genesis-accessibility', array( 'skip-links', 'search-form', 'drop-down-menu', 'headings' ) ); /* Accessibility */
-add_theme_support( 'genesis-after-entry-widget-area' ); /* After Entry Widget Area */
-add_theme_support( 'genesis-footer-widgets', 3 ); /* Add Footer Widgets Markup for 3 */
+// add_theme_support( 'genesis-after-entry-widget-area' );
 
 /**
  *

@@ -2,10 +2,10 @@
 /*----------  Typography  ----------*/
 
 html {
-    font-size: 62.5%; /* Set the default browser size to 10px */
+	font-size: 62.5%; /* Set the default browser size to 10px */
 
-    & > div {
-	    font-size: 1.6rem; /* Chrome fix for REM values */
+	& > div {
+		font-size: 1.6rem; /* Chrome fix for REM values */
 	}
 }
 
@@ -28,37 +28,40 @@ p {
 p.lead,
 .archive-description,
 .author-box {
-    font-size: 26px;
-    font-size: 2.6rem;
-    font-weight: 300;
-    line-height: 1.4;
+	font-size: 20px;
+	font-size: 2rem;
+	font-weight: 400;
+	line-height: 1.4;
 }
 
 .site-inner {
-    & a:not(.button) {
-        background-image: linear-gradient( var(--linkDefault), var(--linkDefault) );
-        background-position: 0% 90%;
-        background-repeat: repeat-x;
-        background-size: .05em .06em;
-        font-weight: bold;
-        text-shadow: .03em 0 color( var(--linkAlt) tint(85%) ), -.03em 0 color( var(--linkAlt) tint(85%) ), 0 .03em color( var(--linkAlt) tint(85%) ), 0 -.03em color( var(--linkAlt) tint(85%) ), .06em 0 color( var(--linkAlt) tint(85%) ), -.06em 0 color( var(--linkAlt) tint(85%) ), .09em 0 color( var(--linkAlt) tint(85%) ), -.09em 0 color( var(--linkAlt) tint(85%) ), .12em 0 color( var(--linkAlt) tint(85%) ), -.12em 0 color( var(--linkAlt) tint(85%) );
+	& a:not(.button) {
+		background-image: linear-gradient( var(--linkDefault), var(--linkDefault) );
+		background-position: 0% 90%;
+		background-repeat: repeat-x;
+		background-size: .05em .06em;
+		font-weight: bold;
+		text-shadow: .03em 0 var(--colorUltraLight), -.03em 0 var(--colorUltraLight), 0 .03em var(--colorUltraLight), 0 -.03em var(--colorUltraLight), .06em 0 var(--colorUltraLight), -.06em 0 var(--colorUltraLight), .09em 0 var(--colorUltraLight), -.09em 0 var(--colorUltraLight), .12em 0 var(--colorUltraLight), -.12em 0 var(--colorUltraLight);
 
-        &:focus,
-        &:hover {
+		&:focus,
+		&:hover {
 			background-image: linear-gradient( var(--default), var(--default) );
-            color: var(--default);
-            text-decoration: none;
-        }
-    }
+			color: var(--default);
+			text-decoration: none;
+		}
 
-    & .lead a:not(.button) {
-        background-position: 0% 85%;
+		&.gray-out,
+		&.gray-out:focus,
+		&.gray-out:hover {
+			background-image: linear-gradient( color( var(--colorLight) shade(40%) ), color( var(--colorLight) shade(40%) ) );
+			color: color( var(--colorLight) shade(40%) );
+		}
+	}
+
+	& .lead a:not(.button) {
+		background-position: 0% 85%;
 		background-size: .05em .08em;
-    }
-}
-
-.gray-out {
-    color: darken( var(--colorLight), 40% );
+	}
 }
 
 ol,
@@ -71,13 +74,12 @@ li {
 	list-style-type: none;
 }
 
-.entry-content,
-.footer-widgets {
+.entry-content {
 
 	& ol,
 	& ul {
 		margin-bottom: 28px;
-		margin-left: 40px;
+		padding-left: 40px;
 	}
 
 	& ol > li {
@@ -109,41 +111,41 @@ strong {
 
 mark {
 	background: transparent;
-    color: var(--default);
-    display: inline;
-    padding: 0 5px;
-    position: relative;
-    text-shadow: 0 .03em 0 #fff, 0 -.03em 0 #fff, .03em 0 0 #fff, -.03em 0 0 #fff, .03em .03em 0 #fff, -.03em .03em 0 #fff;
-    z-index: 2;
+	color: var(--default);
+	display: inline;
+	padding: 0 5px;
+	position: relative;
+	text-shadow: 0 .03em 0 #fff, 0 -.03em 0 #fff, .03em 0 0 #fff, -.03em 0 0 #fff, .03em .03em 0 #fff, -.03em .03em 0 #fff;
+	z-index: 2;
 
-    &::before {
-        background-color: var(--linkAlt);
-        bottom: .1em;
-        content: "";
-        display: block;
-        height: .12em;
-        left: 0;
-        position: absolute;
-        transform: rotate( 0.15deg ) skew( 20deg );
-        transform-origin: bottom left;
-        width: 100%;
-        z-index: -1;
-    }
+	&::before {
+		background-color: var(--linkAlt);
+		bottom: .1em;
+		content: "";
+		display: block;
+		height: .12em;
+		left: 0;
+		position: absolute;
+		transform: rotate( 0.15deg ) skew( 20deg );
+		transform-origin: bottom left;
+		width: 100%;
+		z-index: -1;
+	}
 
-    &::after {
-        background-color: var( --linkAlt );
-        bottom: .12em;
-        content: "";
-        display: block;
-        height: .08em;
-        left: 0;
+	&::after {
+		background-color: var( --linkAlt );
+		bottom: .12em;
+		content: "";
+		display: block;
+		height: .08em;
+		left: 0;
 		opacity: .8;
-        position: absolute;
-        transform: rotate( 0.5deg ) skew( 30deg );
-        transform-origin: bottom left;
-        width: 100%;
-        z-index: -1;
-    }
+		position: absolute;
+		transform: rotate( 0.5deg ) skew( 30deg );
+		transform-origin: bottom left;
+		width: 100%;
+		z-index: -1;
+	}
 }
 
 blockquote,
@@ -156,9 +158,9 @@ i {
 blockquote {
 	border-left: 3px solid #000;
 	color: #000;
-    font-size: 26px;
-    font-size: 2.6rem;
-    font-weight: 300;
+	font-size: 26px;
+	font-size: 2.6rem;
+	font-weight: 300;
 	margin: 1.3em 0;
 	padding-left: 10px;
 }
@@ -178,20 +180,9 @@ h5,
 h6 {
 	color: var(--default);
 	font-family: var(--fontHeading);
-    font-style: normal;
+	font-style: normal;
 	font-weight: 900;
 	margin: 1.414em 0 0.5em;
-}
-
-.subhead {
-	color: color( var(--default) tint(50%) );
-    display: block;
-    font-family: var(--fontBody);
-    font-size: 18px;
-    font-size: 1.8rem;
-    font-weight: 700;
-    line-height: 1.2;
-	text-transform: uppercase;
 }
 
 h1 {
@@ -199,19 +190,23 @@ h1 {
 	font-size: 3.2rem;
 }
 
-h2 {
+h2,
+.single .entry-title,
+.page .entry-title {
 	font-size: 26px;
 	font-size: 2.6rem;
 	line-height: 1.12em;
 
-    &.jumbo {
-        font-size: 72px;
-        font-size: 7.2rem;
-        margin-bottom: 0.2em;
-    }
+	&.jumbo {
+		font-size: 48px;
+		font-size: 4.8rem;
+		margin-bottom: 0.2em;
+		margin-top: 0;
+	}
 }
 
-h3 {
+h3,
+.entry-title {
 	font-size: 22px;
 	font-size: 2.2rem;
 	line-height: 1.13em;
@@ -234,56 +229,39 @@ h6 {
 
 .site-title {
 	font-family: var(--fontHeading);
-	font-size: 20px;
-	font-size: 2rem;
+	font-size: 16px;
+	font-size: 1.6rem;
 	font-weight: 700;
-    letter-spacing: 0.05em;
 	line-height: 1.2;
 	margin: 0;
-    position: relative;
-    text-transform: uppercase;
-    transition: transform .15s ease-in-out;
+	position: relative;
+	text-transform: uppercase;
+	transition: transform .15s ease-in-out;
 
-    & a {
-        color: #fff;
-        letter-spacing: .1em;
-        padding: 16px 20px 16px 0;
+	& a {
+		color: #fff;
+		display: block;
+		letter-spacing: .1em;
+		padding: 16px 20px 16px 0;
 
-        &:focus,
-        &:hover {
-            text-decoration: none;
-        }
-    }
-}
-
-.site-description {
-    font-style: italic;
-    margin: 20px 0 0;
-    text-align: center;
-    transform: translateY( -100% );
-    transition: all .25s ease-in-out;
+		&:focus,
+		&:hover {
+			text-decoration: none;
+		}
+	}
 }
 
 /*----------  Entries  ----------*/
 
 .entry-title,
 .entry-title a {
-    color: var(--default);
+	color: var(--default);
 	margin-top: 0;
 }
 
-/*----------  Widgets  ----------*/
-
-.widget-title,
-.footer-widgets .widget-title,
-.sidebar .entry-title {
-	font-size: 22px;
-	font-size: 2.2rem;
-	margin-top: 0;
-}
-
-.footer-widgets .widget-title {
-	margin-top: 0;
+.single .entry-title,
+.page .entry-title {
+	margin-top: 1.414em;
 }
 
 /*----------  Author Box  ----------*/
@@ -294,50 +272,66 @@ h6 {
 	margin-top: 0;
 }
 
-/*----------  Archive Description  ----------*/
-
-.archive-title {
-	margin: 0;
-}
-
 /*=====================================
 =            Media Queries            =
 =====================================*/
 
 /*----------  768  ----------*/
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 870px) {
 
-	& h1,
-	& .entry-title {
-		font-size: 40px;
-		font-size: 4rem;
-		line-height: 1.25em;
+	h1,
+	.single .entry-title,
+	.page .entry-title {
+		font-size: 72px;
+		font-size: 7.2rem;
+		line-height: 1.05em;
+		margin-bottom: 0.2em;
 	}
 
-	& h2 {
+	.entry-title,
+	.entry-title a {
+		margin-top: 0;
+	}
+
+	h2 {
 		font-size: 32px;
 		font-size: 3.2rem;
 		line-height: 1.25em;
+
+		&.jumbo {
+			font-size: 72px;
+			font-size: 7.2rem;
+			margin-bottom: 0.2em;
+			margin-top: 0;
+		}
 	}
 
-	& h3 {
+	h3,
+	.site-title {
 		font-size: 24px;
 		font-size: 2.4rem;
 		line-height: 1.25em;
 	}
 
-	& h4,
-	& h5,
-	& h6 {
+	h4,
+	h5,
+	h6 {
 		font-size: 18px;
 		font-size: 1.8rem;
 		line-height: 1.22em;
 	}
 
-	& blockquote {
+	blockquote {
 		font-size: 1.3em;
 		padding-left: 40px;
+	}
+
+	p.lead,
+	.archive-description,
+	.author-box {
+		font-size: 28px;
+		font-size: 2.8rem;
 	}
 
 }
@@ -345,15 +339,6 @@ h6 {
 /*----------  1200  ----------*/
 
 @media screen and (min-width: 1200px) {
-
-	/* Typography */
-	h1,
-	.entry-title {
-		font-size: 72px;
-        font-size: 7.2rem;
-		line-height: 1.05em;
-        margin-bottom: 0.2em;
-	}
 
 	h2 {
 		font-size: 36px;
@@ -373,34 +358,6 @@ h6 {
 		font-size: 20px;
 		font-size: 2rem;
 		line-height: 1.25em;
-	}
-
-    .archive .entry-title,
-    .blog .entry-title,
-    .page-home .entry-title {
-        font-size: 28px;
-        font-size: 2.8rem;
-        margin-top: 0;
-    }
-
-	.site-title {
-        display: block;
-		font-size: 24px;
-		font-size: 2.4rem;
-        position: relative;
-        z-index: 100;
-
-        & a {
-            display: block;
-        }
-
-        &:focus,
-        &:hover {
-            a {
-                text-decoration: none;
-            }
-        }
-
 	}
 
 }

@@ -6,7 +6,7 @@ input,
 select,
 textarea {
 	background-color: #fff;
-	border-radius: 0;
+	border-radius: 3px;
 	border: 1px solid var(--colorLight);
 	color: var(--default);
 	padding: 16px;
@@ -47,51 +47,21 @@ input[type="button"],
 input[type="reset"],
 input[type="submit"],
 .button {
-	background: transparent;
-	border: 3px solid var(--default);
+	background: var(--default);
+	border: 3px solid color( var(--default) shade(3%) );
 	border-radius: 3px;
-	color: var(--default);
+	color: #fff;
 	cursor: pointer;
-	font-family: var(--fontHeading);
-	font-weight: 400;
+	font-weight: 700;
 	padding: 10px 20px;
 	position: relative;
-	letter-spacing: .04em;
 	background-image: none;
 	width: auto;
 	transition: all .15s ease-in-out;
 
-	/*&.button-icon {
-		padding-right: 20px;
-
-		&::after {
-			content: "\f3d1";
-			font-family: var(--fontIcon);
-			font-style: normal;
-			opacity: 0;
-			padding: 10px 0;
-			position: absolute;
-			top: 1px;
-			transform: translateX(-100%);
-			transition: all .15s ease-in-out;
-		}
-
-		&:focus,
-		&:hover {
-			padding-right: 40px;
-
-			&::after {
-				transform: translateX(10px);
-				opacity: 1;
-			}
-		}
-
-		&:active::after {
-			transition: none;
-			padding: 11px 0 9px;
-		}
-
-	}*/
+	&.button-large {
+		padding: 20px 40px;
+	}
 
 	&.button-primary {
 		background: var(--linkDefault);
@@ -103,7 +73,6 @@ input[type="submit"],
 			background: color( var(--linkDefault) tint(15%) );
 			border-color: color( var(--linkDefault) shade(15%) );
 			color: #fff;
-			/*transform: scale( 1.05 );*/
 		}
 
 		&:active {
@@ -115,8 +84,8 @@ input[type="submit"],
 
 	&:focus,
 	&:hover {
-		background: color( var(--default) tint(5%) );
-		border-color: color( var(--default) shade(5%) );
+		background: color( var(--default) tint(15%) );
+		border-color: color( var(--default) shade(15%) );
 		color: #fff;
 		text-decoration: none;
 	}
@@ -146,7 +115,7 @@ input[type="search"]::-webkit-search-results-button {
 	height: 100%;
 	position: absolute;
 	top: 0;
-	transition: transform .25s ease-in-out;
+	transition: all .25s ease-in-out;
 	width: 900px;
 
 	& form {
@@ -157,20 +126,20 @@ input[type="search"]::-webkit-search-results-button {
 	& input[type="search"] {
 		background: transparent;
 		border: 0;
-		color: var(--linkDefault);
-		padding: 20px 0;
+		color: #fff;
+		padding: 17px 0;
 		text-align: left;
 
 		&::-moz-placeholder {
-			color: var(--linkDefault);
-			font-weight: 300;
-			opacity: 0;
+			color: #fff;
+			font-style: italic;
+			padding-left: 10px;
 		}
 
 		&::-webkit-input-placeholder {
-			color: var(--linkDefault);
-			font-weight: 300;
-			opacity: 0;
+			color: #fff;
+			font-style: italic;
+			padding-left: 10px;
 		}
 	}
 
@@ -184,6 +153,7 @@ input[type="search"]::-webkit-search-results-button {
 }
 
 .site-header.search-visible {
+
 	& #header-search {
 		display: block;
 	}
@@ -194,32 +164,6 @@ input[type="search"]::-webkit-search-results-button {
 	}
 }
 
-.admin-bar .search-form.fixed {
-	margin-top: 32px;
-}
-
 .search-form {
 	overflow: hidden;
-}
-
-.site-header .search-form {
-	float: right;
-}
-
-.entry-content,
-.site-header {
-	& .search-form {
-		width: 50%;
-	}
-}
-
-.genesis-nav-menu .search input[type="submit"],
-.widget_search input[type="submit"] {
-	border: 0;
-	clip: rect(0, 0, 0, 0);
-	height: 1px;
-	margin: -1px;
-	padding: 0;
-	position: absolute;
-	width: 1px;
 }

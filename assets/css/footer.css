@@ -4,24 +4,58 @@
 ==============================*/
 
 .site-footer {
+	background-color: color( var(--default) shade(20%) );
+	bottom: 0;
+	color: var(--colorLight);
 	clear: both;
-	font-size: .8em;
+	min-height: 20vh;
 	overflow: hidden;
-	padding: 10px;
+	padding: 40px 10px;
+	position: relative;
+	text-align: center;
+	width: 100%;
+
+	& > .wrap {
+		position: relative;
+		z-index: 5;
+	}
 
 	& p {
 		margin-bottom: 0;
 	}
-}
 
-/*----------  Widgets  ----------*/
+	& a:focus,
+	& a:hover {
+		color: #fff;
+		text-decoration: none;
+	}
 
-.footer-widgets {
-	clear: both;
-	overflow: hidden;
-	padding: 40px 10px;
+	& small {
+		opacity: .5;
+	}
 
-	& .widget {
-		margin-bottom: 40px;
+	&::after,
+	&::before {
+		content: "";
+		display: block;
+		left: 0;
+		height: 100%;
+		position: absolute;
+		top: 0;
+		width: 100%;
+	}
+
+	&::before {
+		background-image: linear-gradient( color( var(--default) shade(50%) alpha(-20%) ), transparent );
+		z-index: 2;
+	}
+
+	&::after {
+		background-image: url('assets/svgs/tube-scheme.svg');
+		background-position: top left;
+		background-repeat: repeat;
+		background-size: 50px 50px;
+		opacity: .05;
+		z-index: 1;
 	}
 }

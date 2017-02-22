@@ -7,49 +7,57 @@
 /*----------  Site Containers  ----------*/
 
 .site-container {
-	max-width: 100%;
-	position: relative;
+	background: var(--colorUltraLight);
+	box-shadow: 0 10px 30px rgba(0,0,0,.4);
 	margin: 0 auto;
+	position: relative;
 	z-index: 5;
 }
 
 .site-inner,
-.wrap,
-.site-footer {
+.wrap {
 	margin: 20px auto;
 	max-width: 1200px;
-	padding: 20px 40px;
+	padding: 5%;
 	width: 100%;
 }
 
 .site-inner {
-	border-radius: 3px;
 	clear: both;
-	margin-top: 65px; /* Height of header */
-	padding: 20px 10px;
+	margin: 0;
+	max-width: 100%;
+	overflow: hidden;
+	padding: 52px 5% 5%;
 }
 
 /*----------  Site Header  ----------*/
 
 .site-header {
-	background-color: var(--default);
-	border-bottom: 4px solid color( var(--default) shade(50%) );
-	margin-bottom: 20px;
+	background-color: var(--linkDefault);
+	box-shadow: 0 0 0 color( var(--default) alpha(-70%) );
 	left: 0;
 	position: fixed;
 	top: 0;
+	transition: box-shadow .25s ease-in-out;
 	width: 100%;
 	z-index: 100;
+
+	&.filled {
+		box-shadow: 0 5px 20px color( var(--default) alpha(-70%) );
+	}
+
+	& > .wrap {
+		margin: 0 auto;
+		max-width: 100%;
+		padding: 1px 0 0;
+		transition: all .15s ease-in-out;
+	}
 }
 
 .title-area {
 	float: left;
 	max-width: 70%;
-}
-
-.header-widget-area {
-	display: none;
-	float: right;
+	padding-left: 20px;
 }
 
 /*----------  Widgets  ----------*/
@@ -71,15 +79,18 @@
 	}
 }
 
-.widget_calendar {
+#site-overlay {
+	background: color( var(--default) alpha(-10%) );
+	display: none;
+	height: 100%;
+	left: 0;
+	position: fixed;
+	top: 0;
+	width: 100%;
+	z-index: 50;
 
-	& table {
-		width: 100%;
-	}
-
-	& th,
-	& td {
-		text-align: center;
+	&.visible {
+		display: block;
 	}
 }
 
@@ -89,12 +100,53 @@
 
 /*----------  768  ----------*/
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 870px) {
 
 	/* Structure */
-	.site-inner,
 	.site-footer {
 		padding: 40px;
+	}
+
+	.site-inner {
+		margin-top: 60px;
+		min-height: calc( 90vh );
+		padding: 0 0 40px;
+	}
+
+	.wrap {
+		padding: 20px 40px;
+	}
+
+	.site-header {
+		& > .wrap {
+			max-width: 1200px;
+			padding: 0 40px;
+		}
+	}
+
+	body:not(.single) .site-container::after {
+		background-image: url('assets/svgs/tube-scheme.svg');
+		background-position: center -340px;
+		background-repeat: no-repeat;
+		background-size: 800px 800px;
+		content: "";
+		display: block;
+		height: 100%;
+		left: 0;
+		opacity: .5;
+		position: absolute;
+		top: 0;
+		width: 100%;
+		z-index: -1;
+	}
+
+	.title-area {
+		padding-left: 0;
+	}
+
+	.entry-content {
+		margin: 0 auto;
+		max-width: 700px;
 	}
 
 	.footer-widgets {
@@ -108,51 +160,10 @@
 
 @media screen and (min-width: 1200px) {
 
-	#site-overlay {
-		background: rgba(0,0,0,.6);
-		width: 100%;
-		height: 100%;
-		z-index: 50;
-		transform: translate3d(0,0,0);
-		position: fixed;
-		top: 0;
-		left: 0;
-		display: none;
-	}
-
-	.site-inner {
-		margin-top: 68px;
-		padding-top: 40px;
-	}
-
-	.site-header {
-		color: var(--colorLight);
-		height: auto;
-		margin: 0 auto;
-
-		& > .wrap {
-			margin: 0 auto;
-			padding: 4px 40px 0;
-	        transition: all .15s ease-in-out;
-		}
-	}
-
-	/* Layout Wrappers */
-	/*.content-sidebar .content,
-	.sidebar-content .content {
-		float: left;
-		width: 700px;
-	}*/
-
 	.content {
 		float: none;
 		margin: 0 auto;
 		width: 100%;
-	}
-
-	.entry-content {
-		max-width: 700px;
-		margin: 0 auto;
 	}
 
 	/*----------  Columns  ----------*/

@@ -14,14 +14,6 @@ img {
 	height: auto;
 }
 
-.featured-content,
-.gallery {
-
-	& img {
-		width: auto;
-	}
-}
-
 .wp-caption {
 	margin: 0;
 }

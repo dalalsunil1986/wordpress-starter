@@ -11,53 +11,84 @@
 
 /*----------  Genesis eNews Widget  ----------*/
 
-.enews input {
-	margin-bottom: 20px;
-}
+.enews {
+	background-color: var(--linkDefault);
+	border: 4px solid color( var(--linkDefault) shade(5%) );
+	border-radius: 3px;
+	color: var(--colorUltraLight);
+	padding: 5%;
+	position: relative;
+	text-align: center;
 
-/*----------  SyntaxHighlighter  ----------*/
-
-.syntaxhighlighter.logic-code {
-	font-size: .8em !important;
-}
-
-.syntaxhighlighter.logic-code caption {
-	background: color( var(--default) tint(10%) ) !important;
-	padding: 10px 20px !important;
-}
-
-.syntaxhighlighter.logic-code td.gutter {
-	border-right: 3px solid color( var(--default) tint(10%) ) !important;
-}
-
-.syntaxhighlighter.logic-code,
-.syntaxhighlighter.logic-code table td.code .container textarea {
-  background-color: var(--default) !important;
-}
-.syntaxhighlighter.logic-code .line.alt1 {
-  background-color: var(--default) !important;
-}
-.syntaxhighlighter.logic-code .line.alt2 {
-  background-color: var(--default) !important;
-}
-
-.syntaxhighlighter.logic-code .string, .syntaxhighlighter .string a {
-  color: var(--linkDefault) !important;
-}
-
-.syntaxhighlighter.logic-code table td.gutter .line {
-	border-right: 0 !important;
-}
-
-.syntaxhighlighter.logic-code table td.code .line,
-.syntaxhighlighter.logic-code table td.gutter .line {
-	padding: .025em 0.5em 0.25em 1em !important;
-
-	&:first-of-type {
-		padding-top: 1em !important;
+	& .widget-title {
+		color: var(--colorUltraLight);
+		font-size: 38px;
+		font-size: 3.8rem;
 	}
 
-	&:last-of-type {
-		padding-bottom: 1em !important;
+	& input {
+		margin-bottom: 20px;
+		position: relative;
+		text-align: center;
+		z-index: 5;
+
+		&[type="email"],
+		&[type="text"] {
+			background: var(--linkDefault);
+			border: 1px solid var(--colorUltraLight);
+			border-radius: 3px;
+			color: var(--colorUltraLight);
+			padding-left: 0;
+
+			&:focus {
+
+				&::-webkit-input-placeholder {
+					opacity: .5;
+				}
+			}
+
+			&::-webkit-input-placeholder {
+				color: var(--colorUltraLight);
+				letter-spacing: 0.02em;
+				font-weight: bold;
+			}
+		}
+
+		&[type="submit"] {
+			margin: 1.3em 0 0;
+			padding: 20px 40px;
+		}
+	}
+
+	&::after {
+		background-image: url('assets/svgs/tube-scheme.svg');
+		background-position: center -200px;
+		background-repeat: repeat;
+		background-size: 50px;
+		content: "";
+		display: block;
+		left: 0;
+		height: 100%;
+		opacity: .1;
+		position: absolute;
+		top: 0;
+		width: 100%;
+		z-index: 1;
+	}
+}
+
+@media only screen and (min-width: 1200px) {
+	.enews {
+		& input[type="email"],
+		& input[type="text"] {
+			clear: left;
+			float: left;
+			width: 49%;
+		}
+
+		& input[type="email"] {
+			clear: right;
+			float: right;
+		}
 	}
 }
