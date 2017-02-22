@@ -113,6 +113,7 @@
 		display: block;
 		float: right;
 		height: auto;
+		overflow: hidden;
 		padding: 0;
 		width: auto;
 
