@@ -77,11 +77,11 @@ gulp.task( 'scripts', function() {
 
 	gulp.src( [
 		PATHS.js + 'prism.js',
-		PATHS.js + 'jquery-light.min.js',
+		PATHS.js + 'jquery-light.js',
 		PATHS.js + 'responsive-menus.js',
 		PATHS.js + 'global.js' ] )
 		.pipe( uglify() )
-		.pipe( concat('theme.min.js') )
+		.pipe( rename( {extname: '.min.js'} ))
 		.pipe( gulp.dest( PATHS.build.js ) );
 
 });
