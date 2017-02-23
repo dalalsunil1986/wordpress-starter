@@ -1,13 +1,20 @@
 <?php
 /**
  * Template Name: Page Home
+ *
+ * @since 1.0.0
  */
-add_filter( 'genesis_site_layout', '__genesis_return_full_width_content' );
 
+// Remove the default loop.
 remove_action( 'genesis_loop','genesis_do_loop');
 
-add_action( 'genesis_loop', 'logic_home_page_intro', 6 );
-function logic_home_page_intro() {
+add_action( 'genesis_loop', 'ck_home_page_intro', 6 );
+/**
+ * Output the custom home page content. Opted out of using widgets here, but mostly as a preference.
+ *
+ * @since 1.0.0
+ */
+function ck_home_page_intro() {
 
     ?>
     <section class="home-page-intro">

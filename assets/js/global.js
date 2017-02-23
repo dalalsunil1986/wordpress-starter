@@ -48,7 +48,7 @@
 	 * @since 1.0.0
 	 */
 	$(window).load( function() {
-		$('.logic-code').parent().addClass('stretch');
+		$('.ck-code').parent().addClass('stretch');
 	});
 
 	/**

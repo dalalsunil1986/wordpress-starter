@@ -9,8 +9,8 @@
  *
  */
 
-add_filter( 'body_class', 'logic_body_classes' );
-function logic_body_classes( $classes ) {
+add_filter( 'body_class', 'ck_body_classes' );
+function ck_body_classes( $classes ) {
 
 	if ( is_home() )
 		$classes[] = 'page-blog';
