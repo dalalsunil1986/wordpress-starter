@@ -15,23 +15,28 @@ add_theme_support( 'genesis-accessibility', array( 'skip-links', 'search-form', 
 
 /**
  * Remove breadcrumbs.
+ *
  * @since 1.0.0
  */
 remove_action( 'genesis_before_loop', 'genesis_do_breadcrumbs' );
 
 /**
- * Setup the current layout.
+ * Setup the default layout.
+ *
  * @since 1.0.0
  */
 add_filter( 'genesis_pre_get_option_site_layout', '__genesis_return_full_width_content' );
 
-/**
- * Modify the read more link on archives.
- * @since 1.0.0
- */
 add_filter( 'excerpt_more', 'ck_more_link' );
 add_filter( 'get_the_content_more_link', 'ck_more_link' );
 add_filter( 'the_content_more_link', 'ck_more_link' );
+/**
+ * Modify the read more link on archives.
+ *
+ * @return string HTML to output for the link.
+ *
+ * @since 1.0.0
+ */
 function ck_more_link() {
 
 	return sprintf( '...</p><p><a href="%s" class="more-link button button-block">%s</a></p>', get_the_permalink(), __( 'Read Full Post', TEXT_DOMAIN ) );
@@ -40,38 +45,49 @@ function ck_more_link() {
 
 /**
  * Remove the site description.
+ *
  * @since 1.0.0
  */
 remove_action( 'genesis_site_description', 'genesis_seo_site_description' );
 
+add_filter( 'genesis_author_box_gravatar_size', 'ck_author_box_gravatar_size' );
 /**
  * Modify the author bio gravatar size.
+ *
+ * @param  string $size  Size of the gravatr.
+ * @return string        Updated size of the gravatar.
+ *
  * @since 1.0.0
  */
-add_filter( 'genesis_author_box_gravatar_size', 'ck_author_box_gravatar_size' );
 function ck_author_box_gravatar_size( $size ) {
 	return '150';
 }
 
+add_filter( 'genesis_comment_list_args', 'ck_comment_gravatar_size' );
 /**
  * Modify the comment gravatar size.
+ *
+ * @param  array $args Array of arguments for the gravatar.
+ * @return array $args Updated array with new values.
+ *
  * @since 1.0.0
  */
-add_filter( 'genesis_comment_list_args', 'ck_comment_gravatar_size' );
 function ck_comment_gravatar_size( $args ) {
+
 	$args['avatar_size'] = 100;
 	return $args;
+
 }
 
 /**
- * Move after entry widget area.
- * @since 1.0.0
+ * Remove the after entry widget area.
+ *
+ * @since 1.1.0
  */
 remove_action( 'genesis_after_entry', 'genesis_after_entry_widget_area' );
-add_action( 'genesis_entry_content', 'genesis_after_entry_widget_area', 10 );
 
 /**
- * Remove the archive description boxes.
+ * Remove archive description boxes.
  *
  * @since 1.0.0
  */
@@ -80,22 +96,17 @@ remove_action( 'genesis_before_loop', 'genesis_do_cpt_archive_title_description'
 remove_action( 'genesis_before_loop', 'genesis_do_date_archive_title', 15 );
 
 /**
- * Remove the default content thumbnail.
+ * Unregister parent theme page template.
  *
- * @since 1.0.0
- */
-// remove_action( 'genesis_entry_content', 'genesis_do_post_image', 8 );
-
-/**
- * Unregister parent page templates
+ * @param  array $templates List of registerd page templates.
+ * @return array $templates Updated array.
  *
  * @since 1.0.0
  */
 add_filter( 'theme_page_templates', 'ck_remove_page_templates' );
 function ck_remove_page_templates( $templates ) {
 
-	unset( $templates['page_blog.php'] ); /* Default Blog Page Template */
-
+	unset( $templates['page_blog.php'] );
 	return $templates;
 
 }
@@ -137,21 +148,28 @@ genesis_unregister_layout( 'sidebar-content' );
 genesis_unregister_layout( 'content-sidebar' );
 
 /**
- * Reposition the default location of the secondary navigation to be at the very bottom.
+ * Remove the secondary navigation.
+ *
+ * @since 1.1.0
+ */
+remove_action( 'genesis_after_header', 'genesis_do_subnav' );
+
+/**
+ * Remove the entry footer.
  *
  * @since 1.0.0
  */
-remove_action( 'genesis_after_header', 'genesis_do_subnav' );
-add_action( 'genesis_after', 'genesis_do_subnav' );
+remove_all_actions( 'genesis_entry_footer' );
 
+add_filter( 'genesis_post_info', 'ck_post_info' );
 /**
  * Update the post info string.
- * @return string Post read time in minutes.
+ *
+ * @param  string $post_info HTML string (accepts shortcodes).
+ * @return string $meta      Updated string based on page type and information.
+ *
+ * @since 1.1.0
  */
-remove_all_actions( 'genesis_entry_footer' );
-remove_action( 'genesis_entry_header', 'genesis_post_info', 12 );
-add_action( 'genesis_entry_header', 'genesis_post_info', 12 );
-add_filter( 'genesis_post_info', 'ck_post_info' );
 function ck_post_info( $post_info ) {
 
 	$read = '<svg style="margin-left: 0" class="svg-icon" viewBox="0 0 20 20"><path d="M8.627,7.885C8.499,8.388,7.873,8.101,8.13,8.177L4.12,7.143c-0.218-0.057-0.351-0.28-0.293-0.498c0.057-0.218,0.279-0.351,0.497-0.294l4.011,1.037C8.552,7.444,8.685,7.667,8.627,7.885 M8.334,10.123L4.323,9.086C4.105,9.031,3.883,9.162,3.826,9.38C3.769,9.598,3.901,9.82,4.12,9.877l4.01,1.037c-0.262-0.062,0.373,0.192,0.497-0.294C8.685,10.401,8.552,10.18,8.334,10.123 M7.131,12.507L4.323,11.78c-0.218-0.057-0.44,0.076-0.497,0.295c-0.057,0.218,0.075,0.439,0.293,0.495l2.809,0.726c-0.265-0.062,0.37,0.193,0.495-0.293C7.48,12.784,7.35,12.562,7.131,12.507M18.159,3.677v10.701c0,0.186-0.126,0.348-0.306,0.393l-7.755,1.948c-0.07,0.016-0.134,0.016-0.204,0l-7.748-1.948c-0.179-0.045-0.306-0.207-0.306-0.393V3.677c0-0.267,0.249-0.461,0.509-0.396l7.646,1.921l7.654-1.921C17.91,3.216,18.159,3.41,18.159,3.677 M9.589,5.939L2.656,4.203v9.857l6.933,1.737V5.939z M17.344,4.203l-6.939,1.736v9.859l6.939-1.737V4.203z M16.168,6.645c-0.058-0.218-0.279-0.351-0.498-0.294l-4.011,1.037c-0.218,0.057-0.351,0.28-0.293,0.498c0.128,0.503,0.755,0.216,0.498,0.292l4.009-1.034C16.092,7.085,16.225,6.863,16.168,6.645 M16.168,9.38c-0.058-0.218-0.279-0.349-0.498-0.294l-4.011,1.036c-0.218,0.057-0.351,0.279-0.293,0.498c0.124,0.486,0.759,0.232,0.498,0.294l4.009-1.037C16.092,9.82,16.225,9.598,16.168,9.38 M14.963,12.385c-0.055-0.219-0.276-0.35-0.495-0.294l-2.809,0.726c-0.218,0.056-0.351,0.279-0.293,0.496c0.127,0.506,0.755,0.218,0.498,0.293l2.807-0.723C14.89,12.825,15.021,12.603,14.963,12.385"></path></svg>';
@@ -177,12 +195,12 @@ function ck_post_info( $post_info ) {
 
 }
 
+add_action( 'genesis_before_loop', 'ck_remove_entry_content' );
 /**
  * Remove entry content on archive pages.
  *
  * @since 1.0.0
  */
-add_action( 'genesis_before_loop', 'ck_remove_entry_content' );
 function ck_remove_entry_content() {
 
 	if ( is_archive() || is_home() || is_front_page() ) {
@@ -200,15 +218,15 @@ add_action( 'genesis_after', 'genesis_footer_markup_open', 5 );
 add_action( 'genesis_after', 'genesis_do_footer' );
 add_action( 'genesis_after', 'genesis_footer_markup_close', 15 );
 
+add_filter( 'genesis_footer_creds_text', 'ck_footer_credtis' );
 /**
  * Modify the footer credit text.
  *
- * @param string  $creds Default HTML for credits.
+ * @param  string $creds Default HTML for credits.
  * @return string $creds Updated HTML for credits.
  *
  * @since 1.0.0
  */
-add_filter( 'genesis_footer_creds_text', 'ck_footer_credtis' );
 function ck_footer_credtis( $creds ) {
 
 	$creds = sprintf( '<a target="_blank" href="https://github.com/cjkoepke/calvinkoepke-com">Fork This Theme</a> • Built on <a href="https://www.studiopress.com/features" target="_blank">Genesis</a> • Hosted on <a href="http://my.studiopress.com/plans/" target="_blank">StudioPress Sites</a><br/> <small>Credits: Background by <a href="http://www.freepik.com" follow="nofollow">FreePik</a>, Code Highlighter by <a href="http://prismjs.com" target="_blank" follow="nofollow">Prism</a></small>', date( 'Y' ) );

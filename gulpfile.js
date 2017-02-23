@@ -1,15 +1,13 @@
 /**
+ * Gulp tasks to produce production ready files.
  *
- * Gulp task recipe to produce production ready files for a WordPress theme
  * @author Calvin Koepke
- * @version 1.0
- * @link https://twitter.com/cjkoepke
- *
+ * @since 1.1.0
  */
 
 'use strict';
 
-//* Store paths
+// Path variables.
 var PATHS = {
 	js: './assets/js/',
 	css: './assets/css/',
@@ -19,23 +17,19 @@ var PATHS = {
 	}
 }
 
-//* Load and define dependencies
-var gulp = require( 'gulp' );
+// Require and assign dependencies.
+var gulp = require('gulp');
+var concat = require('gulp-concat');
 var postcss = require('gulp-postcss');
 var cssnext = require('postcss-cssnext');
+var cssimport = require('postcss-import');
+var uglify = require('gulp-uglify');
+var rename = require('gulp-rename');
 var cssnano = require('cssnano');
-var cssimport = require( 'postcss-import' );
-var sourcemaps = require('gulp-sourcemaps');
-var uglify = require( 'gulp-uglify' );
-var rename = require( 'gulp-rename' );
-var concat = require( 'gulp-concat' );
-var replace = require( 'gulp-replace' );
-var wpPot = require( 'gulp-wp-pot' );
-var zip = require( 'gulp-zip' );
+var wpPot = require('gulp-wp-pot');
+var zip = require('gulp-zip');
 
-var taskLoader = [ 'scripts', 'css', 'css:front-page', 'watch' ];
-
-//* Gulp task to run PostCSS for main stylesheet.
+// Gulp task to run PostCSS for main stylesheet.
 gulp.task( 'css', function() {
 
 	gulp.src( PATHS.css + 'style.css' )
@@ -53,7 +47,7 @@ gulp.task( 'css', function() {
 
 });
 
-//* Gulp task to run PostCSS on extra stylesheets.
+// Gulp task to run PostCSS on front page stylesheet.
 gulp.task( 'css:front-page', function() {
 
 	gulp.src( PATHS.css + 'extra/front-page.css' )
@@ -72,7 +66,7 @@ gulp.task( 'css:front-page', function() {
 
 });
 
-//* Gulp task to combine JS files, minify, and output to bundle.min.js
+// Gulp task to minify JS, concat, and output to theme.min.js.
 gulp.task( 'scripts', function() {
 
 	gulp.src( [
@@ -86,7 +80,7 @@ gulp.task( 'scripts', function() {
 
 });
 
-//* Watch files
+// Watch files.
 gulp.task( 'watch', function() {
 
 	gulp.watch( PATHS.js + '**/*.js', ['scripts'] );
@@ -94,7 +88,7 @@ gulp.task( 'watch', function() {
 
 });
 
-//* ZIP theme
+// ZIP theme.
 gulp.task( 'package-theme', function() {
 
 	gulp.src( [ './**/*', '!./node_modules/', '!./node_modules/**', '!./gulpfile.js', '!./package.json' ] )
@@ -103,7 +97,7 @@ gulp.task( 'package-theme', function() {
 
 });
 
-//* Translate theme
+// Translate theme.
 gulp.task( 'translate-theme', function() {
 
 	gulp.src( [ './**/*.php' ] )
@@ -116,5 +110,10 @@ gulp.task( 'translate-theme', function() {
 
 });
 
-//* Load tasks
-gulp.task( 'default', taskLoader );
+// Default task.
+gulp.task( 'default', [
+	'scripts',
+	'css',
+	'css:front-page',
+	'watch',
+] );
