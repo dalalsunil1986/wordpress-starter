@@ -1,8 +1,18 @@
 ## About This Repo
 This is the official GitRepo of calvinkoepke.com.
 
-## Setup
-Requires [Node](https://nodejs.org/en/) to run scripts.
+## Config
+### Setting Up Theme
+This theme is free to use, however it assumes that the user has at least a moderate knowledge of development
+and can make it work for their own use-case.
+
+Basic settings for home/blog page:
+1. Create a page and set it to the template: "Page Home".
+2. Create a page for your blog feed and give it a title.
+3. Under Settings > Reading in the WP Dashboard, set Front Page Displays to the static option, and select the appropriate pages. Example of mine: https://cloudup.com/cgqUviz0Yoy
+
+### Setting Up Compiler
+Requires [Node](https://nodejs.org/en/) to run setup scripts.
 
 Setup the project by cloning to your desktop, navigating to the folder in Terminal, and entering the commmand:
 
