@@ -7,6 +7,7 @@ This theme is free to use, however it assumes that the user has at least a moder
 and can make it work for their own use-case.
 
 Basic settings for home/blog page:
+
 1. Create a page and set it to the template: "Page Home".
 2. Create a page for your blog feed and give it a title.
 3. Under Settings > Reading in the WP Dashboard, set Front Page Displays to the static option, and select the appropriate pages. Example of mine: https://cloudup.com/cgqUviz0Yoy
