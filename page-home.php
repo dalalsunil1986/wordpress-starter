@@ -47,6 +47,7 @@ function logic_home_page_intro() {
 					remove_action( 'genesis_after_endwhile', 'genesis_posts_nav' );
 					genesis_custom_loop( $args );
 				?>
+				<div style="width: 100%"></div><!-- Acts like a flex-break -->
 				<a href="/blog/" class="button button-primary">See the Full Archive</a> <a href="#search" class="button">Search for a Post</a>
 			</div>
 		</div>
