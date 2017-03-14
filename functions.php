@@ -106,7 +106,7 @@ add_filter( 'script_loader_tag', 'logic_defer_scripts', 10, 2 );
 function logic_defer_scripts( $tag, $handle ) {
 
 	if ( 'skip-links' === $handle ) {
-		str_replace( 'src="', 'defer="defer" src="', $tag );
+		$tag = str_replace( 'src="', 'defer="defer" src="', $tag );
 	}
 
 	return $tag;
