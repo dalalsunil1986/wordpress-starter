@@ -13,7 +13,7 @@ define( 'CHILD_THEME_NAME', 'Logic' );
 define( 'CHILD_THEME_AUTHOR', 'Calvin Koepke' );
 define( 'CHILD_THEME_AUTHOR_URL', 'https://calvinkoepke.com/' );
 define( 'CHILD_THEME_URL', 'http://calvinkoepke.com/themes/logic/' );
-define( 'CHILD_THEME_VERSION', '1.0.0' );
+define( 'CHILD_THEME_VERSION', '1.0.1' );
 define( 'TEXT_DOMAIN', 'logic' );
 
 /**
@@ -95,6 +95,21 @@ function logic_get_responsive_menu_settings() {
 
 	return $settings;
 
+}
+
+/**
+ * Defer header scripts.
+ *
+ * @since 1.0.1
+ */
+add_filter( 'script_loader_tag', 'logic_defer_scripts', 10, 2 );
+function logic_defer_scripts( $tag, $handle ) {
+
+	if ( 'skip-links' === $handle ) {
+		$tag = str_replace( 'src="', 'defer="defer" src="', $tag );
+	}
+
+	return $tag;
 }
 
 /**
