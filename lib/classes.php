@@ -9,8 +9,8 @@
  *
  */
 
-add_filter( 'body_class', 'logic_body_classes' );
-function logic_body_classes( $classes ) {
+add_filter( 'body_class', 'ck_body_classes' );
+function ck_body_classes( $classes ) {
 
 	if ( is_home() )
 		$classes[] = 'page-blog';
@@ -30,12 +30,9 @@ function logic_body_classes( $classes ) {
 	if ( is_search() )
 		$classes[] = 'page-search';
 
-	if ( has_post_thumbnail() )
-		$classes[] = 'has-post-thumbnail';
-
 	if ( is_page_template() && get_page_template_slug() != false ) {
 
-		$template = basename( get_page_template_slug() );
+		$template = basename( get_page_template_slug() );		
 		$template_class = str_replace( '.php', '', $template );
 
 		$classes[] = $template_class;
