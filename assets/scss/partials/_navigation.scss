@@ -104,18 +104,16 @@
 
 // Primary Navigation
 @media only screen and (min-width: $break-large) {
+
 	.nav-primary {
-		background: #fff;
-		border-bottom: 1px solid #ddd;
+		float: right;
 
 		> .wrap {
 			max-width: 1240px;
 			padding: 0 40px;
 		}
 	}
-}
 
-@media only screen and (min-width: $break-large) {
 	.nav-primary,
 	.admin-bar .nav-primary {
 		display: block;
@@ -124,140 +122,5 @@
 		padding: 0;
 		position: static;
 	}
-}
 
-// Secondary Navigation
-@media only screen and (min-width: $break-large) {
-	.nav-secondary {
-		border-bottom: 1px solid $colorLight;
-		font-size: .8em;
-		font-style: italic;
-
-		> .wrap {
-			max-width: 1240px;
-			padding: 0 40px;
-		}
-	}
-}
-
-// Responsive Menu
-@media only screen and (min-width: $responsive-menu-break) {
-	.genesis-responsive-menu {
-		display: block;
-		visibility: visible;
-	}
-	.menu-toggle,
-	.sub-menu-toggle {
-		display: none;
-		visibility: hidden;
-	}
-
-	.menu .menu-item:focus {
-		position: static;
-	}
-
-	.menu .menu-item > a:focus + ul.sub-menu,
-	.menu .menu-item.sfHover > ul.sub-menu {
-		left: auto;
-		opacity: 1;
-	}
-}
-
-@media only screen and (max-width: $responsive-menu-break) {
-	.genesis-responsive-menu {
-		display: none;
-		position: relative;
-
-		> .wrap {
-			padding: 0;
-		}
-
-		.genesis-nav-menu {
-			.sub-menu {
-				border: none;
-				clear: both;
-				display: none;
-				margin: 0;
-				opacity: 1;
-				position: static;
-				width: 100%;
-			}
-
-			.menu-item {
-				display: block;
-				float: none;
-				position: relative;
-				text-align: left;
-
-				a {
-				 	margin-bottom: 1px;
-				 	padding: 15px 20px;
-				 	width: 100%;
-
-					&:focus,
-					&:hover {
-						text-decoration: underline;
-					}
-				}
-
-				.sub-menu a {
-					padding-left: 25px;
-				}
-			}
-		}
-	}
-
-	.genesis-skip-link .skip-link-hidden {
-		display: none;
-		visibility: hidden;
-
-		@media only screen and (min-width: $responsive-menu-break) {
-			display: block;
-			visibility: visible;
-		}
-	}
-
-	.menu-toggle,
-	.sub-menu-toggle {
-		display: block;
-		margin: 0 auto;
-		overflow: hidden;
-		text-align: center;
-		visibility: visible;
-	}
-
-	.menu-toggle {
-		line-height: 20px;
-		position: relative;
-		z-index: 1000;
-		width: 100%;
-
-		&::before {
-			font-size: 1.5em;
-			margin-right: 10px;
-			line-height: inherit;
-			text-rendering: auto;
-			vertical-align: bottom;
-		}
-	}
-
-	.sub-menu-toggle {
-		float: right;
-		padding: 10px;
-		position: absolute;
-		right: 0;
-		top: 0;
-		z-index: 100;
-
-		&::before {
-			display: inline-block;
-			text-rendering: auto;
-			transform: rotate(0);
-			transition: transform .25s ease-in-out;
-		}
-
-		&.activated::before {
-			transform: rotate(180deg);
-		}
-	}
 }

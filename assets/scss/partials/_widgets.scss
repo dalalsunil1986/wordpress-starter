@@ -1,56 +1,36 @@
-/*===============================
-=            Widgets            =
-===============================*/
-
-/*----------  Header Widget Area  ----------*/
-
-.header-widget-area {
-	display: none;
-	max-width: 600px;
-	width: 100%;
-}
-
-/*----------  Sidebar Widgets  ----------*/
-
 .sidebar .widget {
 	margin-bottom: 40px;
+
+	&:first-of-type .widget-title {
+		margin-top: 0;
+	}
 }
 
-/*=====================================
-=            Media Queries            =
-=====================================*/
+.widget {
+	word-wrap: break-word;
 
-/*----------  768  ----------*/
-
-@media screen and (min-width: 768px) {
-
-	/* Footer Widgets */
-	.footer-widgets-1,
-	.footer-widgets-2,
-	.footer-widgets-3 {
-		float: left;
-		margin-left: 2.564102564102564%;
-		width: 31.623931623931625%;
+	ol > li {
+		list-style-position: inside;
+		list-style-type: decimal;
+		padding-left: 20px;
+		text-indent: -20px;
 	}
 
-	.footer-widgets-1 {
-		margin-left: 0;
+	li li {
+		border: 0;
+		margin: 0 0 0 30px;
+		padding: 0;
 	}
-
 }
 
-/*----------  1200  ----------*/
+.widget_calendar {
 
-@media screen and (min-width: 1200px) {
-
-	/* Widget Areas */
-	.sidebar,
-	.header-widget-area {
-		display: block;
+	table {
+		width: 100%;
 	}
 
-	.footer-widgets {
-		margin-top: 40px;
+	th,
+	td {
+		text-align: center;
 	}
-
 }

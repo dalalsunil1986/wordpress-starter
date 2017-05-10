@@ -1,20 +1,12 @@
-
-
-/*=================================
-=            Structure            =
-=================================*/
-
-/*----------  Site Containers  ----------*/
-
 .site-container {
-	max-width: 100%;
+	max-width: 1000px;
+	margin: 80px auto;
 }
 
 .site-inner,
 .wrap,
 .site-footer {
 	margin: 0 auto;
-	max-width: 1200px;
 	width: 100%;
 }
 
@@ -23,25 +15,51 @@
 	padding: 20px 10px;
 }
 
-/*----------  Site Header  ----------*/
+@media only screen and (min-width: $break-medium) {
+
+	.site-inner {
+		padding: 0;
+	}
+
+	.grid-wrapper,
+	.content-sidebar-wrap {
+		display: grid;
+		grid-gap: 40px;
+		grid-template-columns: repeat(12, 1fr);
+		padding: 0;
+
+		> * {
+			grid-column: span 12;
+		}
+	}
+
+	.content {
+		grid-column: 1 / 9;
+	}
+
+	.sidebar {
+		grid-column: 9 / 13;
+	}
+
+	.site-footer {
+		padding: 40px;
+	}
+
+}
 
 .site-header {
 	background: #fff;
 	border-bottom: 1px solid $colorLight;
 	width: 100%;
 
-	@media only screen and (min-width: $break-medium) {
-		> .wrap {
-			padding-left: 40px;
-			padding-right: 40px;
-		}
-	}
-
 	> .wrap {
 		padding: 20px 10px;
 
-		@media only screen and (min-width: $break-large) {
-			padding: 40px;
+		@media only screen and (min-width: $break-medium) {
+			align-items: center;
+			display: flex;
+			justify-content: flex-start;
+			padding: 20px 0;
 		}
 	}
 }
@@ -55,66 +73,7 @@
 	max-width: 70%;
 }
 
-.header-widget-area {
-	display: none;
-	float: right;
-}
-
-/*----------  Widgets  ----------*/
-
-.widget {
-	word-wrap: break-word;
-
-	ol > li {
-		list-style-position: inside;
-		list-style-type: decimal;
-		padding-left: 20px;
-		text-indent: -20px;
-	}
-
-	li li {
-		border: 0;
-		margin: 0 0 0 30px;
-		padding: 0;
-	}
-}
-
-.widget_calendar {
-
-	table {
-		width: 100%;
-	}
-
-	th,
-	td {
-		text-align: center;
-	}
-}
-
-/*=====================================
-=            Media Queries            =
-=====================================*/
-
-/*----------  768  ----------*/
-
-@media screen and (min-width: 768px) {
-
-	/* Structure */
-	.site-inner,
-	.site-footer {
-		padding: 40px;
-	}
-
-	.footer-widgets {
-		padding-left: 40px;
-		padding-right: 40px;
-	}
-
-}
-
-/*----------  1200  ----------*/
-
-@media screen and (min-width: 1200px) {
+@media screen and (min-width: $break-large) {
 
 	/* Structure */
 	.site-inner {
@@ -122,48 +81,12 @@
 	}
 
 	/* Layout Wrappers */
-	.content-sidebar-sidebar,
-	.sidebar-content-sidebar,
-	.sidebar-sidebar-content {
-
-		.content-sidebar-wrap {
-			width: 980px;
-		}
-	}
-
-	.content-sidebar-sidebar .content-sidebar-wrap {
-		float: left;
-	}
-
-	.sidebar-content-sidebar .content-sidebar-wrap,
-	.sidebar-sidebar-content .content-sidebar-wrap {
-		float: right;
-	}
-
 	.content {
 		float: right;
-		width: 760px;
 	}
 
-	.content-sidebar,
-	.content-sidebar-sidebar,
-	.sidebar-content-sidebar {
-		.content {
-			float: left;
-		}
-	}
-
-	.content-sidebar-sidebar,
-	.sidebar-content-sidebar,
-	.sidebar-sidebar-content {
-
-		.content {
-			width: 580px;
-		}
-	}
-
-	.full-width-content .content {
-		width: 100%;
+	.content-sidebar .content {
+		float: left;
 	}
 
 	/*----------  Columns  ----------*/

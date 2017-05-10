@@ -5,17 +5,9 @@
  * @since 1.0.0
  *
  */
-document.getElementsByTagName( "body" )[0].className += " js";
+document.body.className += " js";
 
-(function( $ ) {
+(function() {
 
-	$( document ).ready( function() {
 
-		/**
-		 *
-		 * Place your jQuery code here.
-		 *
-		 */
-	});
-
-})(jQuery);
+})();

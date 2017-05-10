@@ -1,7 +1,3 @@
-/*=============================
-=            Forms            =
-=============================*/
-
 input,
 select,
 textarea {
@@ -28,7 +24,7 @@ input[type="radio"] {
 input:not( [type="checkbox" ] ),
 input:not( [type="image"] ),
 input:not( [type="radio"] ) {
-	-webkit-appearance: none; /* Remove iOS styles */
+	-webkit-appearance: none; // Remove iOS styles.
 }
 
 ::-moz-placeholder {
@@ -77,8 +73,7 @@ input:focus[type="submit"],
 	display: inline-block;
 }
 
-/*----------  Search Form  ----------*/
-
+// Search form.
 input[type="search"]::-webkit-search-cancel-button,
 input[type="search"]::-webkit-search-results-button {
 	display: none;

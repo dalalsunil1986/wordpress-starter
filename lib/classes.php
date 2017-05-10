@@ -1,15 +1,11 @@
 <?php
 
+add_filter( 'body_class', 'ck_body_classes' );
 /**
- *
- * Custom function for applying common classes to the body tag, depending on the current view
+ * Apply common classes to the body tag, depending on the current view
  *
  * @since 1.0.0
- * @author Calvin Koepke
- *
  */
-
-add_filter( 'body_class', 'ck_body_classes' );
 function ck_body_classes( $classes ) {
 
 	if ( is_home() )
@@ -32,7 +28,7 @@ function ck_body_classes( $classes ) {
 
 	if ( is_page_template() && get_page_template_slug() != false ) {
 
-		$template = basename( get_page_template_slug() );		
+		$template = basename( get_page_template_slug() );
 		$template_class = str_replace( '.php', '', $template );
 
 		$classes[] = $template_class;
