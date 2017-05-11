@@ -36,10 +36,17 @@ add_filter( 'genesis_post_info', 'ck_post_info', 12 );
  * @since 2.0.0
  */
 function ck_post_info( $info ) {
-
 	$info = '[post_date]';
 	return $info;
+}
 
+/**
+ * Adjust post info.
+ *
+ * @since 2.0.0
+ */
+if ( ! is_home() || ! is_archive() ) {
+	remove_action( 'genesis_entry_header', 'genesis_post_info', 12 );
 }
 
 add_filter( 'wp_nav_menu_args', 'ck_nav_menu_args' );
