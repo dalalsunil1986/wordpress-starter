@@ -27,7 +27,7 @@ pre[class*="language-"] {
 	color: $default;
 	background: #f5f5f5;
 	font-size: 0.9em;
-	font-family: monospace;
+	font-family: $monospace;
 	position: relative;
 	text-align: left;
 	white-space: pre;

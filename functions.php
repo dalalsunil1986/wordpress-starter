@@ -39,10 +39,10 @@ function ck_load_assets() {
 	// Clean up default WP Scripts.
 	wp_deregister_script( 'jquery' );
 	wp_deregister_script( 'wp-embed' );
+	wp_deregister_script( 'skip-links' );
 
 	// Load theme JS.
-	wp_enqueue_script( 'ck-global-js', get_stylesheet_directory_uri() . '/build/js/global.min.js', array(), CHILD_THEME_VERSION );
-	wp_enqueue_script( 'ck-prism-js', get_stylesheet_directory_uri() . '/build/js/prism.min.js', array(), CHILD_THEME_VERSION );
+	wp_enqueue_script( 'ck-global-js', get_stylesheet_directory_uri() . '/build/js/global.min.js', array(), CHILD_THEME_VERSION, true );
 
 }
 
@@ -51,7 +51,7 @@ function ck_load_assets() {
  *
  * @since 2.0.0
  */
-add_filter( 'script_loader_tag', 'ck_async_scripts', 10, 2 );
+// add_filter( 'script_loader_tag', 'ck_async_scripts', 10, 2 );
 function ck_async_scripts( $tag, $handle ) {
 	if ( 'ck-global-js' === $handle || 'ck-prism-js' === $handle ) {
 		$tag = str_replace( 'src=', 'async="async" src=', $tag );
@@ -67,6 +67,7 @@ function ck_async_scripts( $tag, $handle ) {
 add_theme_support( 'genesis-responsive-viewport' ); /* Enable Viewport Meta Tag for Mobile Devices */
 add_theme_support( 'html5',  array( 'search-form', 'comment-form', 'comment-list', 'gallery', 'caption' ) ); /* HTML5 */
 add_theme_support( 'genesis-accessibility', array( 'skip-links', 'search-form', 'drop-down-menu', 'headings' ) ); /* Accessibility */
+add_theme_support( 'genesis-structural-wraps', array() );
 
 /**
  * Apply custom body classes.

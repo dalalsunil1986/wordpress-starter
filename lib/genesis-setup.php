@@ -1,5 +1,18 @@
 <?php
 
+add_action( 'genesis_meta', 'ck_setup_layout' );
+/**
+ * Setup the entry layout depending on page type.
+ *
+ * @since 1.0.0
+ */
+function ck_setup_layout() {
+	if ( ! is_singular() ) {
+		add_filter( 'genesis_site_layout', '__genesis_return_full_width_content' );
+		remove_all_actions( 'genesis_entry_footer' );
+	}
+}
+
 add_filter( 'genesis_author_box_gravatar_size', 'ck_author_box_gravatar_size' );
 /**
  * Set default author box gravatar size
@@ -8,22 +21,6 @@ add_filter( 'genesis_author_box_gravatar_size', 'ck_author_box_gravatar_size' );
  */
 function ck_author_box_gravatar_size( $size ) {
 	return '150';
-}
-
-add_action( 'genesis_before_loop', 'ck_setup_feed' );
-/**
- * Function to setup archive feeds.
- *
- * @since 2.0.0
- */
-function ck_setup_feed() {
-
-	if ( ! is_home() && ! is_archive() ) {
-		return;
-	}
-
-	remove_all_actions( 'genesis_entry_footer' );
-
 }
 
 add_filter( 'genesis_post_info', 'ck_post_info', 12 );
@@ -38,15 +35,6 @@ add_filter( 'genesis_post_info', 'ck_post_info', 12 );
 function ck_post_info( $info ) {
 	$info = '[post_date]';
 	return $info;
-}
-
-/**
- * Adjust post info.
- *
- * @since 2.0.0
- */
-if ( ! is_home() || ! is_archive() ) {
-	remove_action( 'genesis_entry_header', 'genesis_post_info', 12 );
 }
 
 add_filter( 'wp_nav_menu_args', 'ck_nav_menu_args' );

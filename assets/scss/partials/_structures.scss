@@ -1,6 +1,5 @@
 .site-container {
-	max-width: 1000px;
-	margin: 80px auto;
+	margin: 0 auto;
 }
 
 .site-inner,
@@ -15,72 +14,110 @@
 	padding: 20px 10px;
 }
 
-@media only screen and (min-width: $break-medium) {
+.site-header {
+	background: $default;
+	color: $colorLight;
+	padding: 20px 10px;
+	width: 100%;
 
-	.site-inner {
-		padding: 0;
+	@media only screen and (min-width: $break-medium) {
+		padding: 40px;
+	}
+}
+
+.title-area {
+	float: left;
+}
+
+@media only screen and (min-width: $break-small) {
+
+	.grid-wrapper {
+		max-width: 1800px;
 	}
 
 	.grid-wrapper,
 	.content-sidebar-wrap {
 		display: grid;
-		grid-gap: 40px;
 		grid-template-columns: repeat(12, 1fr);
 		padding: 0;
+	}
 
-		> * {
-			grid-column: span 12;
+	.site-inner {
+		padding: 0;
+	}
+
+	.site-header,
+	.site-inner {
+		grid-column: 1 / span 12;
+	}
+
+}
+
+@media only screen and (min-width: $break-medium) {
+
+	.grid-wrapper {
+		grid-template-columns: repeat(3, 100px) repeat(9, 1fr);
+	}
+
+	.site-inner {
+		grid-column: 4 / span 10;
+	}
+
+	.site-header {
+		grid-column: 1 / span 3;
+	}
+
+	.blog .entry,
+	.archive .entry {
+		grid-column: span 6;
+
+		@media only screen and (min-width: $break-large) {
+			grid-column: span 4;
+		}
+
+		.entry-title {
+			margin-top: 0;
 		}
 	}
 
 	.content {
-		grid-column: 1 / 9;
+		background: #fff;
+		grid-column: 1 / span 9;
+		padding: 40px;
+		z-index: 5;
+	}
+
+	.blog .content,
+	.archive .content {
+		display: grid;
+		grid-column: 1 / span 12;
+		grid-template-columns: repeat(12, 1fr);
+		grid-gap: 40px;
 	}
 
 	.sidebar {
-		grid-column: 9 / 13;
+		background: #f5f5f5;
+		grid-column: 10 / span 3;
+		padding: 40px;
 	}
 
+	.archive-description,
 	.site-footer {
+		grid-column: 1 / span 12;
 		padding: 40px;
 	}
 
 }
 
-.site-header {
-	background: #fff;
-	border-bottom: 1px solid $colorLight;
-	width: 100%;
-
-	> .wrap {
-		padding: 20px 10px;
-
-		@media only screen and (min-width: $break-medium) {
-			align-items: center;
-			display: flex;
-			justify-content: flex-start;
-			padding: 20px 0;
-		}
-	}
-}
-
-.admin-bar .site-header {
-	top: 46px;
-}
-
-.title-area {
-	float: left;
-	max-width: 70%;
-}
 
 @media screen and (min-width: $break-large) {
 
-	/* Structure */
+	// Structure.
 	.site-inner {
 		margin-top: 0;
 	}
 
-	/* Layout Wrappers */
+	// Layout Wrappers.
 	.content {
 		float: right;
 	}
@@ -89,7 +126,7 @@
 		float: left;
 	}
 
-	/*----------  Columns  ----------*/
+	// Columns.
 	.five-sixths,
 	.four-sixths,
 	.one-fourth,
