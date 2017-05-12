@@ -8,10 +8,13 @@
 
 (function() {
 
-	document.addEventListener( 'DOMContentLoaded', function() {
+	document.addEventListener('DOMContentLoaded', function() {
+
+		// Trigger scroll event.
+		triggerScroll();
 
 		// Check for content.
-		var code = document.querySelector( 'pre,code' );
+		var code = document.querySelector('pre,code');
 
 		// Prism script.
 		var prismScript  = document.createElement('script');
@@ -24,5 +27,40 @@
 		}
 
 	});
+
+	var nav      = document.querySelector('.nav-primary'),
+		navTop   = getOffset(nav).top,
+		navWidth = nav.getBoundingClientRect().width;
+
+	window.addEventListener('scroll', function() {
+
+		if ( window.scrollY > navTop && ! nav.classList.contains('fixed') ) {
+			nav.classList.add('fixed');
+			nav.setAttribute('style', 'width: ' + navWidth + 'px; top: 0');
+		}
+
+		if ( window.scrollY < navTop && nav.classList.contains('fixed') ) {
+			nav.classList.remove('fixed');
+			nav.setAttribute('style', '');
+		}
+
+	});
+
+	function getOffset(el) {
+		el = el.getBoundingClientRect();
+		return {
+			left: el.left + window.scrollX,
+			top: el.top + window.scrollY
+		}
+	}
+
+	function triggerScroll() {
+		var event = new MouseEvent('scroll', {
+			'view': window,
+			'bubbles': true,
+			'cancelable': false
+		});
+		window.dispatchEvent(event);
+	}
 
 })();

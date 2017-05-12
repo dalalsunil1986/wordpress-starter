@@ -9,22 +9,26 @@
 	}
 
 	.menu-item {
+		border-bottom: 1px solid lighten($default, 5%);
 		display: block;
 		position: relative;
-		text-align: right;
+		text-align: left;
 
-		@media only screen and (min-width: $break-large) {
-			display: inline-block;
-			position: relative;
-			text-align: left;
-		}
-
-		> a {
-			padding: 20px;
+		&:first-child {
+			border-top: 1px solid lighten($default, 5%);
 		}
 	}
 
+	a:focus,
+	a:hover,
+	.menu-item.current-menu-item a {
+		background: lighten($default, 5%);
+		color: #fff;
+	}
+
 	a {
+		color: $colorLight;
+		font-weight: 400;
 		display: block;
 		padding: 20px 10px;
 		text-align: left;
@@ -32,13 +36,7 @@
 		@media only screen and (min-width: $break-large) {
 			border-bottom: 0;
 			display: block;
-			padding: 20px;
-		}
-	}
-
-	> .menu-item > a {
-		@media only screen and (min-width: $break-large) {
-			padding: 20px;
+			padding: 20px 40px;
 		}
 	}
 
@@ -105,11 +103,10 @@
 @media only screen and (min-width: $break-large) {
 
 	.nav-primary {
-		float: right;
+		margin: 0 -40px;
 
-		> .wrap {
-			max-width: 1240px;
-			padding: 0 40px;
+		&.fixed {
+			position: fixed;
 		}
 	}
 

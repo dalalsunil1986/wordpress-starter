@@ -1,8 +1,8 @@
 //* Text
 $default: #182635 !default;
 $linkDefault: #009B79 !default;
-$linkAlt: #183859 !default;
+$linkAlt: lighten($default, 25%) !default;
 
 //* Color
 $colorLight: #CCD7E2 !default;
-$colorUltraLight: #F4F8FC !default;
+$colorUltraLight: #f5f5f5 !default;

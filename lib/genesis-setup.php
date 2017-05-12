@@ -8,7 +8,6 @@ add_action( 'genesis_meta', 'ck_setup_layout' );
  */
 function ck_setup_layout() {
 	if ( ! is_singular() ) {
-		add_filter( 'genesis_site_layout', '__genesis_return_full_width_content' );
 		remove_all_actions( 'genesis_entry_footer' );
 	}
 }
