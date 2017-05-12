@@ -7,8 +7,7 @@ body {
 }
 
 a {
-	color: $default;
-    font-weight: 700;
+	color: $linkAlt;
 	text-decoration: none;
 
 	&:hover,
@@ -19,7 +18,7 @@ a {
 }
 
 .site-inner a {
-    background-image: linear-gradient($linkDefault, $linkDefault);
+    background-image: linear-gradient($linkAlt, $linkAlt);
     background-position: 0 1em;
     background-repeat: repeat-x;
     background-size: 100%  2px;
@@ -45,8 +44,7 @@ li {
 	list-style-type: none;
 }
 
-.entry-content,
-.footer-widgets {
+.entry-content {
 
 	ol,
 	ul {
@@ -121,8 +119,7 @@ h2 {
 }
 
 h3,
-.archive .entry-title,
-.blog .entry-title {
+.archive .entry-title {
 	font-size: 1.563em;
 }
 
@@ -156,17 +153,16 @@ h6 {
 }
 
 .site-description {
-	font-size: 1em;
+	font-size: 0.8em;
+    margin: 1.3em 0 0;
 }
 
-// Author box.
 .author-box-title {
 	font-size: 18px;
 	font-size: 1.8rem;
 	margin-top: 0;
 }
 
-// Archive description.
 .archive-title {
 	margin: 0;
 }

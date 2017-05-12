@@ -1,6 +1,7 @@
 .screen-reader-text,
 .screen-reader-text span,
-.screen-reader-shortcut {
+.screen-reader-shortcut,
+.search-form input[type="submit"] {
 	position: absolute !important;
 	clip: rect(0, 0, 0, 0);
 	height: 1px;
@@ -33,7 +34,6 @@
 
 // Display focus outline.
 :focus {
-	color: $linkDefault;
 	box-shadow: 0;
 	outline: rgba(0,0,0,.2) solid 2px;
 }

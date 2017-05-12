@@ -80,17 +80,6 @@ input[type="search"]::-webkit-search-results-button {
 	overflow: hidden;
 }
 
-.site-header .search-form {
-	float: right;
-}
-
-.entry-content,
-.site-header {
-	.search-form {
-		width: 50%;
-	}
-}
-
 .genesis-nav-menu .search input[type="submit"],
 .widget_search input[type="submit"] {
 	border: 0;

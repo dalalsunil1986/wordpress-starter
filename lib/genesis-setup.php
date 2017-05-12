@@ -1,4 +1,13 @@
 <?php
+/**
+ * Add Genesis theme supports.
+ *
+ * @since 1.0.0
+ */
+add_theme_support( 'genesis-responsive-viewport' );
+add_theme_support( 'html5',  array( 'search-form', 'comment-form', 'comment-list', 'gallery', 'caption' ) );
+add_theme_support( 'genesis-accessibility', array( 'search-form', 'headings' ) );
+add_theme_support( 'genesis-structural-wraps', array( 'header' ) );
 
 add_action( 'genesis_meta', 'ck_setup_layout' );
 /**
@@ -7,6 +16,9 @@ add_action( 'genesis_meta', 'ck_setup_layout' );
  * @since 1.0.0
  */
 function ck_setup_layout() {
+
+	add_filter( 'genesis_site_layout', '__genesis_return_content_sidebar' );
+
 	if ( ! is_singular() ) {
 		remove_all_actions( 'genesis_entry_footer' );
 	}

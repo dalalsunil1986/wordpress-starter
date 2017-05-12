@@ -8,23 +8,11 @@ add_filter( 'body_class', 'ck_body_classes' );
  */
 function ck_body_classes( $classes ) {
 
-	if ( is_home() )
-		$classes[] = 'page-blog';
-
 	if ( is_front_page() )
 		$classes[] = 'page-front';
 
-	if ( is_archive() )
-		$classes[] = 'page-archive';
-
-	if ( is_category() )
-		$classes[] = 'page-category';
-
-	if ( is_tag() )
-		$classes[] = 'page-tag';
-
-	if ( is_search() )
-		$classes[] = 'page-search';
+	if ( is_archive() || is_search() || is_home() )
+		$classes[] = 'archive';
 
 	if ( is_page_template() && get_page_template_slug() != false ) {
 

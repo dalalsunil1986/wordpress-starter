@@ -60,16 +60,6 @@ function ck_async_scripts( $tag, $handle ) {
 }
 
 /**
- * Add theme supports
- *
- * @since 1.0.0
- */
-add_theme_support( 'genesis-responsive-viewport' ); /* Enable Viewport Meta Tag for Mobile Devices */
-add_theme_support( 'html5',  array( 'search-form', 'comment-form', 'comment-list', 'gallery', 'caption' ) ); /* HTML5 */
-add_theme_support( 'genesis-accessibility', array( 'skip-links', 'search-form', 'drop-down-menu', 'headings' ) ); /* Accessibility */
-add_theme_support( 'genesis-structural-wraps', array() );
-
-/**
  * Apply custom body classes.
  *
  * @since 1.0.0

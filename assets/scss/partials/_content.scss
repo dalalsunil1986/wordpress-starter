@@ -1,15 +1,19 @@
 // Entries.
-.content .entry:first-of-type .entry-title {
-	margin-top: 0;
-}
-
 .entry {
 	text-rendering: optimizeLegibility;
+
+	&:first-of-type .entry-title {
+		margin-top: 0;
+	}
 }
 
 p.entry-meta {
 	font-size: 0.8em;
 	font-weight: 700;
+
+	span {
+		display: block;
+	}
 }
 
 .comment-header {

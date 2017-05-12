@@ -17,12 +17,18 @@
 .site-header {
 	background: $default;
 	color: $colorLight;
-	padding: 20px 10px;
-	width: 100%;
 
-	@media only screen and (min-width: $break-medium) {
-		padding: 40px;
+	> .wrap {
+		padding: 20px 10px;
+
+		@media only screen and (min-width: $break-medium) {
+			padding: 40px;
+		}
 	}
+}
+
+.title-area {
+	margin-bottom: 40px;
 }
 
 @media only screen and (min-width: $break-small) {
@@ -71,12 +77,10 @@
 		background: #fff;
 		grid-column: 1 / 7;
 		padding: 40px;
-		z-index: 5;
 	}
 
 	.sidebar {
 		background: $colorUltraLight;
-		border-left: 2px solid $colorLight;
 		grid-column: 7 / 10;
 		padding: 40px;
 	}

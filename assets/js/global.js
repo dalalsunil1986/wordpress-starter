@@ -1,17 +1,12 @@
 /**
+ * JavaScript functions for the theme (no jQuery).
  *
- * Add .js class to body tag if JavaScript is enabled
- *
- * @since 1.0.0
+ * @since 2.0.0
  *
  */
-
 (function() {
 
 	document.addEventListener('DOMContentLoaded', function() {
-
-		// Trigger scroll event.
-		triggerScroll();
 
 		// Check for content.
 		var code = document.querySelector('pre,code');
@@ -23,29 +18,48 @@
 
 		// Load the script if there is any pre/code tags.
 		if (code !== null) {
-			document.body.appendChild(prismScript);
+			window.addEventListener('load', function() { document.body.appendChild(prismScript); });
 		}
+
+		stickify('.site-header > .wrap');
+		stickify('.sidebar .enews-widget');
 
 	});
 
-	var nav      = document.querySelector('.nav-primary'),
-		navTop   = getOffset(nav).top,
-		navWidth = nav.getBoundingClientRect().width;
+	/**
+	 * Helper function to make an element sticky on scroll.
+	 * @param  string el Selector to be used (uses querySelector).
+	 * @since 2.0.0
+	 */
+	function stickify(el) {
 
-	window.addEventListener('scroll', function() {
+		var el       = document.querySelector(el),
+			elTop    = getOffset(el).top,
+			elWidth  = el.getBoundingClientRect().width;
 
-		if ( window.scrollY > navTop && ! nav.classList.contains('fixed') ) {
-			nav.classList.add('fixed');
-			nav.setAttribute('style', 'width: ' + navWidth + 'px; top: 0');
-		}
+		window.addEventListener('scroll', function() {
 
-		if ( window.scrollY < navTop && nav.classList.contains('fixed') ) {
-			nav.classList.remove('fixed');
-			nav.setAttribute('style', '');
-		}
+			if ( window.scrollY > elTop && el.style.position !== 'fixed' ) {
+				el.setAttribute('style', 'width: ' + elWidth + 'px; top: 0; position: fixed;');
+			}
 
-	});
+			if ( window.scrollY < elTop && el.style.position === 'fixed' ) {
+				el.setAttribute('style', '');
+			}
 
+		});
+
+		// Trigger scroll event on load.
+		document.addEventListener('DOMContentLoaded', triggerScroll());
+
+	}
+
+	/**
+	 * Helper function to get the offset.
+	 * @param  node   el DOM Node to get the offset for.
+	 * @return object    Object containing offset information.
+	 * @since  2.0.0
+	 */
 	function getOffset(el) {
 		el = el.getBoundingClientRect();
 		return {
@@ -54,6 +68,11 @@
 		}
 	}
 
+	/**
+	 * Manually trigger a scroll event.
+	 * @return undefined
+	 * @since 2.0.0
+	 */
 	function triggerScroll() {
 		var event = new MouseEvent('scroll', {
 			'view': window,
