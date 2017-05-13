@@ -21,7 +21,7 @@
 			window.addEventListener('load', function() { document.body.appendChild(prismScript); });
 		}
 
-		stickify('.site-header > .wrap');
+		stickify('.nav-primary');
 		stickify('.sidebar .enews-widget');
 
 	});

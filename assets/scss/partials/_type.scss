@@ -7,7 +7,7 @@ body {
 }
 
 a {
-	color: $linkAlt;
+	color: $linkDefault;
 	text-decoration: none;
 
 	&:hover,
@@ -18,7 +18,7 @@ a {
 }
 
 .site-inner a {
-    background-image: linear-gradient($linkAlt, $linkAlt);
+    background-image: linear-gradient($linkDefault, $linkDefault);
     background-position: 0 1em;
     background-repeat: repeat-x;
     background-size: 100%  2px;
@@ -26,6 +26,15 @@ a {
     &:focus,
     &:hover {
         background-image: linear-gradient($default, $default);
+    }
+
+    &.button {
+        background-image: none;
+
+        &:focus,
+        &:hover {
+            color: $colorUltraLight;
+        }
     }
 }
 
@@ -164,5 +173,9 @@ h6 {
 }
 
 .archive-title {
-	margin: 0;
+	margin-top: 0;
+}
+
+.archive-description p {
+    font-size: 1.25em;
 }

@@ -2,7 +2,7 @@
 .entry {
 	text-rendering: optimizeLegibility;
 
-	&:first-of-type .entry-title {
+	.entry-title {
 		margin-top: 0;
 	}
 }
@@ -61,24 +61,18 @@ ul.children {
 }
 
 .pagination {
-	overflow: hidden;
-	padding: 40px 0;
-
-	ul {
-		text-align: center;
-	}
 
 	li {
 		display: inline-block;
 
 		&.active a {
-			border: 0;
+			color: $default;
 			font-weight: bold;
 		}
 	}
 
 	a {
-		font-style: italic;
+		background-image: none;
 		margin: 0 10px;
 	}
 

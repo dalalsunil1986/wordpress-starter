@@ -2,7 +2,8 @@
 	background: darken($default, 5%);
 	clear: both;
 	font-size: .8em;
-	overflow: hidden;
+	position: relative;
+	z-index: 10;
 
 	p {
 		margin-bottom: 0;
