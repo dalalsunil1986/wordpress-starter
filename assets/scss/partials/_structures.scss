@@ -2,6 +2,37 @@
 	margin: 0 auto;
 }
 
+.tech-notice {
+	background: $linkDefault;
+	color: #fff;
+	display: none;
+	font-size: 0.8em;
+	text-align: center;
+	padding: 10px 40px;
+
+	a {
+		text-decoration: underline;
+
+		&,
+		a:focus,
+		a:hover {
+			color: #fff;
+		}
+	}
+
+	p {
+		margin: 0;
+	}
+
+	@media only screen and (min-width: $break-medium) {
+		display: block;
+
+		@supports (display:grid) {
+			display: none;
+		}
+	}
+}
+
 .site-inner,
 .wrap,
 .site-footer {
@@ -39,6 +70,7 @@
 
 	.grid-wrapper,
 	.content-sidebar-wrap {
+		display: block;
 		display: grid;
 		grid-template-columns: repeat(12, 1fr);
 		padding: 0;
@@ -80,6 +112,7 @@
 	}
 
 	.archive .content {
+		display: block;
 		display: grid;
 		grid-gap: 40px;
 		grid-template-columns: repeat(6, 1fr);

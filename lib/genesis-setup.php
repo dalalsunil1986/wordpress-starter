@@ -9,6 +9,16 @@ add_theme_support( 'html5',  array( 'search-form', 'comment-form', 'comment-list
 add_theme_support( 'genesis-accessibility', array( 'search-form', 'headings' ) );
 add_theme_support( 'genesis-structural-wraps', array( 'header' ) );
 
+add_action( 'genesis_before_header', 'ck_tech_notice' );
+/**
+ * Add notice for using modern web technologies.
+ *
+ * @since 2.0.0
+ */
+function ck_tech_notice() {
+	echo '<div class="tech-notice"><p>This website uses advanced web technologies, namely CSS Grid. For the best experience, make sure your browser is <a href="https://browser-update.org/update.html" rel="nofollow" target="_blank">up to date</a>.</p></div>';
+}
+
 add_action( 'genesis_meta', 'ck_setup_layout' );
 /**
  * Setup the entry layout depending on page type.

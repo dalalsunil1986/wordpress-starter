@@ -39,11 +39,13 @@
 
 		window.addEventListener('scroll', function() {
 
-			if ( window.scrollY > elTop && el.style.position !== 'fixed' ) {
-				el.setAttribute('style', 'width: ' + elWidth + 'px; top: 0; position: fixed;');
+			if ( window.scrollY > elTop && ! el.classList.contains('stickify') ) {
+				el.classList.add('stickify');
+				el.setAttribute('style', 'width: ' + elWidth + 'px; top: 0;');
 			}
 
-			if ( window.scrollY < elTop && el.style.position === 'fixed' ) {
+			if ( window.scrollY < elTop && el.classList.contains('stickify') ) {
+				el.classList.remove('stickify');
 				el.setAttribute('style', '');
 			}
 

@@ -98,15 +98,8 @@ ul.children {
 		.pagination-next,
 		.pagination-previous {
 			display: inline-block;
-			width: auto;
-		}
-
-		.pagination-next {
 			float: right;
-		}
-
-		.pagination-previous {
-			float: left;
+			width: auto;
 		}
 	}
 }
