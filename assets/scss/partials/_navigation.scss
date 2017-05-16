@@ -33,7 +33,7 @@
 		padding: 20px 10px;
 		text-align: left;
 
-		@media only screen and (min-width: $break-large) {
+		@media only screen and (min-width: $break-medium) {
 			border-bottom: 0;
 			display: block;
 			padding: 20px 40px;
@@ -44,7 +44,7 @@
 	.sub-menu {
 		display: none;
 
-		@media only screen and (min-width: $break-large) {
+		@media only screen and (min-width: $break-small) {
 			display: none;
 			left: 0;
 			margin-left: 0;
@@ -68,7 +68,7 @@
 			padding-left: 40px;
 			word-wrap: break-word;
 
-			@media only screen and (min-width: $break-large) {
+			@media only screen and (min-width: $break-small) {
 				background: #fff;
 				border: 1px solid #ddd;
 				border-top: 0;
@@ -78,20 +78,20 @@
 		}
 
 		> .menu-item:first-child {
-			@media only screen and (min-width: $break-large) {
+			@media only screen and (min-width: $break-small) {
 				border-top: 1px solid #ddd;
 			}
 		}
 
 		.sub-menu {
-			@media only screen and (min-width: $break-large) {
+			@media only screen and (min-width: $break-small) {
 				margin: -1px 0 0 198px;
 				top: 0;
 			}
 			a {
 				padding-left: 60px;
 
-				@media only screen and (min-width: $break-large) {
+				@media only screen and (min-width: $break-small) {
 					padding: 20px;
 				}
 			}
@@ -99,24 +99,33 @@
 	}
 }
 
-// Primary Navigation
-@media only screen and (min-width: $break-large) {
+.nav-primary {
+	background: $default;
+	display: none;
+	margin: 20px 0;
+	visibility: hidden;
 
-	.nav-primary {
-		margin: 0 -40px;
-
-		&.fixed {
-			position: fixed;
-		}
-	}
-
-	.nav-primary,
-	.admin-bar .nav-primary {
+	&.visible {
 		display: block;
-		height: auto;
-		overflow: visible;
-		padding: 0;
-		position: static;
+		visibility: visible;
 	}
 
+	@media only screen and (min-width: $break-medium) {
+		display: block;
+		margin: 0 -40px;
+		visibility: visible;
+	}
+}
+
+.menu-toggle {
+	display: block;
+
+	@media only screen and (min-width: $break-medium) {
+		display: none;
+		visibility: hidden;
+	}
+
+	@media only screen and (max-width: $break-medium) {
+		float: right;
+	}
 }

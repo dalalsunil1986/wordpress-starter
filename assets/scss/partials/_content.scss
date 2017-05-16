@@ -1,8 +1,19 @@
+.content {
+	background: #fff;
+	padding: 20px;
+
+	@media only screen and (min-width: $break-small) {
+		float: left;
+		padding: 40px;
+		width: 60%;
+	}
+}
+
 // Entries.
 .entry {
 	text-rendering: optimizeLegibility;
 
-	.entry-title {
+	&:first-of-type .entry-title {
 		margin-top: 0;
 	}
 }

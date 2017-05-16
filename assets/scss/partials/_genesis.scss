@@ -1,5 +1,9 @@
 .archive-description,
 .author-box {
+    border-bottom: 4px solid $colorLight;
+    margin-bottom: 40px;
+    padding-bottom: 40px;
+
     p:last-child {
     	margin-bottom: 0;
     }
@@ -12,16 +16,4 @@
 		margin: 0 0 24px 24px;
 		max-width: 70px;
 	}
-}
-
-@media screen and (min-width: $break-medium) {
-
-	.author-box {
-		font-size: 1.2em;
-
-		.avatar {
-			max-width: 100%;
-		}
-	}
-
 }

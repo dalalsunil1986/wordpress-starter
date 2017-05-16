@@ -1,6 +1,6 @@
 // Typography
 body {
-    font-size: calc( 16px + 2 * (100vw - 400px) / 800 );
+    font-size: calc( 16px + 2 * (100vw - 400px) / 1300 );
     font-weight: 400;
     line-height: 1.45;
     margin: auto;
@@ -78,7 +78,7 @@ li {
 hr {
 	border: 0;
 	border-collapse: collapse;
-	border-top: 1px solid #eee;
+	border-top: 4px solid $colorLight;
 	clear: both;
 	margin: 1em 0;
 }
@@ -152,18 +152,20 @@ h6 {
 
     &,
     a {
+        color: $colorUltraLight;
         font-weight: 400;
         text-decoration: none;
-
-        @media only screen and (min-width: $break-medium) {
-            color: $colorUltraLight;
-        }
     }
 }
 
 .site-description {
+    display: none;
 	font-size: 0.8em;
     margin: 1.3em 0 0;
+
+    @media only screen and (min-width: $break-small) {
+        display: block;
+    }
 }
 
 .author-box-title {
@@ -173,9 +175,5 @@ h6 {
 }
 
 .archive-title {
-	margin-top: 0;
-}
-
-.archive-description p {
-    font-size: 1.25em;
+	margin: 0 0 5px;
 }
