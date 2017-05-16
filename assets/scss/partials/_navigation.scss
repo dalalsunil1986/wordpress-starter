@@ -9,37 +9,34 @@
 	}
 
 	.menu-item {
+		border-bottom: 1px solid lighten($default, 5%);
 		display: block;
 		position: relative;
-		text-align: right;
+		text-align: left;
 
-		@media only screen and (min-width: $break-large) {
-			display: inline-block;
-			position: relative;
-			text-align: left;
-		}
-
-		> a {
-			padding: 20px;
+		&:first-child {
+			border-top: 1px solid lighten($default, 5%);
 		}
 	}
 
+	a:focus,
+	a:hover,
+	.menu-item.current-menu-item a {
+		background: $linkDefault;
+		color: #fff;
+	}
+
 	a {
-		border-bottom: 1px solid #ddd;
+		color: $colorLight;
+		font-weight: 400;
 		display: block;
 		padding: 20px 10px;
 		text-align: left;
 
-		@media only screen and (min-width: $break-large) {
+		@media only screen and (min-width: $break-medium) {
 			border-bottom: 0;
 			display: block;
-			padding: 20px;
-		}
-	}
-
-	> .menu-item > a {
-		@media only screen and (min-width: $break-large) {
-			padding: 20px;
+			padding: 20px 40px;
 		}
 	}
 
@@ -47,7 +44,7 @@
 	.sub-menu {
 		display: none;
 
-		@media only screen and (min-width: $break-large) {
+		@media only screen and (min-width: $break-small) {
 			display: none;
 			left: 0;
 			margin-left: 0;
@@ -71,7 +68,7 @@
 			padding-left: 40px;
 			word-wrap: break-word;
 
-			@media only screen and (min-width: $break-large) {
+			@media only screen and (min-width: $break-small) {
 				background: #fff;
 				border: 1px solid #ddd;
 				border-top: 0;
@@ -81,20 +78,20 @@
 		}
 
 		> .menu-item:first-child {
-			@media only screen and (min-width: $break-large) {
+			@media only screen and (min-width: $break-small) {
 				border-top: 1px solid #ddd;
 			}
 		}
 
 		.sub-menu {
-			@media only screen and (min-width: $break-large) {
+			@media only screen and (min-width: $break-small) {
 				margin: -1px 0 0 198px;
 				top: 0;
 			}
 			a {
 				padding-left: 60px;
 
-				@media only screen and (min-width: $break-large) {
+				@media only screen and (min-width: $break-small) {
 					padding: 20px;
 				}
 			}
@@ -102,162 +99,33 @@
 	}
 }
 
-// Primary Navigation
-@media only screen and (min-width: $break-large) {
-	.nav-primary {
-		background: #fff;
-		border-bottom: 1px solid #ddd;
+.nav-primary {
+	background: $default;
+	display: none;
+	margin: 20px 0;
+	visibility: hidden;
 
-		> .wrap {
-			max-width: 1240px;
-			padding: 0 40px;
-		}
-	}
-}
-
-@media only screen and (min-width: $break-large) {
-	.nav-primary,
-	.admin-bar .nav-primary {
-		display: block;
-		height: auto;
-		overflow: visible;
-		padding: 0;
-		position: static;
-	}
-}
-
-// Secondary Navigation
-@media only screen and (min-width: $break-large) {
-	.nav-secondary {
-		border-bottom: 1px solid $colorLight;
-		font-size: .8em;
-		font-style: italic;
-
-		> .wrap {
-			max-width: 1240px;
-			padding: 0 40px;
-		}
-	}
-}
-
-// Responsive Menu
-@media only screen and (min-width: $responsive-menu-break) {
-	.genesis-responsive-menu {
+	&.visible {
 		display: block;
 		visibility: visible;
 	}
-	.menu-toggle,
-	.sub-menu-toggle {
+
+	@media only screen and (min-width: $break-medium) {
+		display: block;
+		margin: 0 -40px;
+		visibility: visible;
+	}
+}
+
+.menu-toggle {
+	display: block;
+
+	@media only screen and (min-width: $break-medium) {
 		display: none;
 		visibility: hidden;
 	}
 
-	.menu .menu-item:focus {
-		position: static;
-	}
-
-	.menu .menu-item > a:focus + ul.sub-menu,
-	.menu .menu-item.sfHover > ul.sub-menu {
-		left: auto;
-		opacity: 1;
-	}
-}
-
-@media only screen and (max-width: $responsive-menu-break) {
-	.genesis-responsive-menu {
-		display: none;
-		position: relative;
-
-		> .wrap {
-			padding: 0;
-		}
-
-		.genesis-nav-menu {
-			.sub-menu {
-				border: none;
-				clear: both;
-				display: none;
-				margin: 0;
-				opacity: 1;
-				position: static;
-				width: 100%;
-			}
-
-			.menu-item {
-				display: block;
-				float: none;
-				position: relative;
-				text-align: left;
-
-				a {
-				 	margin-bottom: 1px;
-				 	padding: 15px 20px;
-				 	width: 100%;
-
-					&:focus,
-					&:hover {
-						text-decoration: underline;
-					}
-				}
-
-				.sub-menu a {
-					padding-left: 25px;
-				}
-			}
-		}
-	}
-
-	.genesis-skip-link .skip-link-hidden {
-		display: none;
-		visibility: hidden;
-
-		@media only screen and (min-width: $responsive-menu-break) {
-			display: block;
-			visibility: visible;
-		}
-	}
-
-	.menu-toggle,
-	.sub-menu-toggle {
-		display: block;
-		margin: 0 auto;
-		overflow: hidden;
-		text-align: center;
-		visibility: visible;
-	}
-
-	.menu-toggle {
-		line-height: 20px;
-		position: relative;
-		z-index: 1000;
-		width: 100%;
-
-		&::before {
-			font-size: 1.5em;
-			margin-right: 10px;
-			line-height: inherit;
-			text-rendering: auto;
-			vertical-align: bottom;
-		}
-	}
-
-	.sub-menu-toggle {
+	@media only screen and (max-width: $break-medium) {
 		float: right;
-		padding: 10px;
-		position: absolute;
-		right: 0;
-		top: 0;
-		z-index: 100;
-
-		&::before {
-			display: inline-block;
-			text-rendering: auto;
-			transform: rotate(0);
-			transition: transform .25s ease-in-out;
-		}
-
-		&.activated::before {
-			transform: rotate(180deg);
-		}
 	}
 }

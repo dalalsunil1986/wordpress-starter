@@ -1,16 +1,29 @@
-
-/*======================================
-=            Common Plugins            =
-======================================*/
-
-/*----------  Jetpack  ----------*/
-
+// Jetpack.
 #wpstats {
 	display: none;
 }
 
-/*----------  Genesis eNews Widget  ----------*/
+// Enews Extended.
+.enews {
+	input {
+		margin-bottom: 20px;
 
-.enews input {
-	margin-bottom: 20px;
+		&[type="submit"] {
+			display: block;
+			text-align: center;
+			width: 100%;
+		}
+	}
+}
+
+@media only screen and (min-width: $break-small) {
+	.widget.stickify {
+		position: fixed;
+	}
+}
+
+@media only screen and (min-width: $break-medium) {
+	.stickify {
+		position: fixed;
+	}
 }

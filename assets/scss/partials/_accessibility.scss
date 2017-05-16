@@ -1,12 +1,7 @@
-/*=====================================
-=            Accessibility            =
-=====================================*/
-
-/*----------  Screen Reader Text  ----------*/
-
 .screen-reader-text,
 .screen-reader-text span,
-.screen-reader-shortcut {
+.screen-reader-shortcut,
+.search-form input[type="submit"] {
 	position: absolute !important;
 	clip: rect(0, 0, 0, 0);
 	height: 1px;
@@ -28,7 +23,7 @@
 	padding: 15px 23px 14px;
 	color: $default;
 	background: #fff;
-	z-index: 100000; /* Above WP toolbar. */
+	z-index: 100000; // Above WP Toolbar.
 	text-decoration: none;
 	box-shadow: 0 0 5px 0 rgba(0,0,0,.7);
 }
@@ -37,29 +32,8 @@
     position: relative;
 }
 
-/*----------  Skip Links  ----------*/
-
-.genesis-skip-link {
-	margin: 0;
-
-	li {
-		height: 0;
-		width: 0;
-		list-style: none;
-	}
-
-	a {
-		border-bottom: 0;
-
-		&:hover {
-			background: $colorUltraLight;
-		}
-	}
-}
-
-/* Display outline on focus */
+// Display focus outline.
 :focus {
-	color: $linkDefault;
 	box-shadow: 0;
 	outline: rgba(0,0,0,.2) solid 2px;
 }

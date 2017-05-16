@@ -1,27 +1,21 @@
-
-/*==============================
-=            Footer            =
-==============================*/
-
 .site-footer {
+	background: darken($default, 5%);
 	clear: both;
 	font-size: .8em;
-	overflow: hidden;
-	padding: 10px;
+	padding: 20px;
+	position: relative;
+	z-index: 10;
+
+	@media only screen and (min-width: $break-medium) {
+		padding: 40px;
+	}
 
 	p {
 		margin-bottom: 0;
 	}
-}
 
-/*----------  Widgets  ----------*/
-
-.footer-widgets {
-	clear: both;
-	overflow: hidden;
-	padding: 40px 10px;
-
-	.widget {
-		margin-bottom: 40px;
+	&,
+	a {
+		color: lighten($default, 25%);
 	}
 }

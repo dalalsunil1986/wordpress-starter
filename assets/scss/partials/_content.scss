@@ -1,34 +1,34 @@
+.content {
+	background: #fff;
+	padding: 20px;
 
-
-/*=====================================
-=            Content Areas            =
-=====================================*/
-
-/*----------  Entries  ----------*/
-
-.content .entry:first-of-type .entry-title {
-	margin-top: 0;
+	@media only screen and (min-width: $break-small) {
+		float: left;
+		padding: 40px;
+		width: 60%;
+	}
 }
 
+// Entries.
 .entry {
 	text-rendering: optimizeLegibility;
-}
 
-.entry-content code {
-	background-color: #ddd;
+	&:first-of-type .entry-title {
+		margin-top: 0;
+	}
 }
-
-/*----------  Entry Meta  ----------*/
 
 p.entry-meta {
-	font-size: .8em;
-	font-style: italic;
+	font-size: 0.8em;
+	font-weight: 700;
+
+	span {
+		display: block;
+	}
 }
 
-/*----------  Comments  ----------*/
-
 .comment-header {
-	margin-bottom: 20px;
+	margin-bottom: 40px;
 	overflow: hidden;
 }
 
@@ -71,27 +71,19 @@ ul.children {
 	font-weight: normal;
 }
 
-/*----------  Pagination  ----------*/
-
 .pagination {
-	overflow: hidden;
-	padding: 40px 0;
-
-	ul {
-		text-align: center;
-	}
 
 	li {
 		display: inline-block;
 
 		&.active a {
-			border: 0;
+			color: $default;
 			font-weight: bold;
 		}
 	}
 
 	a {
-		font-style: italic;
+		background-image: none;
 		margin: 0 10px;
 	}
 
@@ -102,13 +94,7 @@ ul.children {
 	}
 }
 
-/*=====================================
-=            Media Queries            =
-=====================================*/
-
-/*----------  768  ----------*/
-
-@media screen and (min-width: 768px) {
+@media screen and (min-width: $break-medium) {
 
 	/* Comments */
 	.comment .avatar {
@@ -119,20 +105,12 @@ ul.children {
 		margin-left: 40px;
 	}
 
-	/* Pagination */
 	.pagination {
 		.pagination-next,
 		.pagination-previous {
 			display: inline-block;
-			width: auto;
-		}
-
-		.pagination-next {
 			float: right;
-		}
-
-		.pagination-previous {
-			float: left;
+			width: auto;
 		}
 	}
 }
