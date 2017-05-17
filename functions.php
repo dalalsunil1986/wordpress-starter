@@ -42,7 +42,7 @@ function ck_load_assets() {
 	wp_deregister_script( 'skip-links' );
 
 	// Load theme JS.
-	wp_enqueue_script( 'ck-global-js', get_stylesheet_directory_uri() . '/build/js/global.min.js', array(), CHILD_THEME_VERSION, true );
+	wp_enqueue_script( 'ck-global-js', get_stylesheet_directory_uri() . '/build/js/global.min.js', array(), null, true );
 
 }
 
