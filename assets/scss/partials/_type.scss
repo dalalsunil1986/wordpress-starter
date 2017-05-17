@@ -2,7 +2,7 @@
 body {
     font-size: calc( 16px + 2 * (100vw - 400px) / 1300 );
     font-weight: 400;
-    line-height: 1.45;
+    line-height: 1.55;
     margin: auto;
 }
 
@@ -59,6 +59,10 @@ li {
 	ul {
 		margin-bottom: 28px;
 		margin-left: 40px;
+
+        li {
+            margin-bottom: 1.3em;
+        }
 	}
 
 	ol > li {

@@ -47,19 +47,6 @@ function ck_load_assets() {
 }
 
 /**
- * Async header scripts.
- *
- * @since 2.0.0
- */
-// add_filter( 'script_loader_tag', 'ck_async_scripts', 10, 2 );
-function ck_async_scripts( $tag, $handle ) {
-	if ( 'ck-global-js' === $handle || 'ck-prism-js' === $handle ) {
-		$tag = str_replace( 'src=', 'async="async" src=', $tag );
-	}
-	return $tag;
-}
-
-/**
  * Apply custom body classes.
  *
  * @since 1.0.0
