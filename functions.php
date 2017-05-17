@@ -7,8 +7,8 @@
 define( 'CHILD_THEME_NAME', 'Calvin Koepke' );
 define( 'CHILD_THEME_AUTHOR', 'Calvin Koepke' );
 define( 'CHILD_THEME_AUTHOR_URL', 'https://calvinkoepke.com/' );
-define( 'CHILD_THEME_URL', 'https://github.com/cjkoepke/calvinkoepke-com/' );
-define( 'CHILD_THEME_VERSION', '2.0.0' );
+define( 'CHILD_THEME_URL', 'https://github.com/cjkoepke/calvinkoepke-com/releases/tag/2.0.1' );
+define( 'CHILD_THEME_VERSION', '2.0.1' );
 
 /**
  *
