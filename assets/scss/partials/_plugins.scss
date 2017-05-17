@@ -1,0 +1,29 @@
+// Jetpack.
+#wpstats {
+	display: none;
+}
+
+// Enews Extended.
+.enews {
+	input {
+		margin-bottom: 20px;
+
+		&[type="submit"] {
+			display: block;
+			text-align: center;
+			width: 100%;
+		}
+	}
+}
+
+@media only screen and (min-width: $break-small) {
+	.widget.stickify {
+		position: fixed;
+	}
+}
+
+@media only screen and (min-width: $break-medium) {
+	.stickify {
+		position: fixed;
+	}
+}

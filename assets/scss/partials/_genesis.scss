@@ -1,0 +1,19 @@
+.archive-description,
+.author-box {
+    border-bottom: 4px solid $colorLight;
+    margin-bottom: 40px;
+    padding-bottom: 40px;
+
+    p:last-child {
+    	margin-bottom: 0;
+    }
+}
+
+.author-box {
+	font-size: .8em;
+
+	.avatar {
+		margin: 0 0 24px 24px;
+		max-width: 70px;
+	}
+}

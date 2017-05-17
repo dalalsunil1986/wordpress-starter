@@ -1,0 +1,25 @@
+.sidebar {
+	background: $colorUltraLight;
+	padding: 20px;
+
+	p {
+		font-size: 0.8em;
+	}
+}
+
+@media screen and (min-width: $break-small) {
+
+	.sidebar-primary {
+		float: right;
+		padding: 40px;
+		width: 40%;
+	}
+
+	.sidebar-content {
+
+		.sidebar-primary {
+			float: left;
+		}
+	}
+
+}

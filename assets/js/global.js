@@ -1,143 +1,133 @@
 /**
- * Calvin Koepke
+ * JavaScript functions for the theme (no jQuery).
  *
- * Add the global scripts to the theme.
+ * @since 2.0.0
  *
- * @since 1.0.0
  */
-(function($) {
+(function() {
 
-	'use strict';
+	document.addEventListener('DOMContentLoaded', function() {
 
-	var $header      = $('.site-header'),
-		$overlay     = $('#site-overlay'),
-		$footer      = $('.site-footer'),
-		$popup       = $('#popup'),
-		searchToggle = $('a[href="#search"]'),
-		searchOn     = false,
-		$popupClose  = $( '<button />', {
-			id: 'popup-close'
-		}).prepend( '<svg class="svg-icon" viewBox="0 0 20 20"><path d="M10.185,1.417c-4.741,0-8.583,3.842-8.583,8.583c0,4.74,3.842,8.582,8.583,8.582S18.768,14.74,18.768,10C18.768,5.259,14.926,1.417,10.185,1.417 M10.185,17.68c-4.235,0-7.679-3.445-7.679-7.68c0-4.235,3.444-7.679,7.679-7.679S17.864,5.765,17.864,10C17.864,14.234,14.42,17.68,10.185,17.68 M10.824,10l2.842-2.844c0.178-0.176,0.178-0.46,0-0.637c-0.177-0.178-0.461-0.178-0.637,0l-2.844,2.841L7.341,6.52c-0.176-0.178-0.46-0.178-0.637,0c-0.178,0.176-0.178,0.461,0,0.637L9.546,10l-2.841,2.844c-0.178,0.176-0.178,0.461,0,0.637c0.178,0.178,0.459,0.178,0.637,0l2.844-2.841l2.844,2.841c0.178,0.178,0.459,0.178,0.637,0c0.178-0.176,0.178-0.461,0-0.637L10.824,10z"></path></svg>' );
+		// Check for content.
+		var code = document.querySelector('pre,code');
 
-	/**
-	 * Adjust footer.
-	 *
-	 * @since 1.0.0
-	 */
-	$footer.css({
-		position: "fixed"
-	});
-	$('.site-container').css({
-		marginBottom: $footer.innerHeight()
-	});
+		// Prism script.
+		var prismScript  = document.createElement('script');
+		prismScript.src  = '/wp-content/themes/calvinkoepke-com/build/js/prism.min.js';
+		prismScript.type = 'text/javascript';
 
-	/**
-	 * Trigger widget popup.
-	 *
-	 * @since 1.0.0
-	 */
-	$('.show-popup').add( $popupClose ).click( function(e) {
-		e.preventDefault();
-		$popup.toggleClass( 'visible' );
-		$popup.find( '.widget-wrap' ).prepend( $popupClose );
-	});
-
-	/**
-	 * Add 'stretch' class to code box after window has loaded.
-	 *
-	 * @since 1.0.0
-	 */
-	$(window).load( function() {
-		$('.logic-code').parent().addClass('stretch');
-	});
-
-	/**
-	 * Add class to header on scroll.
-	 *
-	 * @since 1.0.0
-	 */
-	$(window).scroll( function() {
-		var scrollPos = window.scrollY;
-
-		if ( scrollPos > 15 && ! $header.hasClass( 'filled' ) ) {
-			$header.addClass( 'filled' );
-		} else if ( scrollPos < 15 && $header.hasClass( 'filled' ) ) {
-			$header.removeClass( 'filled' );
+		// Load the script if there is any pre/code tags.
+		if (code !== null) {
+			window.addEventListener('load', function() { document.body.appendChild(prismScript); });
 		}
 
-	});
+		window.addEventListener('load', function() {
+			stickify('.nav-primary');
+			stickify('.sidebar .enews-widget');
+		});
 
-	/**
-	 * Adjust ID targets to include header height.
-	 *
-	 * @since 1.0.0
-	 */
-	$( 'a[href*=#]:not([href=#])' ).click(function(e) {
+		// Setup mobile menu toggle.
+		var nav = document.querySelector('.nav-primary');
 
-		e.preventDefault();
+		// Add toggle button.
+		nav.insertAdjacentHTML('beforeBegin', '<button class="button menu-toggle">Toggle Menu</button>');
 
-		if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') && location.hostname == this.hostname) {
-
-			var target = $(this.hash);
-			target = target.length ? target : $( '[name=' + this.hash.slice(1) + ']' );
-
-			if (target.length) {
-
-				$( 'html,body' ).scrollTop( ( target.offset().top ) - $header.height() );
-
-				return false;
-
-			}
-		}
+		// Setup event handler.
+		document.querySelector('.menu-toggle').addEventListener('click', function() {
+			nav.classList.toggle('visible');
+		});
 
 	});
 
 	/**
-	 * Add event listener to the search toggle button.
-	 *
-	 * @uses toggleSearch() Function to control state change.
-	 *
-	 * @since 1.0.0
+	 * Helper function to make an element sticky on scroll.
+	 * @param  string selector Selector to be used (uses querySelector).
+	 * @since 2.0.0
 	 */
-	searchToggle.add( $overlay ).click( function(event) {
+	function stickify(selector) {
 
-		// Prevent adding hash to URL.
-		event.preventDefault();
-		// Call search toggle function.
-		toggleSearch();
+		var el    = document.querySelector(selector),
+			elTop = getOffset(el).top;
 
-	});
+		// Update values on window resize.
+		window.addEventListener('resize', function() {
+			elTop = getOffset(el).top;
+			checkStickify(el, elTop);
+		});
 
-	/**
-	 * Helper function to handle search toggling and state.
-	 *
-	 * @since 1.0.0
-	 */
-	function toggleSearch(originalText) {
+		// Update sticky element on scroll position.
+		window.addEventListener('scroll', function() {
+			checkStickify(el, elTop);
+		});
 
-		// Handle main state actions.
-		if (!searchOn) {
-			$header.find(searchToggle).text('Close');
-			$overlay.toggleClass( 'visible' );
-			searchOn = true;
-
-		} else {
-			$header.find(searchToggle).text('Search');
-			$overlay.toggleClass( 'visible' );
-			searchOn = false;
-
-		}
-
-		// Toggle active class on header.
-		$header.toggleClass('search-visible');
-
-		// Focus the search input if showing.
-		if (searchOn) {
-
-			$('#header-search input[type="search"]').focus();
-
-		}
+		// Trigger scroll event on load.
+		document.addEventListener('DOMContentLoaded', triggerScroll());
 
 	}
 
-})(jQuery);
+	/**
+	 * Helper function to determine sticky state.
+	 *
+	 * @since 2.0.0
+	 */
+	function checkStickify(el, offsetTarget) {
+
+		if ( window.scrollY > offsetTarget && ! el.classList.contains('stickify') ) {
+			stickifyElement(el);
+		}
+
+		if ( window.scrollY < offsetTarget && el.classList.contains('stickify') ) {
+			unStickifyElement(el);
+		}
+	}
+
+	/**
+	 * Helper function to initiate sticky state.
+	 *
+	 * @since 2.0.0
+	 */
+	function stickifyElement(el) {
+		var elWidth = el.getBoundingClientRect().width;
+		el.classList.add('stickify');
+		el.setAttribute('style', 'width: ' + elWidth + 'px; top: 0;');
+	}
+
+	/**
+	 * Helper function to denitiate sticky state.
+	 *
+	 * @since 2.0.0
+	 */
+	function unStickifyElement(el) {
+		el.classList.remove('stickify');
+		el.setAttribute('style', '');
+	}
+
+	/**
+	 * Helper function to get the offset.
+	 * @param  node   el DOM Node to get the offset for.
+	 * @return object    Object containing offset information.
+	 * @since  2.0.0
+	 */
+	function getOffset(el) {
+		el = el.getBoundingClientRect();
+		return {
+			left: el.left + window.scrollX,
+			top: el.top + window.scrollY
+		}
+	}
+
+	/**
+	 * Manually trigger a scroll event.
+	 * @return undefined
+	 * @since 2.0.0
+	 */
+	function triggerScroll() {
+		var event = new MouseEvent('scroll', {
+			'view': window,
+			'bubbles': true,
+			'cancelable': false
+		});
+		window.dispatchEvent(event);
+	}
+
+})();

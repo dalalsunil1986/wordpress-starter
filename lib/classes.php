@@ -1,37 +1,18 @@
 <?php
 
+add_filter( 'body_class', 'ck_body_classes' );
 /**
- *
- * Custom function for applying common classes to the body tag, depending on the current view
+ * Apply common classes to the body tag, depending on the current view
  *
  * @since 1.0.0
- * @author Calvin Koepke
- *
  */
-
-add_filter( 'body_class', 'logic_body_classes' );
-function logic_body_classes( $classes ) {
-
-	if ( is_home() )
-		$classes[] = 'page-blog';
+function ck_body_classes( $classes ) {
 
 	if ( is_front_page() )
 		$classes[] = 'page-front';
 
-	if ( is_archive() )
-		$classes[] = 'page-archive';
-
-	if ( is_category() )
-		$classes[] = 'page-category';
-
-	if ( is_tag() )
-		$classes[] = 'page-tag';
-
-	if ( is_search() )
-		$classes[] = 'page-search';
-
-	if ( has_post_thumbnail() )
-		$classes[] = 'has-post-thumbnail';
+	if ( is_archive() || is_search() || is_home() )
+		$classes[] = 'archive';
 
 	if ( is_page_template() && get_page_template_slug() != false ) {
 

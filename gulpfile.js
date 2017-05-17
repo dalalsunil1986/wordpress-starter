@@ -12,7 +12,7 @@
 //* Store paths
 var PATHS = {
 	js: './assets/js/',
-	css: './assets/css/',
+	scss: './assets/scss/',
 	build: {
 		js: './build/js/',
 		css: './build/css/'
@@ -21,68 +21,48 @@ var PATHS = {
 
 //* Load and define dependencies
 var gulp = require( 'gulp' );
-var postcss = require('gulp-postcss');
-var cssnext = require('postcss-cssnext');
-var cssnano = require('cssnano');
-var cssimport = require( 'postcss-import' );
+var scss = require( 'gulp-ruby-sass' );
+var cssnano = require('gulp-cssnano');
 var sourcemaps = require('gulp-sourcemaps');
 var uglify = require( 'gulp-uglify' );
+var pump = require('pump');
 var rename = require( 'gulp-rename' );
-var concat = require( 'gulp-concat' );
-var replace = require( 'gulp-replace' );
+var sort = require( 'gulp-sort' );
 var wpPot = require( 'gulp-wp-pot' );
 var zip = require( 'gulp-zip' );
 
-var taskLoader = [ 'scripts', 'css', 'css:front-page', 'watch' ];
-
-//* Gulp task to run PostCSS for main stylesheet.
-gulp.task( 'css', function() {
-
-	gulp.src( PATHS.css + 'style.css' )
-		.pipe(postcss([
-			cssimport(),
-			cssnext(),
-			cssnano({
-				autoprefixer: false,
-				options: {
-					safe: false
-				}
-			})
-		]))
-		.pipe(gulp.dest('./'));
-
-});
-
-//* Gulp task to run PostCSS on extra stylesheets.
-gulp.task( 'css:front-page', function() {
-
-	gulp.src( PATHS.css + 'extra/front-page.css' )
-		.pipe(postcss([
-			cssimport(),
-			cssnext(),
-			cssnano({
-				autoprefixer: false,
-				options: {
-					safe: false
-				}
-			})
-		]))
-		.pipe(rename({ extname: '.min.css' }))
-		.pipe(gulp.dest(PATHS.build.css));
-
-});
+var taskLoader = [ 'scripts', 'scss', 'watch' ];
 
 //* Gulp task to combine JS files, minify, and output to bundle.min.js
-gulp.task( 'scripts', function() {
+gulp.task( 'scripts', function(cb) {
 
-	gulp.src( [
-		PATHS.js + 'prism.js',
-		PATHS.js + 'jquery-light.min.js',
-		PATHS.js + 'responsive-menus.js',
-		PATHS.js + 'global.js' ] )
-		.pipe( uglify() )
-		.pipe( concat('theme.min.js') )
-		.pipe( gulp.dest( PATHS.build.js ) );
+	pump([
+		gulp.src( PATHS.js + '**/*.js' ),
+		sourcemaps.init(),
+		uglify(),
+		rename({ extname: '.min.js' }),
+		sourcemaps.write('maps'),
+		gulp.dest( PATHS.build.js )
+	], cb);
+
+});
+
+//* Gulp task to compile, minify, and output stylesheet in place of old uncompressed version
+gulp.task( 'scss', function() {
+
+	scss( PATHS.scss + 'style.scss', {sourcemap: true} )
+		.on('error', scss.logError)
+		.pipe(sourcemaps.init())
+		.pipe(cssnano({
+			autoprefixer: {
+				add: true
+			},
+		}))
+		.pipe(sourcemaps.write('maps', {
+			includeContent: false,
+			sourceRoot: './assets/scss'
+		}))
+		.pipe( gulp.dest( './' ) );
 
 });
 
@@ -90,7 +70,7 @@ gulp.task( 'scripts', function() {
 gulp.task( 'watch', function() {
 
 	gulp.watch( PATHS.js + '**/*.js', ['scripts'] );
-	gulp.watch( PATHS.css + '**/*.css', ['css','css:front-page'] );
+	gulp.watch( PATHS.scss + '**/*.scss', ['scss'] );
 
 });
 
@@ -109,7 +89,7 @@ gulp.task( 'translate-theme', function() {
 	gulp.src( [ './**/*.php' ] )
 		.pipe( sort() )
 		.pipe( wpPot({
-			domain: "startertheme",
+			domain: "ck",
 			headers: false
 		}))
 		.pipe( gulp.dest( './translation/' ));

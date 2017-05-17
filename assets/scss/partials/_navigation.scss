@@ -1,0 +1,131 @@
+.genesis-nav-menu {
+	clear: both;
+	line-height: 1;
+
+	@media only screen and (min-width: $break-large) {
+		clear: both;
+		line-height: 1;
+		text-align: left;
+	}
+
+	.menu-item {
+		border-bottom: 1px solid lighten($default, 5%);
+		display: block;
+		position: relative;
+		text-align: left;
+
+		&:first-child {
+			border-top: 1px solid lighten($default, 5%);
+		}
+	}
+
+	a:focus,
+	a:hover,
+	.menu-item.current-menu-item a {
+		background: $linkDefault;
+		color: #fff;
+	}
+
+	a {
+		color: $colorLight;
+		font-weight: 400;
+		display: block;
+		padding: 20px 10px;
+		text-align: left;
+
+		@media only screen and (min-width: $break-medium) {
+			border-bottom: 0;
+			display: block;
+			padding: 20px 40px;
+		}
+	}
+
+	// Sub Menus
+	.sub-menu {
+		display: none;
+
+		@media only screen and (min-width: $break-small) {
+			display: none;
+			left: 0;
+			margin-left: 0;
+			position: absolute;
+			width: 200px;
+			z-index: 99;
+
+			a,
+			.menu-item {
+				display: block;
+			}
+
+			.menu-item-has-children:hover > .sub-menu {
+				display: block;
+				left: auto;
+			}
+		}
+
+		a {
+			font-size: .8em;
+			padding-left: 40px;
+			word-wrap: break-word;
+
+			@media only screen and (min-width: $break-small) {
+				background: #fff;
+				border: 1px solid #ddd;
+				border-top: 0;
+				padding: 20px;
+				word-wrap: break-word;
+			}
+		}
+
+		> .menu-item:first-child {
+			@media only screen and (min-width: $break-small) {
+				border-top: 1px solid #ddd;
+			}
+		}
+
+		.sub-menu {
+			@media only screen and (min-width: $break-small) {
+				margin: -1px 0 0 198px;
+				top: 0;
+			}
+			a {
+				padding-left: 60px;
+
+				@media only screen and (min-width: $break-small) {
+					padding: 20px;
+				}
+			}
+		}
+	}
+}
+
+.nav-primary {
+	background: $default;
+	display: none;
+	margin: 20px 0;
+	visibility: hidden;
+
+	&.visible {
+		display: block;
+		visibility: visible;
+	}
+
+	@media only screen and (min-width: $break-medium) {
+		display: block;
+		margin: 0 -40px;
+		visibility: visible;
+	}
+}
+
+.menu-toggle {
+	display: block;
+
+	@media only screen and (min-width: $break-medium) {
+		display: none;
+		visibility: hidden;
+	}
+
+	@media only screen and (max-width: $break-medium) {
+		float: right;
+	}
+}

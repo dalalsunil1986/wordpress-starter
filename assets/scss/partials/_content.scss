@@ -1,0 +1,116 @@
+.content {
+	background: #fff;
+	padding: 20px;
+
+	@media only screen and (min-width: $break-small) {
+		float: left;
+		padding: 40px;
+		width: 60%;
+	}
+}
+
+// Entries.
+.entry {
+	text-rendering: optimizeLegibility;
+
+	&:first-of-type .entry-title {
+		margin-top: 0;
+	}
+}
+
+p.entry-meta {
+	font-size: 0.8em;
+	font-weight: 700;
+
+	span {
+		display: block;
+	}
+}
+
+.comment-header {
+	margin-bottom: 40px;
+	overflow: hidden;
+}
+
+.comment-author {
+	margin: 0;
+}
+
+.comment .avatar {
+	float: left;
+	margin: 0 10px 0 0;
+}
+
+.says,
+.comment-meta,
+.comment-edit-link {
+	font-size: .8em;
+	font-style: italic;
+	margin: 0;
+}
+
+.comment-reply {
+	clear: both;
+}
+
+li.pingback,
+li.comment > article {
+	margin-bottom: 40px;
+}
+
+ul.children {
+	margin-left: 10px;
+}
+
+.comment-reply-title > small,
+.logged-in-as {
+	font-family: $fontBody;
+	font-size: 16px;
+	font-size: 1.6rem;
+	font-style: italic;
+	font-weight: normal;
+}
+
+.pagination {
+
+	li {
+		display: inline-block;
+
+		&.active a {
+			color: $default;
+			font-weight: bold;
+		}
+	}
+
+	a {
+		background-image: none;
+		margin: 0 10px;
+	}
+
+	.pagination-next,
+	.pagination-previous {
+		display: block;
+		width: 100%;
+	}
+}
+
+@media screen and (min-width: $break-medium) {
+
+	/* Comments */
+	.comment .avatar {
+		margin-right: 24px;
+	}
+
+	ul.children {
+		margin-left: 40px;
+	}
+
+	.pagination {
+		.pagination-next,
+		.pagination-previous {
+			display: inline-block;
+			float: right;
+			width: auto;
+		}
+	}
+}
