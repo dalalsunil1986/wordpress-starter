@@ -6,19 +6,21 @@
  */
 (function() {
 
+	"use strict";
+
 	document.addEventListener('DOMContentLoaded', function() {
 
 		// Check for content.
 		var code = document.querySelector('pre,code');
 
-		// Prism script.
-		var prismScript  = document.createElement('script');
-		prismScript.src  = '/wp-content/themes/calvinkoepke-com/build/js/prism.min.js';
-		prismScript.type = 'text/javascript';
-
 		// Load the script if there is any pre/code tags.
 		if (code !== null) {
-			window.addEventListener('load', function() { document.body.appendChild(prismScript); });
+
+			// Prism script.
+			var src  = '/wp-content/themes/calvinkoepke-com/build/js/prism.min.js';
+
+			loadJS(src);
+			
 		}
 
 		window.addEventListener('load', function() {
@@ -129,5 +131,21 @@
 		});
 		window.dispatchEvent(event);
 	}
+
+	/**!
+	 * Helper function for loading async scripts.
+	 * Load a JS file asynchronously. [c]2014 @scottjehl, Filament Group, Inc. (Based on http://goo.gl/REQGQ by Paul Irish). Licensed MIT
+	 */
+	function loadJS( src, cb ){
+ 		var ref      = document.getElementsByTagName( "script" )[ 0 ];
+ 		var script   = document.createElement( "script" );
+ 		script.src   = src;
+ 		script.async = true;
+ 		ref.parentNode.insertBefore( script, ref );
+ 		if (cb && typeof(cb) === "function") {
+ 			script.onload = cb;
+ 		}
+ 		return script;
+ 	};
 
 })();
