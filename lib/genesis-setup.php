@@ -54,7 +54,7 @@ add_filter( 'genesis_post_info', 'ck_post_info', 12 );
  * @since 2.0.0
  */
 function ck_post_info( $info ) {
-	$info = '[post_date]';
+	$info = 'Published on: [post_date]';
 	return $info;
 }
 
@@ -129,4 +129,29 @@ add_action( 'genesis_footer', 'ck_grid_wrapper_close', 16 );
  */
 function ck_grid_wrapper_close() {
 	echo '</div>';
+}
+
+add_action( 'genesis_entry_content', 'ck_add_sharing_links', 1 );
+add_action( 'genesis_entry_content', 'ck_add_sharing_links', 10 );
+/**
+ * Add sharing links to single posts.
+ *
+ * @since 2.0.2
+ *
+ */
+function ck_add_sharing_links() {
+
+	if ( ! is_singular( 'post' ) ) {
+		return;
+	}
+
+	$url   = urlencode( get_the_permalink() );
+	$title = urlencode( get_the_title() );
+	$facebook_url = "https://www.facebook.com/sharer/sharer.php?u=${url}";
+	$twitter_url = "https://twitter.com/home?status=${title}%20${url}%20via%20%40cjkoepke";
+
+	printf(
+		'<p><strong>Share This:</strong> <a target="_blank" rel="nofollow noopener" href="%s" title="Share on Twitter">Twitter</a> • <a target="_blank" rel="nofollow noopener" href="%s" title="Share on Facebook">Facebook</a></p>'
+	, $twitter_url, $facebook_url );
+
 }
