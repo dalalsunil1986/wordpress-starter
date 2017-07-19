@@ -24,6 +24,7 @@ var gulp = require( 'gulp' );
 var scss = require( 'gulp-ruby-sass' );
 var cssnano = require('gulp-cssnano');
 var sourcemaps = require('gulp-sourcemaps');
+var babel = require( 'gulp-babel' );
 var uglify = require( 'gulp-uglify' );
 var pump = require('pump');
 var rename = require( 'gulp-rename' );
@@ -39,6 +40,9 @@ gulp.task( 'scripts', function(cb) {
 	pump([
 		gulp.src( PATHS.js + '**/*.js' ),
 		sourcemaps.init(),
+		babel({
+			presets: ['env']
+		}),
 		uglify(),
 		rename({ extname: '.min.js' }),
 		sourcemaps.write('maps'),

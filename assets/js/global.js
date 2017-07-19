@@ -8,7 +8,32 @@
 
 	"use strict";
 
-	document.addEventListener('DOMContentLoaded', function() {
+	/**
+	 * Promise to resolve the document ready state.
+	 */
+	const ready = () => new Promise(
+		resolve => {
+			if (document.readyState !== 'loading') {
+				resolve();
+			}
+		}
+	);
+
+	/**
+	 * Promise to resolve the document loaded state.
+	 */
+	const loaded = () => new Promise(
+		resolve => {
+			if (document.readyState === 'loaded') {
+				resolve();
+			}
+		}
+	);
+
+	// Initialize Prism syntax and sticky sidebars.
+	ready().then(init());
+
+	function init() {
 
 		// Check for content.
 		var code = document.querySelector('pre,code');
@@ -23,7 +48,8 @@
 			
 		}
 
-		window.addEventListener('load', function() {
+		// Wait till document loaded to preserve positioning.
+		loaded().then(() => {
 			stickify('.nav-primary');
 			stickify('.sidebar .enews-widget');
 		});
@@ -39,7 +65,7 @@
 			nav.classList.toggle('visible');
 		});
 
-	});
+	}
 
 	/**
 	 * Helper function to make an element sticky on scroll.
