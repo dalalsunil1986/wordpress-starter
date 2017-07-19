@@ -13,9 +13,11 @@
 	 */
 	const ready = () => new Promise(
 		resolve => {
-			if (document.readyState !== 'loading') {
-				resolve();
-			}
+			document.addEventListener('readystatechange', () => {
+				if (document.readyState !== 'loading') {
+					resolve();
+				}
+			});
 		}
 	);
 
@@ -24,9 +26,11 @@
 	 */
 	const loaded = () => new Promise(
 		resolve => {
-			if (document.readyState === 'loaded') {
-				resolve();
-			}
+			document.addEventListener('readystatechange', () => {
+				if (document.readyState === 'complete') {
+					resolve();
+				}
+			});
 		}
 	);
 
