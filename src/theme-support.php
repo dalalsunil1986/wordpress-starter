@@ -1,6 +1,6 @@
 <?php
 /**
- * Setup the basic Genesis settings.
+ * Add Genesis theme supports.
  *
  * @package    Uno Free
  * @author     Calvin Koepke <hello@calvinkoepke.com>

@@ -22,8 +22,6 @@ namespace Uno;
 require_once( get_stylesheet_directory() . '/core/Uno.class.php' );
 
 /**
- * Load constants and autoloaders.
+ * Load the required child theme settings.
  */
-Uno::setup_theme_constants();
-Uno::register_class_autoloader();
-Uno::autoload_src_folder();
+Uno::setup_theme_settings();
