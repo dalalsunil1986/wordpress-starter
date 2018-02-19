@@ -8,7 +8,20 @@ The way that Uno is built allows for minimal to no configuration at all — a d
 
 In order for Uno to work properly, you'll need to run `composer install` to add dependencies. If you don't have Composer, [install it first](https://getcomposer.org/doc/00-intro.md#installation-linux-unix-osx) — the easiest way is to install Globally, so you have access to it anywhere.
 
-Once installed, you'll have access to all that Uno has to offer. Here are a few rules you should follow when developing with Uno:
+Once installed, require the class in your `functions.php` file, and kickstart Uno, either by instantiation or by a static function call:
+
+```php
+// Import the master Uno class.
+require_once( get_stylesheet_directory() . '/vendor/uno/uno-package/Uno.class.php' );
+
+// Kickstart by class instantiation:
+$uno = new Uno();
+
+// Kickstart by static function call:
+Uno::init();
+```
+
+After this, you'll have access to all that Uno has to offer. Here are a few rules you should follow when developing with Uno:
 
 ### Autoloading
 Uno allows for autoloading, both for classes and files.
@@ -30,7 +43,12 @@ By default, Uno autoloads files recursively found in `./src/` folder. This allow
 The directory is limited to 200 files per call (more than enough). You can also utilize the autoload function by calling the static function from the Uno class. Example:
 
 ```php
+// Statically
 Uno::autoload( '/path/to/directory' );
+
+// Via instantiation
+$uno = new Uno();
+$uno->autoload( '/path/to/directory' );
 ```
 
 A big thanks to [Aaron Holbrook](https://aaronjholbrook.com/), who originally authored the [autoload function](https://github.com/a7/autoload). Uno utilizes almost an exact copy, with some minor adjustments.
