@@ -16,7 +16,7 @@ By default, Uno autoloads classes found in the `./classes/` folder. This allows 
 
 In order for classes to properly autoload, they must follow a simple naming convention: 
 
-- Name must match the internal class name.
+- File name must match the internal class name.
 - One class per file.
 - Extension pattern is `.class.php`
 
