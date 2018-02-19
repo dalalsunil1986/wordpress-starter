@@ -6,7 +6,9 @@ The Uno child theme for the Genesis Framework is a powerful, extendable, yet min
 
 The way that Uno is built allows for minimal to no configuration at all — a developer should be able to just add their own features with ease.
 
-With this in mind, there a few rules you should follow when developing with Uno:
+In order for Uno to work properly, you'll need to run `composer install` to add dependencies. If you don't have Composer, [install it first](https://getcomposer.org/doc/00-intro.md#installation-linux-unix-osx) — the easiest way is to install Globally, so you have access to it anywhere.
+
+Once installed, you'll have access to all that Uno has to offer. Here are a few rules you should follow when developing with Uno:
 
 ### Autoloading
 Uno allows for autoloading, both for classes and files.
