@@ -23,5 +23,7 @@ require_once( get_stylesheet_directory() . '/core/Uno.class.php' );
 
 /**
  * Load the required child theme settings.
+ *
+ * @since 0.0.1
  */
 Uno::setup_theme_settings();
