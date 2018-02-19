@@ -15,7 +15,7 @@ namespace Uno;
  * @since      0.0.1
  */
 
-final class Uno {
+class Uno {
 
 	function __construct() {
 

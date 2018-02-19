@@ -1,4 +1,7 @@
 <?php
+
+namespace Uno;
+
 /**
  * Recursively loads all php files in all subdirectories of the given path.
  * @author Aaron Holbrook

@@ -1,4 +1,7 @@
 <?php
+
+namespace Uno;
+
 /**
  * The main functions.php file for the Uno Genesis child theme. This file is
  * not intended to have anything other than the child theme setup file. All

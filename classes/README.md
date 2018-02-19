@@ -1,0 +1,2 @@
+## Classes Folder
+This folder is purely here for autoloading classes if you may have need. The Uno child theme will look in this folder for corresponding files that match class names called elsewhere in the theme. You can delete or leave blank, but for reference, the folder is included.
