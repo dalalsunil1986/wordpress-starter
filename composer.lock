@@ -12,12 +12,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/cjkoepke/uno-package.git",
-                "reference": "c0fb71091ea7647e5b3039cbb4bf3f0edbdcd786"
+                "reference": "96ee5dff4ef7a8e703d2064bc78c4b3e9449dc1f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/cjkoepke/uno-package/zipball/c0fb71091ea7647e5b3039cbb4bf3f0edbdcd786",
-                "reference": "c0fb71091ea7647e5b3039cbb4bf3f0edbdcd786",
+                "url": "https://api.github.com/repos/cjkoepke/uno-package/zipball/96ee5dff4ef7a8e703d2064bc78c4b3e9449dc1f",
+                "reference": "96ee5dff4ef7a8e703d2064bc78c4b3e9449dc1f",
                 "shasum": ""
             },
             "require": {
@@ -41,7 +41,7 @@
                 }
             ],
             "description": "A free, powerful, developer package for Composer-based WordPress themes that use the Genesis Framework.",
-            "time": "2018-02-19T18:19:39+00:00"
+            "time": "2018-02-19T23:00:44+00:00"
         }
     ],
     "packages-dev": [],
