@@ -32,7 +32,7 @@ add_action( 'wp_enqueue_scripts', 'uno_remove_default_styles' );
  */
 function uno_remove_default_styles() {
 
-	$handle = UNO_THEME_HANDLE ? UNO_THEME_HANDLE : 'child-theme';
+	$handle = CHILD_THEME_HANDLE ? CHILD_THEME_HANDLE : 'child-theme';
 	wp_dequeue_style( $handle );
 
 }

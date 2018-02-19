@@ -13,5 +13,7 @@
 			"email": "rafal@rafaltomal.com"
 		}
     ],
-    "require": {}
+    "require": {
+		"uno/uno-package": "@dev"
+	}
 }

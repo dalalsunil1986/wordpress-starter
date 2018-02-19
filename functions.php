@@ -19,4 +19,4 @@ namespace Uno;
 /**
  * Load the Uno child theme init file.
  */
-require_once( get_stylesheet_directory() . '/core/init.php' );
+require_once( get_stylesheet_directory() . '/vendor/uno/uno-package/init.php' );
