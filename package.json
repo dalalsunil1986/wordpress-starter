@@ -1,0 +1,9 @@
+{
+  "name": "uno-free",
+  "version": "0.0.1",
+  "description": "A free, powerful, developer boilerplate for WordPress theme builders who use the Genesis Framework.",
+  "main": "index.js",
+  "repository": "git@github.com:cjkoepke/uno.git",
+  "author": "Calvin Koepke <hello@calvinkoepke.com>, Rafal Tomal <rafal@rafaltomal.com>",
+  "license": "GPL"
+}
