@@ -54,15 +54,9 @@ final class Uno {
 	 * in this functions.php file.
 	 *
 	 * @since 0.0.1
-	 *
-	 * @throws \Exception
 	 */
 	public static function autoload_src_folder() {
-		try {
-			require_once( UNO_CORE_PATH . '/file-autoloader.php' );
-			autoload( UNO_ROOT_PATH . '/src' );
-		} catch( \Exception $e ) {
-			trigger_error( $e->getMessage() );
-		}
+		require_once( UNO_CORE_PATH . '/file-autoloader.php' );
+		autoload( UNO_ROOT_PATH . '/src' );
 	}
 }

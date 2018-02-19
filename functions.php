@@ -1,8 +1,8 @@
 <?php
 /**
  * The main functions.php file for the Uno Genesis child theme. This file is
- * not intended to have anything other than the main class instantiation
- * and the autoloader for the /src/ folder.
+ * not intended to have anything other than the child theme setup file. All
+ * the other theme files should be added to the autoloaded /src/ folder.
  *
  * @package    Uno Free
  * @author     Calvin Koepke <hello@calvinkoepke.com>
@@ -12,3 +12,8 @@
  * @link       https://github.com/cjkoepke/uno
  * @since      0.0.1
  */
+
+/**
+ * Load the Uno child theme init file.
+ */
+require_once( get_stylesheet_directory() . '/core/init.php' );
