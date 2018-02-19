@@ -12,6 +12,12 @@
  */
 
 add_action( 'after_setup_theme', 'uno_setup_genesis' );
+/**
+ * Setup the basic Genesis theme supports that every theme should have.
+ * Allow Genesis to load first by hooking into after_setup_theme.
+ *
+ * @since 0.0.1
+ */
 function uno_setup_genesis() {
 
 	// Mobile viewport tag.
@@ -33,8 +39,5 @@ function uno_setup_genesis() {
 		'drop-down-menu',
 		'headings',
 	] );
-
-	// Enable after-entry widget area.
-	add_theme_support( 'genesis-after-entry-widget-area' );
 
 }
