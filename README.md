@@ -27,7 +27,7 @@ After this, you'll have access to all that Uno has to offer. Here are a few rule
 Uno allows for autoloading, both for classes and files.
 
 ###### Classes
-By default, Uno autoloads classes found in the `./classes/` folder. This allows you to define a class that you want available throughout your theme, without explicitly requiring it.
+By default, Uno checks classes found in the `./classes/` folder for a match if a class declaration can't be found. This allows you to define a class that you want available throughout your theme, without explicitly requiring it later.
 
 In order for classes to properly autoload, they must follow a simple naming convention: 
 
@@ -35,7 +35,7 @@ In order for classes to properly autoload, they must follow a simple naming conv
 - One class per file.
 - Extension pattern is `.class.php`
 
-So, for example, if you want a class (in this case, `Uno`) available from a call like `new Uno()`, then you'll add `Uno.class.php` to the `/classes` folder.
+So, for example, if you want a class (i.e., `Uno`) available to call, like `new Uno()`, then you'll add `Uno.class.php` to the `/classes` folder. When the server hits the instantiation of this class, if will look in `./classes` for a matching filename, and load that before calling the class.
 
 ###### Directories
 By default, Uno autoloads files recursively found in `./src/` folder. This allows you to break up all your functions, hooks, and filters between separate files. They just load, without needing to require them elsewhere, or needing to remember to delete that require if you delete the called file.
