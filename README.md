@@ -6,7 +6,7 @@ The Uno child theme for the Genesis Framework is a powerful, extendable, yet min
 
 The way that Uno is built allows for minimal to no configuration at all — a developer should be able to just add their own features with ease.
 
-In order for Uno to work properly, you'll need to run `composer install` to add dependencies. If you don't have Composer, [install it first](https://getcomposer.org/doc/00-intro.md#installation-linux-unix-osx) — the easiest way is to install Globally, so you have access to it anywhere.
+In order for Uno to work properly, you'll need to run `composer install` to add dependencies, both for PHP and Node. If you don't have Composer, [install it first](https://getcomposer.org/doc/00-intro.md#installation-linux-unix-osx) — the easiest way is to install Globally, so you have access to it anywhere.
 
 Once installed, require the class in your `functions.php` file, and kickstart Uno, either by instantiation or by a static function call:
 
@@ -43,12 +43,8 @@ By default, Uno autoloads files recursively found in `./src/` folder. This allow
 The directory is limited to 200 files per call (more than enough). You can also utilize the autoload function by calling the static function from the Uno class. Example:
 
 ```php
-// Statically
 Uno::autoload( '/path/to/directory' );
-
-// Via instantiation
-$uno = new Uno();
-$uno->autoload( '/path/to/directory' );
 ```
 
+### Credits
 A big thanks to [Aaron Holbrook](https://aaronjholbrook.com/), who originally authored the [autoload function](https://github.com/a7/autoload). Uno utilizes almost an exact copy, with some minor adjustments.
