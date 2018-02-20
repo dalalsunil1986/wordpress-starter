@@ -17,6 +17,6 @@
 		"uno/uno-package": "@dev"
 	},
 	"scripts": {
-		"post-install-cmd": [ "npm install" ]
+		"post-install-cmd": [ "npm install && gulp" ]
 	}
 }

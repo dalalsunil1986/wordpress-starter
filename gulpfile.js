@@ -59,3 +59,8 @@ gulp.task( 'scss:theme', function () {
 		}
 	});
 } );
+
+gulp.task( 'build', [ 'scss:theme' ] );
+
+// Default to the build task.
+gulp.task( 'default', [ 'build' ] );
