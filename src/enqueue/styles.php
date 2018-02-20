@@ -19,7 +19,8 @@ add_action( 'wp_enqueue_scripts', 'uno_load_styles' );
  */
 function uno_load_styles() {
 
-	// Load styles here.
+	// Main theme styles.
+	wp_enqueue_style( 'uno-theme', CHILD_CSS_URL . "/theme.min.css", [], CHILD_THEME_VERSION );
 
 }
 
