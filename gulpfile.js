@@ -42,12 +42,11 @@ gulp.task( 'scss:theme', function () {
 	pump([
 		gulp.src( PATHS.scss + '/theme.scss' ),
 		sourcemaps.init(),
-		sass( {
+		sass({
 			includePaths: [
-				require('bourbon').includePaths,
-				PATHS.modules + '/normalize-scss/sass'
+				require('bourbon').includePaths
 			]
-		} ).on( 'error', sass.logError ),
+		}).on( 'error', sass.logError ),
 		autoprefixer(),
 		rename( {extname: '.min.css'} ),
 		sourcemaps.write( '.' ),

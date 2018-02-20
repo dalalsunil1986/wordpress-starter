@@ -23,6 +23,8 @@ Uno::init();
 
 After this, you'll have access to all that Uno has to offer. Here are a few rules you should follow when developing with Uno:
 
+## Development Workflow
+
 ### Autoloading
 Uno allows for autoloading, both for classes and files.
 
