@@ -1,66 +1,65 @@
+'use strict';
+
 /**
- * The main gulpfile which includes all build pipelines for the assets directory.
+ * Dependencies.
  *
- * @package    Uno Free
- * @author     Calvin Koepke <hello@calvinkoepke.com>
- * @author     Rafal Tomal <rafal@rafaltomal.com>
- * @license    https://www.gnu.org/licenses/gpl-3.0.en.html  GPL-3.0
- * @version    0.0.1
- * @link       https://github.com/cjkoepke/uno
- * @since      0.0.1
+ * @since 0.0.1
  */
+var gulp    = require('gulp');
+var toolkit = require('gulp-wp-toolkit');
+var pkg     = require('./package');
 
-// Import dependencies.
-const autoprefixer = require( 'gulp-autoprefixer' );
-const babel        = require( 'gulp-babel' );
-const concat       = require( 'gulp-concat' );
-const gulp         = require( 'gulp' );
-const imagemin     = require( 'gulp-imagemin' );
-const rename       = require( 'gulp-rename' );
-const sass         = require( 'gulp-sass' );
-const sourcemaps   = require( 'gulp-sourcemaps' );
-const uglify       = require( 'gulp-uglify' );
-const pump         = require( 'pump' );
-
-// Path variables.
-const PATHS = {
-	modules: './node_modules',
-	js: './assets/js',
-	scss: './assets/scss',
-	images: './assets/images',
-	svg: './assets/svg',
-	dist: {
-		js: './dist/js',
-		css: './dist/css',
-		images: './dist/images',
-		svg: './dist/svg'
-	}
-};
-
-// Compile SCSS
-gulp.task( 'scss:theme', function () {
-	pump([
-		gulp.src( PATHS.scss + '/theme.scss' ),
-		sourcemaps.init(),
-		sass({
-			includePaths: [
-				require('bourbon').includePaths
-			]
-		}).on( 'error', sass.logError ),
-		autoprefixer(),
-		rename( {extname: '.min.css'} ),
-		sourcemaps.write( '.' ),
-		gulp.dest( PATHS.dist.css )
-	], function(err) {
-		if ( ! err ) {
-			console.log( 'Finished compiling theme scss files.');
-		} else {
-			console.log(err);
+/**
+ * Setup toolkit config defaults.
+ *
+ * @since 0.0.1
+ */
+toolkit.extendConfig({
+	theme: {
+		name: pkg.name,
+		homepage: pkg.homepage,
+		description: pkg.description,
+		author: pkg.author,
+		version: pkg.version,
+		license: pkg.license,
+		textdomain: pkg.name.toLowerCase()
+	},
+	src: {
+		php: ['**/*.php', '!vendor/**'],
+		images: 'assets/images/**/*',
+		scss: 'assets/scss/**/*.scss',
+		css: ['**/*.css', '!node_modules/**', '!assets/vendor/**'],
+		js: ['assets/js/**/*.js', '!node_modules/**'],
+		json: ['**/*.json', '!node_modules/**'],
+		i18n: 'assets/languages/'
+	},
+	css: {
+		basefontsize: 16,
+		remreplace: false,
+		remmediaquery: true,
+		scss: {
+			'style': {
+				src: 'assets/scss/theme/style.scss',
+				dest: './',
+				outputStyle: 'compressed'
+			}
 		}
-	});
-} );
+	},
+	js: {
+		'theme' : [
+			'assets/js/theme/*.js'
+		],
+		'standalone' : [
+			'assets/scss/*.scss'
+		]
+	},
+	dest: {
+		i18npo: 'dist/languages/',
+		i18nmo: 'dist/languages/',
+		images: 'dist/images/',
+		css: 'dist/css',
+		js: 'dist/js'
+	}
+});
 
-gulp.task( 'build', [ 'scss:theme' ] );
-
-// Default to the build task.
-gulp.task( 'default', [ 'build' ] );
+toolkit.extendTasks(gulp);

@@ -1,8 +1,9 @@
 {
-    "name": "uno/uno-free",
+    "name": "Uno",
     "description": "A free, powerful, developer boilerplate for WordPress theme builders who use the Genesis Framework.",
     "type": "project",
     "license": "AGPL-3.0-or-later",
+	"version": "0.0.2",
     "authors": [
         {
             "name": "Calvin Koepke",

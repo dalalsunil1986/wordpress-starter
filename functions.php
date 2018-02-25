@@ -1,7 +1,4 @@
 <?php
-
-namespace Uno;
-
 /**
  * The main functions.php file for the Uno Genesis child theme. This file is
  * not intended to have anything other than the instantiation of the Uno class.
@@ -18,7 +15,7 @@ namespace Uno;
  */
 
 /**
- * Import the main Uno class dependency.
+ * Import the main Uno class.
  *
  * @since 0.0.1
  */
@@ -26,7 +23,8 @@ require_once( get_stylesheet_directory() . '/vendor/uno/uno-package/Uno.class.ph
 
 /**
  * Instantiate the class to enable the development workflow. You can also call
- * Uno::init() statically to achieve the same result, without instantiation.
+ * Uno::init() statically to achieve the same result, without instantiation. We
+ * instantiate the class here to cover potential updates to the class constructor.
  *
  * @since 0.0.1
  */

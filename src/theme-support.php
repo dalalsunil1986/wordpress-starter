@@ -1,8 +1,11 @@
 <?php
+
+namespace Uno;
+
 /**
  * Add Genesis theme supports.
  *
- * @package    Uno Free
+ * @package    Uno
  * @author     Calvin Koepke <hello@calvinkoepke.com>
  * @author     Rafal Tomal <rafal@rafaltomal.com>
  * @license    https://www.gnu.org/licenses/gpl-3.0.en.html  GPL-3.0
@@ -11,20 +14,20 @@
  * @since      0.0.1
  */
 
-add_action( 'after_setup_theme', 'uno_setup_genesis' );
+add_action( 'after_setup_theme', 'setup_genesis' );
 /**
  * Setup the basic Genesis theme supports that every theme should have.
  * Allow Genesis to load first by hooking into after_setup_theme.
  *
  * @since 0.0.1
  */
-function uno_setup_genesis() {
+function setup_genesis() {
 
 	// Mobile viewport tag.
 	add_theme_support( 'genesis-responsive-viewport' );
 
 	// HTML5 markup.
-	add_theme_support( 'html5',  [
+	add_theme_support( 'html5', [
 		'search-form',
 		'comment-form',
 		'comment-list',

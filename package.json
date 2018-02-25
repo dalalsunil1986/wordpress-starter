@@ -1,24 +1,15 @@
 {
-	"name": "uno-free",
-	"version": "0.0.1",
+	"name": "Uno",
+	"homepage": "https://unotheme.com",
+	"version": "0.0.2",
 	"description": "A free, powerful, developer boilerplate for WordPress theme builders who use the Genesis Framework.",
 	"main": "index.js",
 	"repository": "git@github.com:cjkoepke/uno.git",
 	"author": "Calvin Koepke <hello@calvinkoepke.com>, Rafal Tomal <rafal@rafaltomal.com>",
 	"license": "AGPL-3.0",
 	"devDependencies": {
-		"babel-core": "^6.26.0",
-		"babel-preset-env": "^1.6.1",
-		"gulp": "^3.9.1",
-		"gulp-autoprefixer": "^4.1.0",
-		"gulp-babel": "^7.0.0",
-		"gulp-concat": "^2.6.1",
-		"gulp-imagemin": "^4.0.0",
-		"gulp-rename": "^1.2.2",
-		"gulp-sass": "^3.1.0",
-		"gulp-sourcemaps": "^2.6.1",
-		"gulp-uglify": "^3.0.0",
-		"pump": "^3.0.0"
+		"gulp": "3.9.1",
+		"gulp-wp-toolkit": "^2.1.0"
 	},
 	"dependencies": {
 		"bourbon": "^5.0.0"
