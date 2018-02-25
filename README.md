@@ -8,7 +8,7 @@ The way that Uno is built allows for minimal to no configuration at all — a d
 
 In order for Uno to work properly, you'll need to run `composer install` to add dependencies, both for PHP and Node. If you don't have Composer, [install it first](https://getcomposer.org/doc/00-intro.md#installation-linux-unix-osx) — the easiest way is to install Globally, so you have access to it anywhere.
 
-Once installed, require the class in your `functions.php` file, and kickstart Uno, either by instantiation or by a static function call:
+Once installed, require the class in your `functions.php` file, and kickstart Uno, either by instantiation or by a static function call. By default, we instantiate the class to allow for seamless updates to the Uno class:
 
 ```php
 // Import the master Uno class.
@@ -49,4 +49,5 @@ Uno::autoload( '/path/to/directory' );
 ```
 
 ### Credits
-A big thanks to [Aaron Holbrook](https://aaronjholbrook.com/), who originally authored the [autoload function](https://github.com/a7/autoload). Uno utilizes almost an exact copy, with some minor adjustments.
+- [Autoload](https://github.com/a7/autoload). Uno utilizes almost an exact copy, with some minor adjustments.
+- [gulp-wp-toolkit](https://github.com/craigsimps/gulp-wp-toolkit), a powerful build pipeline for WordPress projects. Uno uses this with a custom config.
