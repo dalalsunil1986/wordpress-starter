@@ -1,7 +1,4 @@
 <?php
-
-namespace Uno;
-
 /**
  * Add styles to the Uno theme, dequeue the main style.css file.
  *
@@ -14,13 +11,13 @@ namespace Uno;
  * @since      0.0.1
  */
 
-add_action( 'wp_enqueue_scripts', 'load_styles' );
+add_action( 'wp_enqueue_scripts', 'uno_load_styles' );
 /**
  * Load compiled theme styles.
  *
  * @since 0.0.1
  */
-function load_styles() {
+function uno_load_styles() {
 
 	// Load additional styles here.
 

@@ -1,7 +1,4 @@
 <?php
-
-namespace Uno;
-
 /**
  * Add scripts to the Uno child theme.
  *
@@ -14,13 +11,13 @@ namespace Uno;
  * @since      0.0.1
  */
 
-add_action( 'wp_enqueue_scripts', 'load_scripts' );
+add_action( 'wp_enqueue_scripts', 'uno_load_scripts' );
 /**
  * Load compiled theme scripts.
  *
  * @since 0.0.1
  */
-function load_scripts() {
+function uno_load_scripts() {
 
 	// Load scripts here.
 

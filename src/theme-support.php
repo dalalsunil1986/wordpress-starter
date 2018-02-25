@@ -1,7 +1,4 @@
 <?php
-
-namespace Uno;
-
 /**
  * Add Genesis theme supports.
  *
@@ -14,14 +11,14 @@ namespace Uno;
  * @since      0.0.1
  */
 
-add_action( 'after_setup_theme', 'setup_genesis' );
+add_action( 'after_setup_theme', 'uno_setup_genesis' );
 /**
  * Setup the basic Genesis theme supports that every theme should have.
  * Allow Genesis to load first by hooking into after_setup_theme.
  *
  * @since 0.0.1
  */
-function setup_genesis() {
+function uno_setup_genesis() {
 
 	// Mobile viewport tag.
 	add_theme_support( 'genesis-responsive-viewport' );
