@@ -53,6 +53,9 @@ toolkit.extendConfig({
 			'assets/scss/*.scss'
 		]
 	},
+	server: {
+		url: "blog.dev"
+	},
 	dest: {
 		i18npo: 'dist/languages/',
 		i18nmo: 'dist/languages/',

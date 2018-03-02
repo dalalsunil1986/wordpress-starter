@@ -1,0 +1,9 @@
+@mixin media-breakpoint-up( $breakpoint ) {
+	@media only screen and (min-width: map-get( $breakpoints, $breakpoint ) ) {
+		@content;
+	}
+}
+
+@mixin transition( $duration ) {
+	transition: all $duration cubic-bezier(.17,.67,.83,.67);
+}

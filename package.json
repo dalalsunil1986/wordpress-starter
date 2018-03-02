@@ -9,7 +9,8 @@
 	"license": "AGPL-3.0",
 	"devDependencies": {
 		"gulp": "3.9.1",
-		"gulp-wp-toolkit": "^2.1.0"
+		"gulp-wp-toolkit": "^2.1.0",
+		"normalize-scss": "^7.0.1"
 	},
 	"dependencies": {
 		"bourbon": "^5.0.0"

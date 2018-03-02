@@ -1,0 +1,4 @@
+<?php
+/**
+ * Accessibility updates.
+ */

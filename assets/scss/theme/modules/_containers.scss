@@ -1,0 +1,27 @@
+.wrap,
+.site-container {
+	max-width: 800px;
+	margin: 0;
+
+	@include media-breakpoint-up(md) {
+		max-width: 1000px;
+	}
+}
+
+@include media-breakpoint-up(md) {
+	.content-sidebar-wrap {
+		display: flex;
+		align-items: stretch;
+		justify-content: space-between;
+	}
+
+	.sidebar {
+		order: 0;
+		max-width: 30%;
+	}
+
+	.content {
+		order: 1;
+		max-width: 65%;
+	}
+}

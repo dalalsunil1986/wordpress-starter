@@ -19,6 +19,9 @@ add_action( 'wp_enqueue_scripts', 'uno_load_scripts' );
  */
 function uno_load_scripts() {
 
-	// Load scripts here.
+	$ext = defined( SCRIPT_DEBUG ) && SCRIPT_DEBUG ? '' : '.min';
+
+	wp_enqueue_script( 'google-webfont', '//ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js', [], null, true );
+	wp_enqueue_script( 'theme', CHILD_ROOT_URL . '/dist/js/theme' . $ext . '.js', ['google-webfont'], CHILD_THEME_VERSION, true );
 
 }

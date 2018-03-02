@@ -1,2 +1,6 @@
-// Import the basic Uno package styles first (no dependencies).
-@import "../../../vendor/uno/uno-package/scss/theme";
+@import "variables";
+@import "mixins";
+
+@import "modules/*";
+
+@import "genesis/*";
