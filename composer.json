@@ -1,0 +1,27 @@
+{
+	"name": "cjkoepke/main-website",
+	"description": "The main dependencies for my personal site.",
+	"type": "project",
+	"license": "MIT",
+	"extra": {
+		"installer-paths": {
+			"plugins/{$name}/": [
+				"type:wordpress-plugin"
+			],
+			"themes/{$name}/": [
+				"type:wordpress-theme"
+			]
+		}
+	},
+	"repositories":[
+		{
+			"type":"composer",
+			"url":"https://wpackagist.org"
+		}
+	],
+	"require": {
+		"wpackagist-plugin/akismet":"4.0.8",
+		"wpackagist-plugin/wordpress-seo":"7.9",
+		"a7/autoload": "2.0.9.1"
+	}
+}
